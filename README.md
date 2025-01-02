@@ -11,7 +11,7 @@ Följ instruktionerna nedan för att komma igång.
 1. Klona projektet
 
 ```
-git clone https://github.com/OS136/Retrendo.git
+git clone https://github.com/OS136/retrendo.git
 ```
 
 2. Öppna projektet i Visual Studio Code
