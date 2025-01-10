@@ -11,6 +11,7 @@ const sqlite3 = require("sqlite3").verbose();
 // });
 
 // GET /
-router.get("/", function (request, response) {});
-
+router.get("/", function (request, response) {
+response.render("startsida"); // Detta renderar index.ejs
+});
 module.exports = router;

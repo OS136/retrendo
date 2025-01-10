@@ -1,0 +1,281 @@
+body {
+    background-color: #ffffff;;
+    margin: 0;
+    }
+
+    .header {
+    padding: 2%;
+    }
+
+    #logo {
+        max-width: 100%;
+        top: 0;            
+        left: 0;           
+        width: auto;       
+        height: 300px;      
+    }
+
+    .logo-section {
+        background-color: rgba(59,66,59,255);
+    }
+
+    .search-icons {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex: 2;
+        gap: 15px;
+        margin-top: 30px;
+    }
+    
+    .search-bar-container {
+        flex: 1; 
+    }
+    
+    .search-bar {
+        width: 100%;
+        max-width: 600px;
+        background: rgba(90, 85, 85, 0.2);
+        display: flex; 
+        align-items: center;
+        border-radius: 60px;
+        padding: 10px 20px;
+    }
+    
+    .search-bar input {
+        background: transparent;
+        flex: 1;
+        border: none;
+        outline: none;
+        padding: 10px 20px;
+        font-size: 26px;
+        color: #cac7ff;
+    }
+    
+    .search-bar button {
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        background: #506953;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .search-bar button img {
+        width: 20px;
+    }
+    
+    .icons {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 15px;
+    }
+    
+    .icons img {
+        width: 60px;
+        height: auto;
+        cursor: pointer;
+    }
+
+    .menu-icon {
+        position: relative;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    
+    /* Dolda länkar */
+    .menu-links {
+        display: none;
+        position: absolute;
+        top: 40px; /* Placera under ikonen */
+        right: 0;
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 10px 15px;
+        width: 300px;
+    }
+    
+    .menu-links a {
+        display: block;
+        color: black;
+        text-decoration: none;
+        padding: 5px 10px;
+        font-size: 24px;
+        display: block; 
+        background-color:  rgb(221, 221, 221);
+        color: black;
+        text-decoration: none;
+        padding: 10px; 
+        margin-bottom: 8px; 
+        border-radius: 10px;
+    }
+    
+    .menu-links a:hover {
+        background-color:  rgb(172, 195, 196);
+    }
+    
+    /* Visa länkarna när menu-icon har klassen "open" */
+    .menu-icon.open .menu-links {
+        display: block;
+    }
+
+    .navbar {
+        margin-top: 20px; 
+      }
+      
+      .navbar ul {
+        list-style: none; 
+        display: flex; 
+        justify-content: space-around; 
+        padding: 0; 
+      }
+      
+      .navbar li {
+        background-color: #ffffff; /* Bakgrundsfärg för varje ruta */
+        padding: 20px 30px; /* Inre utrymme för varje lista */
+        margin: 10px; /* Lägger mellanrum mellan rutor */
+        border-radius: 5px; /* Rundade hörn */
+        text-align: center; /* Centrerar texten i varje ruta */
+        outline: 2px solid black;
+        min-width: 120px;
+      }
+      
+      .navbar a {
+        text-decoration: none; /* Tar bort understrykning från länken */
+        color: #000; /* Textfärg */
+        font-size: 30px; /* Textstorlek */
+        display: block; /* Gör länken till ett block för att täcka hela listan */
+      }
+
+      .main {
+        padding: 2%;
+    }
+
+    #hero {
+        max-width: 100%;
+    }
+      .hero {
+        border: 1px solid black;
+        border-radius: 15px;
+        background-color: rgba(59,66,59,255);
+        margin-bottom: 2%;
+        padding: 3%;
+        font-size: 18px;
+        margin-top: -20px;
+    }
+
+    .recently-added h2 {
+        font-size: 3em;
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: lighter;
+    }
+    
+    .dam-section {
+        padding: 0;
+        background-color: #fff; 
+        border: 2px solid black; 
+        border-radius: 10px;
+        text-align: center;
+        width: auto;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .dam-section h2 {
+        font-size: 3em;
+        text-align: center;
+        padding: 0;  
+        color: #000;
+        padding: 10px;  
+        margin: 0;  
+    }
+    .dam-section a {
+        text-decoration: none; 
+    }
+
+    .products-grid {
+        margin-top: 2%;
+        margin-bottom: 5%;
+        font-size: 18px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 20px;
+        max-width: 1000px;
+    }
+
+    .product {
+        margin: 5% auto;
+        position: relative;
+    }
+
+    .product-image {
+        margin-bottom: 2%;
+        margin-top: 2%;
+        height: max-content;
+        position: relative;
+    }
+
+    .product img {
+        width: 100%;
+    }
+
+    .product-name {
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-weight: bold;
+        font-size: 16px;
+        text-transform: uppercase;
+    }
+
+    .product a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .product-brand {
+        font-size: 14px;
+        color: rgb(71, 71, 71);
+        margin-top: 2%;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    .empty-heart {
+        position: absolute;
+        width: 40px;
+        bottom: 60px;
+        right: 15px;
+        cursor: pointer;
+    }
+
+    .electronic-section {
+        padding: 0;
+        background-color: #fff; 
+        border: 2px solid black; 
+        border-radius: 10px;
+        text-align: center;
+        width: auto;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .electronic-section h3 {
+        font-size: 3em;
+        text-align: center;
+        padding: 0;  
+        color: #000;
+        padding: 10px;  
+        margin: 0;  
+    }
+    .electronic-section a {
+        text-decoration: none; 
+    }
