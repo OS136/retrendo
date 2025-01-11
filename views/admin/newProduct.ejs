@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administration</title>
+    <!-- <link rel="stylesheet" href="index.css" /> -->
+    <link rel="stylesheet" href="/stylesheets/newProduct.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="MainHeaderSection">
+      <h1>Administration</h1>
+    </header>
+    <main class="AdminContainer">
+      <section class="ProduktContainer">
+        <h2>Produkter</h2>
+        <hr />
+      </section>
+      <!-- Main box -->
+      <section class="MainSectionProdukter">
+        <form action="">
+          <!-- Bild -->
+
+          <div class="NewProductItem" id="image-container">
+            <label for="productPicture">Bild</label>
+            <input
+              id="productPicture"
+              type="text"
+              name="productPicture"
+              value="https://placehold.co/250x400/png"
+              required
+            />
+          </div>
+          <!-- Namn -->
+          <div class="details-container">
+            <div class="NewProductItem">
+              <label for="productName">Namn</label>
+              <input type="text" id="productName" name="productName" required />
+            </div>
+            <!-- productBrand -->
+            <div class="NewProductItem">
+              <label for="productBrand">Märke</label>
+              <input
+                type="text"
+                id="productBrand"
+                name="productBrand"
+                required
+              />
+            </div>
+            <!-- Beskrivning -->
+            <div class="NewProductItem">
+              <label id="textDescription" for="description">Beskrivning</label>
+              <textarea
+                type="text"
+                id="description"
+                name="description"
+                rows="5"
+                cols="40"
+              ></textarea>
+            </div>
+          </div>
+          <!-- Pris -->
+          <div class="price-container">
+            <div class="NewProductItem">
+              <label for="productPrice">Pris</label>
+              <input
+                type="number"
+                id="productPrice"
+                name="productPrice"
+                required
+              />
+            </div>
+          </div>
+          <!-- Skick -->
+          <div class="condition-container">
+            <div>
+              <label for="condition">Välj skick</label>
+              <select id="condition" name="condition">
+                <option value="very-good">Mycket bra</option>
+                <option value="good">Bra</option>
+                <option value="acceptabe">Acceptabelt</option>
+              </select>
+            </div>
+            <!-- Storlek -->
+            <div>
+              <label for="size">Välj storlek</label>
+              <select id="size" name="size">
+                <option value="xs">XS</option>
+                <option value="s">S</option>
+                <option value="m">M</option>
+                <option value="l">L</option>
+                <option value="xl">XL</option>
+                <option value="xxl">XXL</option>
+                <option value="xxxl">XXXL</option>
+              </select>
+            </div>
+
+            <!-- Categiries -->
+            <div id="CategoriesContainer">
+              <label for="productCategories">Kategorier</label>
+              <div class="CategoriesContainer">
+                <input
+                  type="checkbox"
+                  id="productCategories"
+                  name="productCategories"
+                />
+                <label for="woman">Dam</label>
+              </div>
+              <div class="CategoriesContainer">
+                <input
+                  type="checkbox"
+                  id="productCategories"
+                  name="productCategories"
+                />
+                <label for="man">Herr</label>
+              </div>
+              <div class="CategoriesContainer">
+                <input
+                  type="checkbox"
+                  id="productCategories"
+                  name="productCategories"
+                />
+                <label for="electronik">Elektronik</label>
+              </div>
+            </div>
+          </div>
+          <!-- Button -->
+          <div class="button-container">
+            <button type="submit">Lägg till produkt</button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <hr
+  </body>
+</html>
