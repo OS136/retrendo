@@ -147,3 +147,17 @@ button:hover {
 .CategoriesContainer > label {
   font-weight: unset;
 }
+
+@media screen and (max-width: 639px) {
+  .condition-container {
+    display: flex;
+    margin: 25px;
+    gap: 15px;
+    width: 400px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex-direction: column;
+  }
+}
