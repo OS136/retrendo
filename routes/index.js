@@ -12,6 +12,6 @@ const sqlite3 = require("sqlite3").verbose();
 
 // GET /
 router.get("/", function (request, response) {
-response.render("startsida"); // Detta renderar index.ejs
+response.render("startsida"); 
 });
 module.exports = router;
