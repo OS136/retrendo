@@ -1,3 +1,342 @@
-body{
-    background-color: aqua;
+*{
+    box-sizing: border-box;
 }
+#wrapper{
+    width: 95vw;
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "nav"
+    "productContainer"
+    "similarContainer"
+    "sertificationContainer"
+    "footer";
+}
+header{
+    grid-area: header;
+}
+nav{
+    grid-area: nav;
+}
+.productContainer{
+    grid-area: productContainer;
+}
+.similarContainer{
+    grid-area: similarContainer;
+}
+.sertificationContainer{
+    grid-area: sertificationContainer;
+}
+footer{
+    grid-area: footer;
+}
+.productContainer{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+.productInfo{
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    margin: 0 auto;
+    
+    
+}
+.productImage{ 
+    justify-content: center;
+}
+img{
+    width: 100%;
+}
+.text{
+    margin-left: 3%;
+}
+.productHeading{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 40%;
+    padding-left: 9%;
+}
+h3{
+    display: inline-block;
+    margin-bottom: 0%;
+    font-size: 1.5rem;
+}
+p{
+    display: inline-block;
+    margin-top: 2%;
+    font-size: larger;
+}
+.price{
+    line-height: 3;
+}
+.productTableContainer{
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    padding-left: 9%;
+}
+table{
+    border-collapse: collapse;
+    width: 80%;
+}
+th{
+    text-align: left;
+    border-top: 1px solid black;
+    font-size: 1.2rem;
+    font-weight: 3600;
+}
+td{
+    padding: 8px;
+    border-top: 1px solid black;
+    font-size: 1.2rem;
+}
+.extraRubrik{
+    font-size: 1.4rem;
+    margin-top: 10%;
+    margin-left: 9%;
+}
+.extraInfo{
+    font-size: 1.4rem;
+    padding-right: 10%;
+    margin-bottom: 15%;
+    margin-left: 9%;
+}
+.add{
+    background-color: white;
+    color: black;
+    margin-left: 10%;
+    margin-bottom: 5%;
+    cursor:pointer;
+    border-radius: 3px;
+    padding: 10px 20px 10px 20px;
+    font-size: larger;
+    width: 80%;
+}
+.add:hover{
+   color: white;
+    background-color: black;
+}
+.checkOut{
+    background-color: white;
+    color: black;
+    margin-bottom: 5%;
+    margin-left: 10%;
+    cursor:pointer;
+    border-radius: 3px;
+    padding: 10px 20px 10px 20px;
+    font-size: larger;
+    width: 80%;
+}
+.checkOut:hover{
+     color: rgb(252, 251, 251);
+     background-color: black;
+ }
+.similarContainer{
+    display: none;
+}
+
+.sertificationContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 25em;
+    padding: 10%;
+    gap: 3%;
+
+}
+.qualityBox{
+    width: 25vw;
+    height: 25vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50%;
+    padding-top: 12%;
+    background-color:  rgb(80, 137, 15);
+}
+.sustainableBox{
+    width: 25vw;
+    height: 25vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50%;
+    padding-top: 12%;
+    background-color: rgb(80, 137, 15);
+}
+.sequreBox{
+    width: 25vw;
+    height: 25vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50%;
+    padding-top: 12%;
+    background-color:  rgb(80, 137, 15);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 640px){
+    
+    .productContainer{
+        border: 1px solid black;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        
+    }
+    .productInfo{
+        display: flex;
+        flex-direction: row;
+    }
+    .text{
+        display: inline-block;
+        width: 49%;
+    }
+    .productImage{
+        width: 60%;
+        margin-top: 3%;
+    }
+    .productHeading{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .price{
+        margin-right: 10%;
+    }
+    h3{
+        font-size: 1.3rem;
+        display: inline-block;
+    }
+    .productTableContainer{
+        margin-bottom: 0%;
+    }
+    p{
+        margin-top: 0%;
+        margin-bottom: 0%;
+        font-size: 1.1rem;
+    }
+    th{
+        text-align: left;
+        border-top: 1px solid black;
+        font-size: 1rem;
+    }
+    td{
+        padding: 8px;
+        border-top: 1px solid black;
+        font-size: 1rem;
+    }
+    
+    .extraRubrik{
+        font-size: 1rem;
+        margin-top: 3%;
+        margin-bottom: 2%;
+        margin-left: 9%;
+    }
+    .extraInfo{
+        font-size: 1rem;
+        padding-right: 10%;
+        margin-bottom: 3%;
+        margin-left: 9%;
+    }
+    .buttons{
+        display: flex;
+        flex-direction: row;
+        margin-right: 5%;
+    }
+    .add{
+        background-color: white;
+        color: black;
+        margin: 5% 5% 5% 0%;
+        cursor:pointer;
+        border-radius: 3px;
+        padding: 10px;
+        font-size: small;
+        width: 100%;
+    }
+    .add:hover{
+       color: white;
+        background-color: black;
+    }
+    .checkOut{
+        background-color: white;
+        color: black;
+        margin: 5% 0% 5% 0%;
+        cursor:pointer;
+        border-radius: 3px;
+        padding: 10px;
+        font-size: small;
+        width: 80%;
+    }
+    .checkOut:hover{
+         color: rgb(252, 251, 251);
+         background-color: black;
+     }
+
+
+     .similarContainer{
+       visibility: visible;
+       display: grid;
+       grid-template-columns: repeat(4, 1fr);
+       gap: 5px;
+       padding: 20px;  
+     }
+    .similarHeading{
+       grid-column: 1/5;
+        text-align: center;
+    }
+    .similarProducts{
+        padding: 3%;
+    }
+    .productsBrand{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 13%;
+        margin-left: 3%;
+       
+    }
+    .productsPrice{
+        font-size: 1rem;
+        line-height: 3;
+    }
+    h3{
+      font-size: 1.1rem;
+    }
+
+    img{
+        width: 100%;
+    }
+    .productsName{
+        font-size: 1rem;
+    }
+    .qualityBox>p{
+        margin-top: 5px;
+        font-size: 20px;
+    }
+    .sustainableBox>p{
+        margin-top: 5px;
+        font-size: 20px;
+    }
+    .sequreBox>p{
+        margin-top: 5px;
+        font-size: 20px;
+    }
+
+}   
