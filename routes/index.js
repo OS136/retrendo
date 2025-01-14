@@ -10,7 +10,7 @@ const sqlite3 = require("sqlite3").verbose();
 //   if (err) return console.error(err.message);
 // });
 
-// GET /
-router.get("/", function (request, response) {});
-
-module.exports = router;
+router.get("/", function (request, response) {
+    response.render("startsida"); 
+    });
+    module.exports = router;
