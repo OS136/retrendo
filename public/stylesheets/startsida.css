@@ -208,6 +208,10 @@ body {
         text-decoration: none; 
     }
 
+    .spot-container {
+        display: none; /* Gömmer spots i mobilläge */ 
+    }
+
     .products-grid {
         margin-top: 2%;
         margin-bottom: 5%;
@@ -421,7 +425,7 @@ body {
             border: none;
             outline: none;
             padding: 35px 70px 30px 30px; /* Adjust padding to accommodate button */
-            font-size: 25px;
+            font-size: 20px;
         }
         
         .search-bar button {
@@ -457,14 +461,195 @@ body {
           }
     
         .search-bar-container {
-            max-width: 50%;
+            max-width: 65%;
         }
     
         .icons {
-            display: flex;
+            position: absolute;
+            right: 20px;
             gap: 5px;
             margin-left: 20px;
         }
+
+        .spot-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Tre kolumner */
+            max-width: 1200px;
+            gap: 20px; /* Mellanrum mellan spots */
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+        
+        .spot {
+            display: flex;
+            flex-direction: column; /* Texten placeras under spoten */
+            align-items: center; /* Centrerar innehållet horisontellt */
+            text-align: center; /* Centrerar texten */
+        }
+        
+        .spot-image {
+            width: 100%; /* Gör varje spot responsiv */
+            aspect-ratio: 1/1; /* Fyrkantig bas för att få runda spots */
+            border-radius: 50%; /* Gör spots runda */
+            overflow: hidden; /* Döljer innehåll utanför den runda formen */
+            background-color: #f9f9f9; /* Bakgrundsfärg för att visa cirkeln */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Lätt skugga */
+            border: 2px solid #ccc; /* Kantlinje för definition */
+            display: flex; /* Centrerar bilden i spoten */
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .spot-image img {
+            width: 100%; /* Fyller spoten horisontellt */
+            height: 100%; /* Fyller spoten vertikalt */
+            object-fit: cover; /* Täcker hela spoten utan förvrängning */
+        }
+        
+        .spot-text {
+            margin-top: 10px; /* Avstånd mellan spoten och texten */
+            font-size: 16px; /* Justera textstorlek efter behov */
+            color: black; 
+        }        
+        
+        .recently-added h2 {
+            font-size: 35px;
+        }
+
+        .dam-section h2 {
+            font-size: 40px;
+        }
+
+        .electronic-section h3 {
+            font-size: 40px;
+        }
+
+        .products-grid {
+            grid-template-columns: repeat(4, 1fr); 
+            max-width: 1200px; 
+            margin-left: auto; 
+            margin-right: auto;
+            gap: 20px; 
+        }
+    
+        .product {
+            margin: 0; 
+            position: relative;
+        }
+
+        .product img:not(.empty-heart) { /* Target only the product image, not the heart */
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+        }
+    
+        .empty-heart {
+            position: absolute;
+            bottom: 60px; /* Avstånd från toppen */
+            right: 5px; /* Avstånd från höger */
+            z-index: 10; /* Placera över allt annat */
+            cursor: pointer;
+            border-radius: 50%; /* Rund bakgrund */
+            padding: 5px; /* Lite extra utrymme runt ikonen */
+            width: 22px;
+            height: 22px;
+        }
+        
+
+        .product-type {
+            font-size: 16px;
+            margin-top: 8px;
+        }
+    
+        .product-size {
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        .product-brand {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    
+        .product-details {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }     
+
+        .product-image {
+            margin-bottom: 3%;
+            margin-top: 3%;
+            position: relative;
+            padding-bottom: 150%; /* Increased height */
+            overflow: hidden;
+            z-index: 1; /* Placera bakom hjärtikonen */
+        }
+    
+        .product img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+        }
+
+        .core-values-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Tre kolumner */
+            justify-content: center;
+            justify-items: center;
+            gap: 20px; /* Mellanrum mellan varje core-value-item */
+        }
+        
+        .core-value-item {
+            display: flex;
+            flex-direction: column; /* Gör texten under ikonen */
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 150px; /* Justera storleken på behållaren */
+            height: 150px; /* Gör behållaren kvadratisk */
+            border-radius: 50%; /* Gör behållaren rund */
+            background-color: #f3f3f3; /* Lägg till en bakgrundsfärg */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Lägg till en skugga för en snygg effekt */
+            padding: 10px; /* Lite utrymme inuti den runda behållaren */
+            text-align: center; /* Centrerar texten */
+        }
+        
+        .core-value-item img {
+            width: 80px; /* Justera storleken på ikonen */
+            height: 80px;
+            object-fit: contain; /* Säkerställer att bilden passar inom ramarna */
+        }
+        
+        .core-value-text {
+            font-size: 16px;
+            font-weight: bold;
+            color: black;
+            margin-top: 8px; /* Avstånd mellan ikonen och texten */
+        }
+
+        .socials-container {
+            display: flex;
+            align-items: center; /* Vertikal centrering */
+            justify-content: center; /* Horisontell centrering */
+            gap: 20px; /* Lägger till mellanrum mellan elementen */
+        }
+        
+        .socials-icons {
+            display: flex; 
+            gap: 15px; 
+            align-items: center;
+            margin-top: 35px;
+        }
+        
     }
     
     
