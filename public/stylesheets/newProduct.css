@@ -10,7 +10,9 @@ body {
   color: #1b1e1a;
 }
 
-label {
+label,
+h4 {
+  margin: unset;
   margin-top: 5px;
 }
 
@@ -63,7 +65,7 @@ button:hover {
 }
 
 /* Styling the image container */
-#image-container {
+.image-container {
   display: flex;
   flex-direction: column;
   margin: 25px;
@@ -100,7 +102,7 @@ button:hover {
   flex-direction: column;
 }
 
-.condition-container {
+.productPropertiesContainer {
   display: flex;
   flex-wrap: wrap;
   margin: 25px;
@@ -110,21 +112,13 @@ button:hover {
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  flex-direction: row;
+  flex-direction: column;
 }
 
-.condition-container label {
+.productPropertiesContainer label {
   font-weight: bold;
 }
 
-.condition-container select {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 14px;
-  margin-top: 5px;
-}
 /* Style for individual form items */
 .NewProductItem {
   display: flex;
@@ -136,12 +130,31 @@ button:hover {
 }
 
 .NewProductItem input,
+select,
 .NewProductItem textarea {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 14px;
   margin-top: 5px;
+  gap: 15px;
+}
+
+select {
+  width: 100%;
+}
+
+.CategoriesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 25px;
+  gap: 15px;
+  width: 400px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  flex-direction: column;
 }
 
 .CategoriesContainer > label {
@@ -149,7 +162,7 @@ button:hover {
 }
 
 @media screen and (max-width: 639px) {
-  .condition-container {
+  /* .condition-container {
     display: flex;
     margin: 25px;
     gap: 15px;
@@ -159,5 +172,5 @@ button:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
     flex-direction: column;
-  }
+  } */
 }

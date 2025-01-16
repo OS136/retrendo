@@ -22,18 +22,19 @@
       </section>
       <!-- Main box -->
       <section class="MainSectionProdukter">
-        <form action="">
+        <form id="productForm">
           <!-- Bild -->
-
-          <div class="NewProductItem" id="image-container">
-            <label for="productPicture">Bild</label>
-            <input
-              id="productPicture"
-              type="text"
-              name="productPicture"
-              value="https://placehold.co/250x400/png"
-              required
-            />
+          <div class="image-container">
+            <div class="NewProductItem">
+              <label for="productPicture">Bild</label>
+              <input
+                id="productPicture"
+                type="text"
+                name="productPicture"
+                value="https://placehold.co/250x400/png"
+                required
+              />
+            </div>
           </div>
           <!-- Namn -->
           <div class="details-container">
@@ -53,11 +54,11 @@
             </div>
             <!-- Beskrivning -->
             <div class="NewProductItem">
-              <label id="textDescription" for="description">Beskrivning</label>
+              <label for="productDescription">Beskrivning</label>
               <textarea
                 type="text"
-                id="description"
-                name="description"
+                id="productDescription"
+                name="productDescription"
                 rows="5"
                 cols="40"
               ></textarea>
@@ -65,7 +66,7 @@
           </div>
           <!-- Pris -->
           <div class="price-container">
-            <div class="NewProductItem">
+            <div id="price-container" class="NewProductItem">
               <label for="productPrice">Pris</label>
               <input
                 type="number"
@@ -76,19 +77,19 @@
             </div>
           </div>
           <!-- Skick -->
-          <div class="condition-container">
+          <div class="productPropertiesContainer">
             <div>
-              <label for="condition">Välj skick</label>
-              <select id="condition" name="condition">
+              <label for="productCondition">Välj skick</label>
+              <select id="productCondition" name="productCondition">
                 <option value="very-good">Mycket bra</option>
                 <option value="good">Bra</option>
                 <option value="acceptabe">Acceptabelt</option>
               </select>
             </div>
             <!-- Storlek -->
-            <div>
-              <label for="size">Välj storlek</label>
-              <select id="size" name="size">
+            <div class="NewProductItem">
+              <label for="productSize">Välj storlek</label>
+              <select id="productSize" name="productSize">
                 <option value="xs">XS</option>
                 <option value="s">S</option>
                 <option value="m">M</option>
@@ -99,42 +100,63 @@
               </select>
             </div>
 
+            <div class="NewProductItem">
+              <label for="productColor">Färg</label>
+              <input
+                type="text"
+                id="productColor"
+                name="productColor"
+                required
+              />
+            </div>
+            <div class="NewProductItem">
+              <label for="productType">Typ</label>
+              <input type="text" id="productType" name="productType" required />
+            </div>
             <!-- Categiries -->
             <div id="CategoriesContainer">
-              <label for="productCategories">Kategorier</label>
-              <div class="CategoriesContainer">
-                <input
-                  type="checkbox"
-                  id="productCategories"
-                  name="productCategories"
-                />
-                <label for="woman">Dam</label>
-              </div>
-              <div class="CategoriesContainer">
-                <input
-                  type="checkbox"
-                  id="productCategories"
-                  name="productCategories"
-                />
-                <label for="man">Herr</label>
-              </div>
-              <div class="CategoriesContainer">
-                <input
-                  type="checkbox"
-                  id="productCategories"
-                  name="productCategories"
-                />
-                <label for="electronik">Elektronik</label>
+              <div class="NewProductItem">
+                <h4 id="productCategories">Kategorier</h4>
+                <div class="productCategoriesFemale">
+                  <input
+                    type="checkbox"
+                    id="productCategoriesFemale"
+                    name="productCategories"
+                    value="Dam"
+                  />
+                  <label for="productCategoriesFemale">Dam</label>
+                </div>
+                <div class="productCategoriesMale">
+                  <input
+                    type="checkbox"
+                    id="productCategoriesMale"
+                    name="productCategories"
+                    value="Herr"
+                  />
+                  <label for="productCategoriesMale">Herr</label>
+                </div>
+                <div class="productCategoriesElectronic">
+                  <input
+                    type="checkbox"
+                    id="productCategoriesElectronic"
+                    name="productCategories"
+                    value="Elektronik"
+                  />
+                  <label for="productCategoriesElectronic">Elektronik</label>
+                </div>
               </div>
             </div>
           </div>
           <!-- Button -->
           <div class="button-container">
-            <button type="submit">Lägg till produkt</button>
+            <button id="ProductAddButton" type="submit">
+              Lägg till produkt
+            </button>
           </div>
         </form>
       </section>
     </main>
-    <hr
+    <hr />
+    <script src="/javascripts/newProduct.js"></script>
   </body>
 </html>
