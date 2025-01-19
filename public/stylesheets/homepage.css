@@ -182,6 +182,7 @@ body {
         text-align: center;
         margin-bottom: 20px;
         font-weight: lighter;
+        padding: 20px;
     }
     
     .dam-section {
@@ -195,7 +196,7 @@ body {
         margin-bottom: 40px;
     }
 
-    .dam-section h2 {
+    .dam-section h3 {
         font-size: 3em;
         text-align: center;
         padding: 0;  
@@ -238,7 +239,7 @@ body {
         width: 100%;
     }
 
-    .product-brand {
+    .product-brand-price {
         display: flex;
         justify-content: space-between;
         font-weight: bold;
@@ -285,7 +286,7 @@ body {
         margin-bottom: 40px;
     }
 
-    .electronic-section h3 {
+    .electronic-section h4 {
         font-size: 3em;
         text-align: center;
         padding: 0;  
@@ -303,24 +304,24 @@ body {
         flex-direction: column;
         align-items: center;
         gap: 20px;
+        margin-top: 5%;
+        margin-bottom: 5%;
     }
-
+    
     .core-value-item {
         display: flex;
         align-items: center;
         gap: 10px;
     }
-
+    
     .core-value-item img {
-        width: 100px;
-        height: 100px;
+        width: 30px;
+        height: 30px;
     }
-
     .core-value-text {
-        font-size: 22px;
+        font-size: 20px;
         font-weight: bold;
     }
-
     .footer {
         width: 100%;
         display: flex;
@@ -335,7 +336,7 @@ body {
         padding: 20px;
     }
 
-    .footer-section h3 {
+    .footer-section h5 {
         font-size: 38px;
         font-weight: bold;
         margin-bottom: 10px;
@@ -359,10 +360,10 @@ body {
         align-items: center;
         justify-content: space-between;
     }
-    .socials-container h4 {
-        font-size: 34px;
+    .socials-container h6 {
+        font-size: 32px;
         font-weight: bold;
-        margin-bottom: 10px;
+        margin-bottom: 50px;
     }
     .socials-icons {
         display: flex; 
@@ -376,12 +377,13 @@ body {
     }
     .footer-copyright {
         text-align: center;
-        font-size: 20px;
+        font-size: 16px;
         margin-top: 20px;
         padding: 10px 0;
         width: 100%;
         color: #000;
-    }
+    } 
+
 
     /* Desktop läge */ 
 
@@ -507,8 +509,8 @@ body {
         }
         
         .spot-text {
-            margin-top: 10px; /* Avstånd mellan spoten och texten */
-            font-size: 16px; /* Justera textstorlek efter behov */
+            margin-top: 20px; /* Avstånd mellan spoten och texten */
+            font-size: 18px; /* Justera textstorlek efter behov */
             color: black; 
         }        
         
@@ -516,11 +518,11 @@ body {
             font-size: 40px;
         }
 
-        .dam-section h2 {
+        .dam-section h3 {
             font-size: 40px;
         }
 
-        .electronic-section h3 {
+        .electronic-section h4 {
             font-size: 40px;
         }
 
@@ -548,7 +550,7 @@ body {
     
         .empty-heart {
             position: absolute;
-            bottom: 60px; /* Avstånd från toppen */
+            bottom: 70px; /* Avstånd från toppen */
             right: 5px; /* Avstånd från höger */
             z-index: 10; /* Placera över allt annat */
             cursor: pointer;
@@ -617,7 +619,7 @@ body {
             width: 150px; /* Justera storleken på behållaren */
             height: 150px; /* Gör behållaren kvadratisk */
             border-radius: 50%; /* Gör behållaren rund */
-            background-color: #f3f3f3; /* Lägg till en bakgrundsfärg */
+            background-color: rgb(232, 238, 232); /* Lägg till en bakgrundsfärg */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Lägg till en skugga för en snygg effekt */
             padding: 10px; /* Lite utrymme inuti den runda behållaren */
             text-align: center; /* Centrerar texten */
