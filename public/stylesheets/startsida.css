@@ -513,7 +513,7 @@ body {
         }        
         
         .recently-added h2 {
-            font-size: 35px;
+            font-size: 40px;
         }
 
         .dam-section h2 {
@@ -652,6 +652,37 @@ body {
         
     }
     
-    
+    @media (min-width: 1024px) {
 
-    
+        .navbar li { 
+            padding: 20px 15px;
+            margin: 5px;
+            text-align: center; 
+            min-width: 200px; 
+          }
+    }
+
+    @media (min-width: 1201px) {
+        .navbar li { 
+            padding: 20px 15px;
+            margin: 5px;
+            text-align: center; 
+            min-width: 245px; 
+          }
+
+          .dam-section {
+            padding: 0;
+            text-align: center;
+            width: auto;
+            margin: 40px auto;
+            max-width: 1201px;
+        }
+
+        .electronic-section {
+            padding: 0;
+            text-align: center;
+            width: auto;
+            margin: 40px auto;
+            max-width: 1201px;
+        }
+    }
