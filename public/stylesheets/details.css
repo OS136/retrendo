@@ -539,6 +539,18 @@ td{
     .similarProducts{
         padding: 3%;
     }
+    .images{
+        position: relative;
+    }
+
+.heart{
+    position: absolute;
+    bottom: 4px;
+    right: 2px;
+    cursor: pointer;
+}
+
+
     .productsBrand{
         display: flex;
         flex-wrap: wrap;
