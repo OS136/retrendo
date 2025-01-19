@@ -60,5 +60,8 @@ typings/
 # next.js build output
 .next
 
+# Ignorera databasfiler
+db/*.db
+db/*.sql
 db/Retrendo.db
 retrendo.sql
