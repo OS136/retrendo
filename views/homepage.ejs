@@ -9,7 +9,7 @@
     <header class="header"> 
           <div class="logo-search-wrapper">
               <div class="logo-section">
-                  <a href="index.html">
+                  <a href="/">
                   <img id="logo" src="/images/Logo.jpg" alt="Logo">
                   </a>
               </div>
@@ -46,7 +46,7 @@
     </div>
           <nav class="navbar">
             <ul>
-              <li><a href="#">Hem</a></li>
+              <li><a href="/">Hem</a></li>
               <li><a href="#">Dam</a></li>
               <li><a href="#">Herr</a></li>
               <li><a href="#">Elektronik</a></li>
@@ -97,26 +97,29 @@
             </section>
 
             <div class="products-grid">
+                <% damProducts.forEach(product => { %>
                 <div class="product">
-                    <a href="product-details.html">
+                    <a href="/product/<%= product.slug%>">
                         <div class="product-image">
-                            <img src="https://placehold.co/600x400" alt="">
+                            <img src="<%= product.image %>" alt="<%= product.name %>">
                         </div>
                         <div class="product-brand-price">
-                            <span>Adidas</span>
-                            <span>199 SEK</span>
+                            <span><%= product.brand %></span>
+                            <span><%= product.price %> SEK</span>
                         </div>
                         <div class="product-details">
-                            <div class="product-type">Tröja</div>
-                            <div class="product-size">M</div>
+                            <div class="product-type"><%= product.product_type %></div>
+                            <div class="product-size"><%= product.size %></div>
                         </div>
                     </a>
-                            <span class="empty-heart">
-                            <img src="svg/heart.svg" alt="Heart">
-                            </span>
+                    <span class="empty-heart">
+                        <img src="svg/heart.svg" alt="Heart">
+                    </span>
                 </div>
+                <% }); %>
+            </div>
             
-        
+            <!--
                 <div class="product">
                     <a href="product-details.html">
                         <div class="product-image">
@@ -215,7 +218,7 @@
                             </span>
                 </div>
             </div>  
-                    
+            -->    
              <section class="electronic-section">
                 <a href="#" class="electronic-link">
                     <h4>Elektronik</h4>
@@ -224,22 +227,29 @@
 
 
             <div class="products-grid">
+                <% electronicProducts.forEach(product => { %>
                 <div class="product">
-                    <a href="product-details.html">
+                    <a href="/product/<%= product.slug %>">
                         <div class="product-image">
-                            <img src="https://placehold.co/600x400" alt="">
+                            <img src="<%= product.image %>" alt="<%= product.name %>">
                         </div>
                         <div class="product-brand-price">
-                            <span>Samsung</span>
-                            <span>4000 SEK</span>
+                            <span><%= product.brand %></span>
+                            <span><%= product.price %> SEK</span>
                         </div>
-                        <div class="product-type">TV</div>
+                        <div class="product-details">
+                            <div class="product-type"><%= product.product_type %></div>
+                            <div class="product-size"><%= product.size %></div>
+                        </div>
                     </a>
-                            <span class="empty-heart">
-                            <img src="svg/heart.svg" alt="Heart">
-                            </span>
+                    <span class="empty-heart">
+                        <img src="svg/heart.svg" alt="Heart">
+                    </span>
                 </div>
+            <% }); %>
+            </div>
 
+            <!--
                 <div class="product">
                     <a href="product-details.html">
                         <div class="product-image">
@@ -255,7 +265,8 @@
                             <img src="svg/heart.svg" alt="Heart">
                             </span>
                 </div>
-            </div> 
+            </div>
+        --> 
             <section>
                 <div class="core-values-container">
                     <div class="core-value-item">
