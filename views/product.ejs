@@ -72,40 +72,34 @@
                     </div>
                     <div class="text">
                         <div class="productHeading">
-                            <h3>Adidas</h3>
-                            <p class="price">199 sek</p>
-                            <p>Träningsbyxor</p>
+                            <h3><%= product.name %></h3>
+                            <p class="price"><%= product.price %></p>
+                            <p><%= product.product_type %></p>
                         </div>
                             <div class="productTableContainer">
                                 <table class="table">
                                     <tbody>
                                         <tr>
                                             <th scope="row">Färg</th>
-                                            <td>Svart</td>
+                                            <td><%= product.color %></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Storlek</th>
-                                            <td>M</td>
+                                            <td><%= product.size %></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Märke</th>
-                                            <td>Adidas</td>
+                                            <td><%= product.brand %></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Skick</th>
-                                            <td>Ny</td>
+                                            <td><%= product.condition %></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                                    <h4 class="extraRubrik">Mycket bra</h4>
-                                        <p class="extraInfo">Lorem ipsum dolor, 
-                                            sit amet consectetur adipisicing elit. 
-                                            Molestias suscipit et accusamus 
-                                            perspiciatis dicta quod omnis autem 
-                                            ipsum, minus est sint, quos eius cum 
-                                            vero voluptatibus maiores cumque alias 
-                                            iure.</p>
+                                    <h4 class="extraRubrik"><%= product.condition %></h4>
+                                        <p class="extraInfo"><%= product.description %></p>
                                         <div class="buttons">
                                             <form action="post">
                                                 <button type="submit" class="add">Lägg i varukorg</button>
@@ -120,64 +114,7 @@
 
             <!--Hidden-->
             <section class="similarContainer">
-                <h2 class="similarHeading">Liknande Produkter</h2>
-
-                    <div class="similarProducts">
-                        <div class="Images">
-                            <a href="#">
-                                <picture>
-                                    <img src="https://placehold.co/500x600" alt="#">
-                                </picture>
-                            </a>
-                        </div>
-                        <div class="productsBrand">
-                            <h3>Adidas</h3>
-                            <p class="productsPrice">199 sek</p>
-                            <p class="productsName">Träningsbyxor</p>
-                        </div>
-                    </div>
-                    <div class="similarProducts">
-                        <div class="Images">
-                            <a href="#">
-                                <picture>
-                                    <img src="https://placehold.co/500x600" alt="#">
-                                </picture>
-                            </a>
-                        </div>
-                        <div class="productsBrand">
-                            <h3>Adidas</h3>
-                            <p class="productsPrice">199 sek</p>
-                            <p class="productsName">Träningsbyxor</p>
-                        </div>
-                    </div>
-                    <div class="similarProducts">
-                        <div class="Images">
-                            <a href="#">
-                                <picture>
-                                    <img src="https://placehold.co/500x600" alt="#">
-                                </picture>
-                            </a>
-                        </div>
-                        <div class="productsBrand">
-                            <h3>Adidas</h3>
-                            <p class="productsPrice">199 sek</p>
-                            <p class="productsName">Träningsbyxor</p>
-                        </div>
-                    </div>
-                    <div class="similarProducts">
-                        <div class="Images">
-                            <a href="#">
-                                <picture>
-                                    <img src="https://placehold.co/500x600" alt="#">
-                                </picture>
-                            </a>
-                        </div>
-                        <div class="productsBrand">
-                            <h3>Adidas</h3>
-                            <p class="productsPrice">199 sek</p>
-                            <p class="productsName">Träningsbyxor</p>
-                        </div>
-                    </div>
+                <h2 class="similarHeading">Liknande Produkter</h2>                    
             </section>
             <section class="sertificationContainer">
                 <div class="core-values-container">

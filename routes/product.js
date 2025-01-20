@@ -7,39 +7,92 @@ const db = new Database('./db/Retrendo.db', {verbose: console.log});
 
 // GET /
 router.get("/", function (request, response) {
+  
   response.render('product', {title: 'product'});
 });
 
-router.get('/product/:urlslug', function(req, res, next) {
-      const slug = req.params.urlslug;
-      console.log('slug:',slug);
 
-  const product = db.prepare(`
+// Route för vald/visad Produkt
+router.get('/:slug', (req, res) => {
+  const slug = req.params.slug;
+
+  const selectProduct = db.prepare(`
     SELECT
-    id,
-    name,
-    product_type, 
-    color, 
-    price, 
-    size, 
-    brand, 
-    condition, 
-    image, 
-    description, 
-    slug, 
-    category, 
-    date
-    
-  FROM products
-  WHERE slug = ?
-  `).get(slug);
-  console.log(product);
-  if(!product) {
-    res.status(404).json({error: "Product not found"});
+      name,
+      product_type, 
+      color, 
+      price, 
+      size, 
+      brand, 
+      condition, 
+      image, 
+      description, 
+      slug, 
+      category 
+    FROM products 
+    WHERE slug = ?
+  `);
+
+  const Product = selectProduct.get(slug);
+
+  if (!Product) {
+    return res.status(404).send("Produkten hittades inte");
   }
-  else{
-     res.json(product);
-  }   
+
+  res.render('product', { product: Product });
+});
+
+// 2. Route till liknande produkter / och tar bort vald produkt från liknande
+router.get('/:slug/similar', (req, res) => {
+  const slug = req.params.slug;
+
+  // Aktuellprodukt som visas
+  const selectProduct = db.prepare(`
+    SELECT 
+      name,
+      product_type, 
+      color, 
+      price, 
+      size, 
+      brand, 
+      condition, 
+      image, 
+      description, 
+      slug, 
+      category
+    FROM products 
+    WHERE slug = ?
+  `);
+  const Product = selectProduct.get(slug);
+
+  if (!Product) {
+    return res.status(404).json({ error: "Produkten hittades inte." });
+  }
+
+  // Hämta liknande produkter med kategorin
+  const selectSimilar = db.prepare(`
+    SELECT 
+        name,
+        product_type, 
+        color, 
+        price, 
+        size, 
+        brand, 
+        condition, 
+        image, 
+        description, 
+        slug, 
+        category
+    FROM products 
+    WHERE category = ? 
+      AND slug != ? 
+    LIMIT 4
+  `);
+
+  const similarProducts = selectSimilar.all(Product.category, slug);
+
+  res.json(similarProducts);
 });
 
 module.exports = router;
+
