@@ -21,41 +21,21 @@ const db = new sqlite3.Database(path.join(__dirname, '../db/Retrendo.db'), (err)
 
 // GET /
 router.get("/", (req, res) => {
-    // Hämta damkläder
-    const damQuery = "SELECT * FROM products WHERE category = 'Dam' LIMIT 6";
-    // Hämta elektronik
-    const electronicQuery = "SELECT * FROM products WHERE category = 'Elektronik' LIMIT 2";
+    const recentlyAddedQuery = `
+        SELECT * FROM products 
+        WHERE created_at >= datetime('now', '-20 days')
+        ORDER BY created_at DESC
+    `;
     
-    Promise.all([
-        new Promise((resolve, reject) => {
-            db.all(damQuery, [], (err, damProducts) => {
-                if (err) reject(err);
-                resolve(damProducts);
-            });
-        }),
-        new Promise((resolve, reject) => {
-            db.all(electronicQuery, [], (err, electronicProducts) => {
-                if (err) reject(err);
-                resolve(electronicProducts);
-            });
-        })
-    ])
-    .then(([damProducts, electronicProducts]) => {
+    db.all(recentlyAddedQuery, [], (err, recentProducts) => {
+        if (err) {
+            console.error('Database error:', err);
+            res.status(500).send('Error fetching products');
+            return;
+        }
         res.render('homepage', {
-            damProducts: damProducts,
-            electronicProducts: electronicProducts
+            recentProducts: recentProducts
         });
-    })
-    .catch(err => {
-        console.error('Database error:', err);
-        res.status(500).send('Error fetching products');
     });
 });
-
 module.exports = router;
-
-
-
-
-
-  module.exports = router;

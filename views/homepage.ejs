@@ -89,67 +89,63 @@
             
             <section class="recently-added">
                 <h2>Nyligen tillagda</h2>
-            </section>
-
-            <section class="dam-section">
-                <a href="#" class="dam-link">
-                    <h3>Dam</h3>
-                </a>
-            </section>
-
-            <div class="products-grid">
-                <% damProducts.forEach(product => { %>
-                <div class="product">
-                    <a href="/product/<%= product.slug%>">
-                        <div class="product-image">
-                            <img src="<%= product.image %>" alt="<%= product.name %>">
-                        </div>
-                        <div class="product-brand-price">
-                            <span><%= product.brand %></span>
-                            <span><%= product.price %> SEK</span>
-                        </div>
-                        <div class="product-details">
-                            <div class="product-type"><%= product.product_type %></div>
-                            <div class="product-size"><%= product.size %></div>
-                        </div>
+                
+                <section class="dam-section">
+                    <a href="#" class="dam-link">
+                        <h3>Dam</h3>
                     </a>
-                    <span class="empty-heart">
-                        <img src="svg/heart.svg" alt="Heart">
-                    </span>
+                </section>
+                <div class="products-grid">
+                    <% recentProducts.filter(product => product.category === 'Dam').forEach(product => { %>
+                    <div class="product">
+                        <a href="/product/<%= product.slug %>">
+                            <div class="product-image">
+                                <img src="<%= product.image %>" alt="<%= product.name %>">
+                            </div>
+                            <div class="product-brand-price">
+                                <span><%= product.brand %></span>
+                                <span><%= product.price %> SEK</span>
+                            </div>
+                            <div class="product-details">
+                                <div class="product-type"><%= product.product_type %></div>
+                                <div class="product-size"><%= product.size %></div>
+                            </div>
+                        </a>
+                        <span class="empty-heart">
+                            <img src="svg/heart.svg" alt="Heart">
+                        </span>
+                    </div>
+                    <% }); %>
                 </div>
-                <% }); %>
-            </div>
             
-          
-             <section class="electronic-section">
-                <a href="#" class="electronic-link">
-                    <h4>Elektronik</h4>
-                </a>
-            </section>
-
-
-            <div class="products-grid">
-                <% electronicProducts.forEach(product => { %>
-                <div class="product">
-                    <a href="/product/<%= product.slug %>">
-                        <div class="product-image">
-                            <img src="<%= product.image %>" alt="<%= product.name %>">
-                        </div>
-                        <div class="product-brand-price">
-                            <span><%= product.brand %></span>
-                            <span><%= product.price %> SEK</span>
-                        </div>
-                        <div class="product-details">
-                            <div class="product-type"><%= product.product_type %></div>
-                            <div class="product-size"><%= product.size %></div>
-                        </div>
+                <section class="electronic-section">
+                    <a href="#" class="electronic-link">
+                        <h4>Elektronik</h4>
                     </a>
-                    <span class="empty-heart">
-                        <img src="svg/heart.svg" alt="Heart">
-                    </span>
+                </section>
+                <div class="products-grid">
+                    <% recentProducts.filter(product => product.category === 'Elektronik').forEach(product => { %>
+                    <div class="product">
+                        <a href="/product/<%= product.slug %>">
+                            <div class="product-image">
+                                <img src="<%= product.image %>" alt="<%= product.name %>">
+                            </div>
+                            <div class="product-brand-price">
+                                <span><%= product.brand %></span>
+                                <span><%= product.price %> SEK</span>
+                            </div>
+                            <div class="product-details">
+                                <div class="product-type"><%= product.product_type %></div>
+                                <div class="product-size"><%= product.size %></div>
+                            </div>
+                        </a>
+                        <span class="empty-heart">
+                            <img src="svg/heart.svg" alt="Heart">
+                        </span>
+                    </div>
+                    <% }); %>
                 </div>
-            <% }); %>
-            </div>
+            </section>
 
             <section>
                 <div class="core-values-container">
