@@ -126,7 +126,9 @@ function addProductsAsElementsOnPage(fetchedProducts) {
           namn: <span style="color:rgb(86, 151, 129)">${product.name}</span>, 
           slug:<span style="color:rgb(86, 151, 129)"> ${product.slug}</span>
        </h3>
-      <img src="${product.image}" alt="${product.name}" />
+      <img src="${product.image || "/images/tshirt.png"}" alt="${
+      product.name
+    }" />
       <button class="delete" data-id="${product.id}">Ta bort</button>
     `;
 

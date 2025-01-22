@@ -16,22 +16,24 @@ router.get("/products", (req, res) => {
   console.log("fetching products: ", req.body);
   try {
     const stmt = db.prepare(
-      "SELECT id, name, slug, image, image_type, date FROM products"
+      "SELECT id, name, slug, image, image_type FROM products"
     );
     const products = stmt.all();
 
     const formattedProducts =
       products.length > 0
         ? products.map((product) => {
-            // Decompress the image
-            const decompressedBlob = zlib.brotliDecompressSync(
-              Buffer.from(product.image)
-            );
+            if (product.image && typeof product.image !== "string") {
+              // Decompress the image
+              const decompressedBlob = zlib.brotliDecompressSync(
+                Buffer.from(product.image)
+              );
 
-            // Convert the image buffer to Base64
-            product.image = `data:image/${
-              product.image_type
-            };charset=utf-8;base64,${decompressedBlob.toString("base64")}`;
+              // Convert the image buffer to Base64
+              product.image = `data:image/${
+                product.image_type
+              };charset=utf-8;base64,${decompressedBlob.toString("base64")}`;
+            }
 
             return product;
           })
