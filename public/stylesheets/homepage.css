@@ -383,6 +383,13 @@ body {
         color: #000;
     }
 
+    @media (min-width: 550px) {
+
+        .navbar li{
+            padding: 20px 25px;
+        }
+    }
+
     /* Desktop läge */ 
 
     @media (min-width: 769px) {

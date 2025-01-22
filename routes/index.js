@@ -10,7 +10,28 @@ const sqlite3 = require("sqlite3").verbose();
 //   if (err) return console.error(err.message);
 // });
 
+// Exempel på statisk produktdata (ersätt detta med din databaslogik senare)
+var product = {
+    name: "Adidas Träningsbyxor",
+    price: "199 sek",
+    product_type: "Träningskläder",
+    color: "Svart",
+    size: "M",
+    brand: "Adidas",
+    condition: "Ny",
+    description: "Komfortabel och hållbar träningsbyxa för alla aktiviteter."
+};
+
+// Första routen för startsidan
 router.get("/", function (request, response) {
     response.render("startsida"); 
-    });
-    module.exports = router;
+});
+
+router.get("/productdetails", function (request, response) {
+    console.log('Sending product details');
+    response.render("productdetails", { product: product });
+});
+
+
+module.exports = router;
+
