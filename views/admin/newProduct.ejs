@@ -6,6 +6,7 @@
     <title>Administration</title>
     <!-- <link rel="stylesheet" href="index.css" /> -->
     <link rel="stylesheet" href="/stylesheets/newProduct.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"
       rel="stylesheet"
@@ -17,7 +18,7 @@
     </header>
     <main class="AdminContainer">
       <section class="ProduktContainer">
-        <h2>Produkter</h2>
+        <h2>Lägg till produkt</h2>
         <hr />
       </section>
       <!-- Main box -->
@@ -29,9 +30,9 @@
               <label for="productPicture">Bild</label>
               <input
                 id="productPicture"
-                type="text"
+                type="file"
                 name="productPicture"
-                value="https://placehold.co/250x400/png"
+                accept="image/*"
                 required
               />
             </div>
@@ -81,22 +82,23 @@
             <div>
               <label for="productCondition">Välj skick</label>
               <select id="productCondition" name="productCondition">
-                <option value="very-good">Mycket bra</option>
-                <option value="good">Bra</option>
-                <option value="acceptabe">Acceptabelt</option>
+                <option value="Mycket bra">Mycket bra</option>
+                <option value="Bra">Bra</option>
+                <option value="Acceptabelt">Acceptabelt</option>
               </select>
             </div>
             <!-- Storlek -->
             <div class="NewProductItem">
-              <label for="productSize">Välj storlek</label>
+              <label for="productSize">Välj storlek (Kläder/Skor)</label>
               <select id="productSize" name="productSize">
-                <option value="xs">XS</option>
-                <option value="s">S</option>
-                <option value="m">M</option>
-                <option value="l">L</option>
-                <option value="xl">XL</option>
-                <option value="xxl">XXL</option>
-                <option value="xxxl">XXXL</option>
+                <option value="XS">XS</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="36">36</option>
+                <option value="38">38</option>
+                <option value="41">41</option>
+                <option value="43">43</option>
               </select>
             </div>
 
@@ -114,37 +116,14 @@
               <input type="text" id="productType" name="productType" required />
             </div>
             <!-- Categiries -->
-            <div id="CategoriesContainer">
-              <div class="NewProductItem">
-                <h4 id="productCategories">Kategorier</h4>
-                <div class="productCategoriesFemale">
-                  <input
-                    type="checkbox"
-                    id="productCategoriesFemale"
-                    name="productCategories"
-                    value="Dam"
-                  />
-                  <label for="productCategoriesFemale">Dam</label>
-                </div>
-                <div class="productCategoriesMale">
-                  <input
-                    type="checkbox"
-                    id="productCategoriesMale"
-                    name="productCategories"
-                    value="Herr"
-                  />
-                  <label for="productCategoriesMale">Herr</label>
-                </div>
-                <div class="productCategoriesElectronic">
-                  <input
-                    type="checkbox"
-                    id="productCategoriesElectronic"
-                    name="productCategories"
-                    value="Elektronik"
-                  />
-                  <label for="productCategoriesElectronic">Elektronik</label>
-                </div>
-              </div>
+
+            <div class="NewProductItem">
+              <label for="productCategory">Kategori</label>
+              <select id="productCategory" name="productCategory">
+                <option value="Dam">Dam</option>
+                <option value="Herr">Herr</option>
+                <option value="Elektronik">Elektronik</option>
+              </select>
             </div>
           </div>
           <!-- Button -->
@@ -155,8 +134,18 @@
           </div>
         </form>
       </section>
+
+      <section id="products"></section>
+      <hr />
     </main>
-    <hr />
+
     <script src="/javascripts/newProduct.js"></script>
+    <footer id="footer">
+      <div class="button-container">
+        <button id="scrollTopButton" onclick="window.scrollTo(0, 0);">
+          Scrolla upp
+        </button>
+      </div>
+    </footer>
   </body>
 </html>
