@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS products;
+
 CREATE TABLE products (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
@@ -7,12 +9,13 @@ CREATE TABLE products (
     size TEXT, 
     brand TEXT NOT NULL, 
     condition TEXT NOT NULL, 
-    image TEXT NOT NULL, 
+    image BLOB TEXT NOT NULL,
+    image_type TEXT NULL,
     description TEXT NOT NULL, 
     slug TEXT UNIQUE NOT NULL, 
     category TEXT NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP 
-)
+);
 
 INSERT INTO products (id, name, product_type, color, price, size, brand, condition, image, description, slug, category)
 VALUES 
