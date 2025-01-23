@@ -240,6 +240,7 @@ img{
     column-gap: 40%;
     padding-left: 9%;
 }
+
 h3{
     display: inline-block;
     margin-bottom: 0%;
@@ -293,7 +294,7 @@ td{
     font-family: "Roboto", sans-serif;
 }
 .add{
-    background-color:black;
+    background-color: #3c4239;
     color: white;
     font-size: 16px;
     font-family: "Roboto", sans-serif;
@@ -311,8 +312,8 @@ td{
     opacity: 0.8;
 }
 .checkOut{
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
     font-size: 16px;
     font-family: "Roboto", sans-serif;
     border-radius: 8px;
@@ -513,7 +514,6 @@ td{
         gap: 5px;
         margin-left: 20px;
     }
-
     
         .productContainer{
             border: 1px solid black;
@@ -521,40 +521,50 @@ td{
             flex-direction: row;
             align-items: center;
             gap: 10px;
-            
         }
+
         .productInfo{
             display: flex;
             flex-direction: row;
         }
+
         .text{
             display: inline-block;
             width: 49%;
         }
+
         .productImage{
             width: 60%;
             margin-top: 3%;
+            margin-bottom: 2%;
+            
         }
+
         .productHeading{
           display: flex;
           flex-wrap: wrap;
           justify-content: space-between;
         }
+
         .price{
             margin-right: 10%;
         }
+
         h3{
             font-size: 1.3rem;
             display: inline-block;
         }
+
         .productTableContainer{
             margin-bottom: 0%;
         }
+
         p{
             margin-top: 0%;
             margin-bottom: 0%;
             font-size: 1.1rem;
         }
+
         th{
             text-align: left;
             border-top: 1px solid black;
@@ -578,10 +588,12 @@ td{
             margin-bottom: 3%;
             margin-left: 9%;
         }
+
         .buttons{
             display: flex;
             flex-direction: row;
-            margin-right: 5%;
+            justify-content: flex-start;
+            margin-right: 2%;
         }
     
     
@@ -596,15 +608,15 @@ td{
             box-shadow: 0 1px 2px rgba(0, 0, 0);
             text-wrap: nowrap;
             margin-left: 25px;
-            width: 80%
-            
+            width: 75%
         }
+
         .add:hover{
             opacity: 0.8;
         }
         .checkOut{
-            background-color: #3c4239;
-            color: white;
+            background-color: white;
+            color: black;
             font-size: 16px;
             font-family: "Roboto", sans-serif;
             border-radius: 8px;
@@ -612,12 +624,13 @@ td{
             height: 42px;
             box-shadow: 0 1px 2px rgba(0, 0, 0);
             text-wrap: nowrap;
-            width: 80%;
-            
+            width: 75%;
         }
+
         .checkOut:hover{
             opacity: 0.8;
         }
+        
          .similarContainer{
            visibility: visible;
            display: grid;
@@ -643,6 +656,10 @@ td{
         cursor: pointer;
     }
     
+    .productHeading p:last-of-type {
+        margin-top: 10px;
+        margin-right: 10px;
+    }
     
         .productsBrand{
             display: flex;
@@ -718,7 +735,7 @@ td{
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1201px) {
 
     .navbar li { 
         padding: 20px 15px;
@@ -726,6 +743,35 @@ td{
         text-align: center; 
         min-width: 200px; 
       }
+
+      .productHeading {
+        display: flex;
+        flex-direction: column;  /* This makes items stack vertically */
+        align-items: flex-start;
+        margin-top: 85px;
+    }
+
+    .productHeading p:last-of-type {
+        flex-basis: 100%;  /* Takes up full width */
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+    .productImage{
+        margin-bottom: 2%;
+        margin-top: 2%;
+    }
+
+      .price{
+          margin-right: 10%;
+      }
+
+      .buttons {
+        display: flex;
+        flex-direction: row;
+        margin-left: 10px;  /* Adjust this value as needed */
+        gap: 10px;
+    }
 }
 
 @media (min-width: 1201px) {
@@ -735,4 +781,29 @@ td{
         text-align: center; 
         min-width: 245px; 
       }
+
+      .productHeading {
+        display: flex;
+        flex-direction: column;  /* This makes items stack vertically */
+        align-items: flex-start;
+        margin-top: 42%;
+    }
+
+    .productHeading p:last-of-type {
+        flex-basis: 100%;  /* Takes up full width */
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+    .productImage{
+        margin-bottom: 2%;
+        margin-top: 2%;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        margin-left: 23px;  /* Adjust this value as needed */
+        gap: 25px;
+    }
 }
