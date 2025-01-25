@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/details.js" defer></script>
+
     <!--<link rel="stylesheet" href="../stylesheets/details.css">-->
     <link rel="stylesheet" href="../stylesheets/productdetails.css">
     <link rel="stylesheet" href="../stylesheets/style.css">
+    <script src="/details.js"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"
       rel="stylesheet">
@@ -17,7 +18,7 @@
         <!--Tvungen att skapa wrapper för layout i desktop-->
           <div class="logo-search-wrapper">
               <div class="logo-section">
-                  <a href="index.html">
+                  <a href="/">
                   <img id="logo" src="/images/Logo.jpg" alt="Logo">
                   </a>
               </div>
@@ -33,7 +34,7 @@
               <div class="icons">
                   <div class="favorite">
                       <a href="">
-                        <img src="svg/favorites.svg" alt="favoriter">
+                        <img src="/svg/favorites.svg" alt="favoriter">
                       </a>
                   </div>
                   <div class="basket">
@@ -55,7 +56,7 @@
           <!--Tog bort divtaggen för att kunna ha kvar menyn direkt i headern-->
           <nav class="navbar">
             <ul>
-              <li><a href="#">Hem</a></li>
+              <li><a href="/">Hem</a></li>
               <li><a href="#">Dam</a></li>
               <li><a href="#">Herr</a></li>
               <li><a href="#">Elektronik</a></li>
@@ -71,10 +72,16 @@
                         <% } %>
                         <a href="#">
                             <picture>
-                                <img src="https://placehold.co/500x600" alt="#">
+                                <img src="<%= product.image %>" alt="<%= product.name %>">
                             </picture>
                         </a>
+                        <div class="heart">
+                            <svg width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
                     </div>
+
                     <div class="text">
                         <div class="productHeading">
                             <h3><%= product.name %></h3>
@@ -119,27 +126,49 @@
 
             <!--Hidden-->
             <section class="similarContainer">
-                <h2 class="similarHeading">Liknande Produkter</h2>                    
+                <h2 class="similarHeading">Liknande Produkter</h2>   
+                <% similarProducts.forEach(product => { %>
+                    <article class="similarProducts">
+                        <div class="images">
+                            <a href="/product/<%= product.slug %>">
+                                <picture>
+                                    <img src="<%= product.image %>" alt="<%= product.name %>">
+                                </picture>
+                            </a>
+                            <div class="heart">
+                                <svg width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="productsBrand">
+                            <h3 class="productSimilarHeading"><%= product.brand %></h3>
+                            <p class="productPrice"><%= product.price %> sek</p>
+                            <p class="productName"><%= product.product_type %></p>
+                        </div>
+                    </article>
+                <% }); %>                 
             </section>
+
             <section class="sertificationContainer">
                 <div class="core-values-container">
                     <div class="core-value-item">
                         <span>
-                            <img src="svg/quality.svg" alt="Quality icon">
+                            <img src="/svg/quality.svg" alt="Quality icon">
                         </span>
                         <span class="core-value-text">Kvalitetssäkrad</span>
                     </div>
 
                     <div class="core-value-item">
                         <span>
-                            <img src="svg/Sustainability.svg" alt="Sustainability icon">
+                            <img src="/svg/Sustainability.svg" alt="Sustainability icon">
                         </span>
                         <span class="core-value-text value">Hållbarhet</span>
                     </div>
 
                     <div class="core-value-item">
                         <span>
-                            <img src="svg/safe-transaction1.svg" alt="Transaction icon">
+                            <img src="/svg/safe-transaction1.svg" alt="Transaction icon">
                         </span>
                         <span class="core-value-text">Säker betalning</span>
                     </div>
@@ -162,10 +191,10 @@
                             <h4>Följ oss på sociala medier</h4>
                             <div class="socials-icons">
                                 <a href="">
-                                    <img src="svg/facebook.svg" alt="Facebook icon">
+                                    <img src="/svg/facebook.svg" alt="Facebook icon">
                                 </a>
                                 <a href="">
-                                    <img src="svg/instagram.svg" alt="Instagram icon">
+                                    <img src="/svg/instagram.svg" alt="Instagram icon">
                                 </a>
                             </div>
                         </div>

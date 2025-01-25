@@ -1,102 +1,50 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const path = window.location.pathname;
-    const urlDelar = path.split('/').filter(part => part !== '');
-
-    // Ensure we're getting the right slug
-    const slug = urlDelar[urlDelar.length - 1];
-
-    console.log("URL parts:", urlDelar);
-    console.log("Extracted slug:", slug);
-    console.log(`Fetching similar products from: /product/${slug}/similar`);
-
-    fetch(`/product/${slug}/similar`)
-        .then(response => {
-            console.log('Response status:', response.status);
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
+    
+    document.querySelectorAll('.heart').forEach(heart => {
+        const path = heart.querySelector('path');
+        path.setAttribute('fill', 'none');  // Tom i början
+        path.setAttribute('stroke', 'black'); // Svart outline
+        path.setAttribute('stroke-width', '2');
+    
+        heart.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (path.getAttribute('fill') === 'none') {
+                path.setAttribute('fill', 'red');
+                path.setAttribute('stroke', 'none');
+            } else {
+                path.setAttribute('fill', 'none');
+                path.setAttribute('stroke', 'black');
             }
-            return response.json();
-        })
-
-        .then(similarProducts => {
-            const similarContainer = document.querySelector(".similarContainer");
-            console.log('Similar Products:', similarProducts);
-
-            similarProducts.forEach(product => {
-                let article = document.createElement("article");
-                let imageContainer = document.createElement("div");
-                let a = document.createElement("a");
-                let picture = document.createElement("picture");
-                let img = document.createElement("img");
-                let like = document.createElement("div");
-                let productInfoContainer = document.createElement("div");
-                let brand = document.createElement("h3");
-                let price = document.createElement("p");
-                let productCategory = document.createElement("p");
-
-                img.src = `${product.image}`;
-                img.alt = `${product.name}`;
-                a.href = `${product.slug}`;
-                brand.innerText = `${product.brand}`;
-                price.innerText = `${product.price} sek`;
-                productCategory.innerText = `${product.product_type}`;
-
-                like.innerHTML = `<svg class="heart" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402m5.726-20.583c-2.203 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248-3.183 0-6.281 2.187-6.281 6.191 0 4.661 5.571 9.429 12 15.809 6.43-6.38 12-11.148 12-15.809 0-4.011-3.095-6.181-6.274-6.181"/></svg>`;
-
-                article.appendChild(imageContainer);
-                imageContainer.appendChild(a);
-                a.appendChild(picture);
-                picture.appendChild(img);
-                imageContainer.appendChild(like);
-                article.appendChild(productInfoContainer);
-                productInfoContainer.appendChild(brand);
-                productInfoContainer.appendChild(price);
-                productInfoContainer.appendChild(productCategory);
-
-                article.classList.add("similarProducts");
-                imageContainer.classList.add(`images`);
-                productInfoContainer.classList.add("productsBrand");
-                price.classList.add("productPrice");
-                productCategory.classList.add("productName");
-                brand.classList.add("productSimilarHeading");
-                like.classList.add("heart");
-
-                like.addEventListener('click', function (event) {
-                    event.preventDefault();
-                    const heartPath = like.querySelector('path');
-
-                    if (heartPath.getAttribute('fill') === 'red') {
-                        heartPath.setAttribute('fill', 'black');
-                    } else {
-                        heartPath.setAttribute('fill', 'red');
-                    }
-                });
-
-                similarContainer.appendChild(article);
-            });
         });
-
-    const buttonAdd = document.querySelector('.add');
-    buttonAdd.addEventListener("click", function () {
-        alert(`produkten har lagts till i varukorgen`);
     });
 
-    const buttonCheckout = document.querySelector('.checkOut');
-    buttonCheckout.addEventListener("click", function () {
-        window.location.href = "/checkout";
-    });
+    // Varukorg och checkout knappar
+    document.querySelector('.add')?.addEventListener('click', () => 
+        alert('Produkten har lagts till i varukorgen'));
 
-    const menuIcon = document.querySelector(".menu-icon");
-    menuIcon.addEventListener("click", (e) => {
+    document.querySelector('.checkOut')?.addEventListener('click', () => 
+        window.location.href = '/checkout');
+
+    // Meny-toggle
+    const menuIcon = document.querySelector('.menu-icon');
+    menuIcon?.addEventListener('click', e => {
         e.stopPropagation();
-        menuIcon.classList.toggle("open");
+        menuIcon.classList.toggle('open');
+    });
+    
+    document.addEventListener('click', () => 
+        menuIcon?.classList.remove('open'));
+});
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuIcon = document.querySelector(".menu-icon");
+
+    menuIcon.addEventListener("click", (e) => {
+      e.stopPropagation();
+      menuIcon.classList.toggle("open");
     });
 
     document.addEventListener("click", () => {
-        menuIcon.classList.remove("open");
+      menuIcon.classList.remove("open");
     });
-})
-
-.catch(error => {
-    console.error('Fetch error:', error);
-});
+  });
