@@ -1,0 +1,164 @@
+header {
+  background: radial-gradient(circle, #1b1e1a, #3c4239, #7b8638);
+  color: aliceblue;
+  padding: 20px;
+  text-align: center;
+}
+
+body {
+  background-color: #eff5ec;
+  color: #1b1e1a;
+}
+
+label,
+h4 {
+  margin: unset;
+  margin-top: 5px;
+}
+
+hr {
+  border: 1px solid green;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.ProduktContainer {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.NewProductItem {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#scrollTopButton {
+  position: fixed;
+  bottom: 20px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: unset;
+  border: 2px solid #3c4239;
+  color: #3c4239;
+  text-wrap: wrap;
+  margin: auto;
+}
+
+button {
+  align-self: center;
+}
+
+.MainSectionProdukter {
+  display: flex;
+  justify-content: center;
+  gap: 200px;
+  padding: 20px;
+}
+
+/* Styling the image container */
+.image-container {
+  display: flex;
+  flex-direction: column;
+  margin: 25px;
+  justify-content: center;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 400px;
+  height: auto;
+}
+
+/* Styling the details container */
+.details-container {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  margin: 25px;
+  gap: 15px;
+}
+
+.price-container {
+  display: flex;
+  margin: 25px;
+  gap: 15px;
+  width: 400px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  flex-direction: column;
+}
+
+.productPropertiesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 25px;
+  gap: 15px;
+  width: 400px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  flex-direction: column;
+}
+
+.productPropertiesContainer label {
+  font-weight: bold;
+}
+
+/* Style for individual form items */
+.NewProductItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.NewProductItem label {
+  font-weight: bold;
+}
+
+.NewProductItem input,
+select,
+.NewProductItem textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-top: 5px;
+  gap: 15px;
+}
+
+select {
+  width: 100%;
+}
+
+#products > div {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#products img {
+  place-self: center;
+  width: 50%;
+  object-fit: cover;
+  border-radius: 12px;
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administration</title>
+    <!-- <link rel="stylesheet" href="index.css" /> -->
+    <link rel="stylesheet" href="/stylesheets/newProduct.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="MainHeaderSection">
+      <h1>Administration</h1>
+    </header>
+    <main class="AdminContainer">
+      <section class="ProduktContainer">
+        <h2>Lägg till produkt</h2>
+        <hr />
+      </section>
+      <!-- Main box -->
+      <section class="MainSectionProdukter">
+        <form id="productForm">
+          <!-- Bild -->
+          <div class="image-container">
+            <div class="NewProductItem">
+              <label for="productPicture">Bild</label>
+              <input
+                id="productPicture"
+                type="file"
+                name="productPicture"
+                accept="image/*"
+                required
+              />
+            </div>
+          </div>
+          <!-- Namn -->
+          <div class="details-container">
+            <div class="NewProductItem">
+              <label for="productName">Namn</label>
+              <input type="text" id="productName" name="productName" required />
+            </div>
+            <!-- productBrand -->
+            <div class="NewProductItem">
+              <label for="productBrand">Märke</label>
+              <input
+                type="text"
+                id="productBrand"
+                name="productBrand"
+                required
+              />
+            </div>
+            <!-- Beskrivning -->
+            <div class="NewProductItem">
+              <label for="productDescription">Beskrivning</label>
+              <textarea
+                type="text"
+                id="productDescription"
+                name="productDescription"
+                rows="5"
+                cols="40"
+              ></textarea>
+            </div>
+          </div>
+          <!-- Pris -->
+          <div class="price-container">
+            <div id="price-container" class="NewProductItem">
+              <label for="productPrice">Pris</label>
+              <input
+                type="number"
+                id="productPrice"
+                name="productPrice"
+                required
+              />
+            </div>
+          </div>
+          <!-- Skick -->
+          <div class="productPropertiesContainer">
+            <div>
+              <label for="productCondition">Välj skick</label>
+              <select id="productCondition" name="productCondition">
+                <option value="Mycket bra">Mycket bra</option>
+                <option value="Bra">Bra</option>
+                <option value="Acceptabelt">Acceptabelt</option>
+              </select>
+            </div>
+            <!-- Storlek -->
+            <div class="NewProductItem">
+              <label for="productSize">Välj storlek (Kläder/Skor)</label>
+              <select id="productSize" name="productSize">
+                <option value="XS">XS</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="36">36</option>
+                <option value="38">38</option>
+                <option value="41">41</option>
+                <option value="43">43</option>
+              </select>
+            </div>
+
+            <div class="NewProductItem">
+              <label for="productColor">Färg</label>
+              <input
+                type="text"
+                id="productColor"
+                name="productColor"
+                required
+              />
+            </div>
+            <div class="NewProductItem">
+              <label for="productType">Typ</label>
+              <input type="text" id="productType" name="productType" required />
+            </div>
+            <!-- Categiries -->
+
+            <div class="NewProductItem">
+              <label for="productCategory">Kategori</label>
+              <select id="productCategory" name="productCategory">
+                <option value="Dam">Dam</option>
+                <option value="Herr">Herr</option>
+                <option value="Elektronik">Elektronik</option>
+              </select>
+            </div>
+          </div>
+          <!-- Button -->
+          <div class="button-container">
+            <button id="ProductAddButton" type="submit">
+              Lägg till produkt
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section id="products"></section>
+      <hr />
+    </main>
+
+    <script src="/javascripts/newProduct.js"></script>
+    <footer id="footer">
+      <div class="button-container">
+        <button id="scrollTopButton" onclick="window.scrollTo(0, 0);">
+          Scrolla upp
+        </button>
+      </div>
+    </footer>
+  </body>
+</html>
