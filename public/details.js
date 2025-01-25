@@ -1,19 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
     const path = window.location.pathname;
-    const urlDelar = path.split('/');
+    const urlDelar = path.split('/').filter(part => part !== '');
+
+    // Ensure we're getting the right slug
     const slug = urlDelar[urlDelar.length - 1];
 
-    console.log("slug:", slug);
+    console.log("URL parts:", urlDelar);
+    console.log("Extracted slug:", slug);
+    console.log(`Fetching similar products from: /product/${slug}/similar`);
 
     fetch(`/product/${slug}/similar`)
         .then(response => {
+            console.log('Response status:', response.status);
             if (!response.ok) {
-                throw new Error('Failed to fetch product');
+                throw new Error('Network response was not ok');
             }
             return response.json();
         })
+
         .then(similarProducts => {
             const similarContainer = document.querySelector(".similarContainer");
+            console.log('Similar Products:', similarProducts);
 
             similarProducts.forEach(product => {
                 let article = document.createElement("article");
@@ -88,4 +95,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("click", () => {
         menuIcon.classList.remove("open");
     });
+})
+
+.catch(error => {
+    console.error('Fetch error:', error);
 });
