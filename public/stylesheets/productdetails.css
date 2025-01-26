@@ -59,27 +59,29 @@ footer{
     }
 
     .search-icons {
+        position: relative;
+        width: 100%;
         display: flex;
+        flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        flex: 2;
-        gap: 10px; /* Mindre gap */ 
-        margin-top: 30px;
+        gap: 15px;
+        margin-top: 20px;
     }
     
     .search-bar-container {
-        flex: 1; 
-        max-width: 70%; /* Begränsa sökrutans bredd till högst 70% av raden */
+        width: 100%;
+        max-width: 60%;
     }
     
     .search-bar {
         width: 100%;
-        max-width: 500px;
         background: rgba(90, 85, 85, 0.2);
         display: flex; 
         align-items: center;
         border-radius: 60px;
-        padding: 32px 8px; /* Mer padding */ 
+        padding: 8px 8px; /* Mindre padding */ 
+        position: relative;
     }
     
     .search-bar input {
@@ -87,7 +89,7 @@ footer{
         flex: 1;
         border: none;
         outline: none;
-        padding: 10px 5px; 
+        padding: 10px 5px; /* Mindre paddning */
         font-size: 20px; /* Mindre textstorlek */
         color: black;
     }
@@ -95,17 +97,19 @@ footer{
     .search-bar button {
         border: none;
         border-radius: 50%;
-        width: 39px; 
-        height: 42px;
+        width: 35px;
+        height: 35px;
         background: #506953;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
+        position: absolute;
+        right: -2px;
     }
     
     .search-bar button img {
-        width: 25px; /* Mindre storlek*/
+        width: 20px; /* Mindre storlek*/
     }
     
     .icons {
@@ -167,24 +171,29 @@ footer{
     }
 
     .navbar {
-        margin-top: 20px; 
+        width: 100%;
+        margin-top: 20px;
       }
       
       .navbar ul {
         list-style: none; 
         display: flex; 
+        gap: 10px;
         justify-content: space-around; 
         padding: 0; 
+        min-width: min-content;
       }
+
       
       .navbar li {
         background-color: #ffffff; 
-        padding: 10px 8px; /* Mindre padding */ 
+        padding: 8px 10px; /* Mindre padding */ 
         margin: 5px; /* Mindre margin */ 
         border-radius: 10px; 
         text-align: center; 
         outline: 2px solid rgb(145, 143, 143);
-        min-width: 90px; /* Lägre bredd */ 
+        max-width: 80px; /* Lägre bredd */ 
+        flex: 0 0 auto;
       }
       
       .navbar a {
@@ -447,9 +456,9 @@ td{
 
     .search-icons {
         flex: 1;
-        margin-top: 0; 
+        margin-top: 0; /* Remove top margin since it's now aligned with logo */
         justify-content: flex-start;
-        padding-top: 100px; 
+        padding-top: 100px; /* Add some padding to align better with logo */
     }
 
     .search-bar {
@@ -483,9 +492,9 @@ td{
         align-items: center;
         justify-content: center;
         position: absolute; /* Position the button absolutely */
-        right: 28px; /* Position from right edge */
-        top: 33%; /* Center vertically */
-        
+        right: 1px; /* Position from right edge */
+        top: 28%; /* Center vertically */
+        transform: translateY(-50%); /* Perfect vertical centering */
     }
     
     .search-bar button img {
