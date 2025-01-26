@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/homepage.css" />
     <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="stylesheet" href="stylesheets/categories.css" />
   </head>
   <body>
     <header class="header">
@@ -63,6 +64,83 @@
         </a>
       </section>
 
+      <div class="accordion">
+        <!-- Filtrera -->
+        <div class="accordion-item">
+          <div class="accordion-header">
+            Filtrera
+            <span class="arrow">▼</span>
+          </div>
+          <div class="accordion-content">
+            <label><input type="checkbox"> Nyaste</label>
+            <label><input type="checkbox"> Mest populära</label>
+            <label><input type="checkbox"> Lägsta pris</label>
+            <label><input type="checkbox"> Högsta pris</label>
+          </div>
+        </div>
+    
+        <!-- Storlek -->
+        <div class="accordion-item">
+          <div class="accordion-header">
+            Storlek
+            <span class="arrow">▼</span>
+          </div>
+          <div class="accordion-content">
+            <label><input type="checkbox"> XS</label>
+            <label><input type="checkbox"> S</label>
+            <label><input type="checkbox"> M</label>
+            <label><input type="checkbox"> L</label>
+            <label><input type="checkbox"> XL</label>
+          </div>
+        </div>
+    
+        <!-- Färg -->
+        <div class="accordion-item">
+          <div class="accordion-header">
+            Färg
+            <span class="arrow">▼</span>
+          </div>
+          <div class="accordion-content">
+            <label><input type="checkbox"> Svart</label>
+            <label><input type="checkbox"> Vit</label>
+            <label><input type="checkbox"> Röd</label>
+            <label><input type="checkbox"> Blå</label>
+            <label><input type="checkbox"> Grön</label>
+          </div>
+        </div>
+    
+        <!-- Märke -->
+        <div class="accordion-item">
+          <div class="accordion-header">
+            Märke
+            <span class="arrow">▼</span>
+          </div>
+          <div class="accordion-content">
+            <label><input type="checkbox"> Nike</label>
+            <label><input type="checkbox"> Adidas</label>
+            <label><input type="checkbox"> Puma</label>
+            <label><input type="checkbox"> Reebok</label>
+            <label><input type="checkbox"> Under Armour</label>
+          </div>
+        </div>
+      </div>
+    
+      <script>
+        // JavaScript for Accordion
+        const accordionItems = document.querySelectorAll('.accordion-item');
+    
+        accordionItems.forEach(item => {
+          const header = item.querySelector('.accordion-header');
+          const content = item.querySelector('.accordion-content');
+          const arrow = item.querySelector('.arrow');
+    
+          header.addEventListener('click', () => {
+            const isOpen = content.style.display === 'block';
+            content.style.display = isOpen ? 'none' : 'block';
+            arrow.classList.toggle('rotate', !isOpen);
+          });
+        });
+      </script>
 
 
       <section>
