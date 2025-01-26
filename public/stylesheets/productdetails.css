@@ -250,6 +250,11 @@ img{
     padding-left: 9%;
 }
 
+.price {
+    font-weight: bold; /* Gör priset tydligare */
+    margin-top: 10px; /* Lägg till marginal om du vill flytta ner priset */
+}
+
 h3{
     display: inline-block;
     margin-bottom: 0%;
@@ -549,15 +554,18 @@ td{
             
         }
 
-        .productHeading{
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
+        .productHeading {
+            display: flex;
+            flex-direction: column; /* Vertikal layout */
+            align-items: flex-start; /* Justera text till vänster */
+            gap: 5px; /* Mellanrum mellan elementen */
         }
-
-        .price{
-            margin-right: 10%;
+        
+        .price {
+            font-weight: bold; /* Gör priset tydligare */
+            margin-top: 10px; /* Lägg till marginal om du vill flytta ner priset */
         }
+        
 
         h3{
             font-size: 1.3rem;
@@ -743,6 +751,24 @@ td{
         margin-top: 35px;
     }
 }
+
+@media (min-width: 850px) {
+
+    .productHeading {
+        display: flex;
+        flex-direction: column;  /* This makes items stack vertically */
+        align-items: flex-start;
+        margin-top: 85px;
+    }
+
+    .productHeading p:last-of-type {
+        flex-basis: 100%;  /* Takes up full width */
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+}
+
+
 
 @media (min-width: 1024px) and (max-width: 1201px) {
 
