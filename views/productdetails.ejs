@@ -38,7 +38,7 @@
                       </a>
                   </div>
                   <div class="basket">
-                      <a href="" class="varukorg-icon">
+                      <a href="/cart" class="varukorg-icon">
                         <img src="/svg/basket.svg" alt="varukorg">
                       </a>
                   </div>
@@ -114,7 +114,7 @@
                                         <p class="extraInfo"><%= product.description %></p>
                                         <div class="buttons">
                                             <form action="post">
-                                                <button type="submit" class="add">Lägg i varukorg</button>
+                                                <button type="button" class="add" data-id="<%= product.id %>">Lägg i varukorg</button>
                                             </form>
                                             <form action="post" method="post">
                                                 <button type="submit" class="checkOut">Till kassan</button>

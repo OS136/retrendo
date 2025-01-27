@@ -18,12 +18,22 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Varukorg och checkout knappar
-    document.querySelector('.add')?.addEventListener('click', () => 
-        alert('Produkten har lagts till i varukorgen'));
-
-    document.querySelector('.checkOut')?.addEventListener('click', () => 
-        window.location.href = '/checkout');
+     // Varukorg-hantering
+     document.querySelector('.add')?.addEventListener('click', function() {
+        const slug = window.location.pathname.split('/').pop();
+        fetch(`/cart/add/${slug}`, { 
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                alert('Produkten har lagts till i varukorgen');
+                window.location.href = '/cart';
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
 
     // Meny-toggle
     const menuIcon = document.querySelector('.menu-icon');
@@ -35,17 +45,3 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener('click', () => 
         menuIcon?.classList.remove('open'));
 });
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const menuIcon = document.querySelector(".menu-icon");
-
-    menuIcon.addEventListener("click", (e) => {
-      e.stopPropagation();
-      menuIcon.classList.toggle("open");
-    });
-
-    document.addEventListener("click", () => {
-      menuIcon.classList.remove("open");
-    });
-  });
-
