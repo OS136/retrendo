@@ -178,7 +178,7 @@
                 <div class="footer">
                     <div class="footer-section-container">
                         <div class="footer-section">
-                            <h3>Retrendo</h3>
+                            <h5>Retrendo</h5>
                             <ul>
                                 <li><a href="#">Om oss</a></li>
                                 <li><a href="#">Kontakta oss</a></li>
@@ -188,7 +188,7 @@
                         </div>
         
                         <div class="socials-container" >
-                            <h4>Följ oss på sociala medier</h4>
+                            <h6>Följ oss på sociala medier</h6>
                             <div class="socials-icons">
                                 <a href="">
                                     <img src="/svg/facebook.svg" alt="Facebook icon">
@@ -206,3 +206,18 @@
             </footer>
 </body>
 </html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuIcon = document.querySelector(".menu-icon");
+  
+      menuIcon.addEventListener("click", (e) => {
+        e.stopPropagation();
+        menuIcon.classList.toggle("open");
+      });
+  
+      document.addEventListener("click", () => {
+        menuIcon.classList.remove("open");
+      });
+    });
+  </script>
