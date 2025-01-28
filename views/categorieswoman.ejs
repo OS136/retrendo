@@ -4,8 +4,8 @@
     <title>Kategorier</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/homepage.css" />
-    <link rel="stylesheet" href="stylesheets/style.css" />
-    <link rel="stylesheet" href="stylesheets/categories.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/categories.css" />
   </head>
   <body>
     <header class="header">
@@ -29,7 +29,7 @@
           <div class="icons">
             <div class="favorite">
               <a href="">
-                <img src="svg/favorites.svg" alt="favoriter" />
+                <img src="/svg/favorites.svg" alt="favoriter" />
               </a>
             </div>
             <div class="basket">
@@ -126,37 +126,20 @@
       </div>
     
       <div class="product-container">
-        <div class="product-card">
-          <img src="https://placehold.co/600x400" alt="Produkt 1">
-          <h3>Produkt 1</h3>
-          <p>Pris: 299 kr</p>
-        </div>
-        <div class="product-card">
-          <img src="https://placehold.co/600x400" alt="Produkt 2">
-          <h3>Produkt 2</h3>
-          <p>Pris: 499 kr</p>
-        </div>
-        <div class="product-card">
-          <img src="https://placehold.co/600x400" alt="Produkt 3">
-          <h3>Produkt 3</h3>
-          <p>Pris: 199 kr</p>
-        </div>
-        <div class="product-card">
-          <img src="https://placehold.co/600x400" alt="Produkt 4">
-          <h3>Produkt 4</h3>
-          <p>Pris: 399 kr</p>
-        </div>
-        <div class="product-card">
-          <img src="https://placehold.co/600x400" alt="Produkt 4">
-          <h3>Produkt 5</h3>
-          <p>Pris: 399 kr</p>
-        </div>
-        <div class="product-card">
-          <img src="https://placehold.co/600x400" alt="Produkt 4">
-          <h3>Produkt 5</h3>
-          <p>Pris: 399 kr</p>
-        </div>
+        <% if (products && products.length > 0) { %>
+          <% products.forEach(product => { %>
+            <a href="/products/<%= product.slug %>" class="product-card">
+              <img src="<%= product.image %>" alt="<%= product.name %>">
+              <h3><%= product.name %></h3>
+              <p>Pris: <%= product.price %> kr</p>
+            </a>
+          <% }) %>
+        <% } else { %>
+          <p>Inga produkter tillgängliga för Dam-kategorin.</p>
+        <% } %>
       </div>
+      
+      
 
       <script>
         // JavaScript for Accordion
@@ -179,21 +162,21 @@
         <div class="core-values-container">
           <div class="core-value-item">
             <span>
-              <img src="svg/quality.svg" alt="Quality icon" />
+              <img src="/svg/quality.svg" alt="Quality icon" />
             </span>
             <span class="core-value-text">Kvalitetssäkrad</span>
           </div>
 
           <div class="core-value-item">
             <span>
-              <img src="svg/Sustainability.svg" alt="Sustainability icon" />
+              <img src="/svg/Sustainability.svg" alt="Sustainability icon" />
             </span>
             <span class="core-value-text">Hållbarhet</span>
           </div>
 
           <div class="core-value-item">
             <span>
-              <img src="svg/safe-transaction1.svg" alt="Transaction icon" />
+              <img src="/svg/safe-transaction1.svg" alt="Transaction icon" />
             </span>
             <span class="core-value-text">Säker betalning</span>
           </div>
@@ -219,10 +202,10 @@
           <h6>Följ oss på sociala medier</h6>
           <div class="socials-icons">
             <a href="">
-              <img src="svg/facebook.svg" alt="Facebook icon" />
+              <img src="/svg/facebook.svg" alt="Facebook icon" />
             </a>
             <a href="">
-              <img src="svg/instagram.svg" alt="Instagram icon" />
+              <img src="/svg/instagram.svg" alt="Instagram icon" />
             </a>
           </div>
         </div>
