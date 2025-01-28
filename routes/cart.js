@@ -6,7 +6,11 @@ const db = new Database("./db/Retrendo.db");
 router.get("/", (req, res) => {
   const cart = req.session.cart || [];
   const total = cart.reduce((sum, item) => sum + Number(item.price), 0);
-  res.render("cart", { cart, total });
+  res.render("cart", {
+    cart,
+    total,
+    cartCount: cart.length, // Pass cart count to the template
+  });
 });
 
 router.post("/add/:slug", (req, res) => {
@@ -15,7 +19,10 @@ router.post("/add/:slug", (req, res) => {
     .get(req.params.slug);
   if (!req.session.cart) req.session.cart = [];
   req.session.cart.push(product);
-  res.json({ success: true, count: req.session.cart.length });
+  res.json({
+    success: true,
+    count: req.session.cart.length,
+  });
 });
 
 router.post("/remove/:id", (req, res) => {

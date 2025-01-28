@@ -1,4 +1,27 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Function to update cart count badge
+  function updateCartBadge() {
+    const cartCount = parseInt(localStorage.getItem("cartCount") || "0");
+    const basketIcon = document.querySelector(".varukorg-icon");
+
+    // Remove existing badge if it exists
+    const existingBadge = basketIcon.querySelector(".cart-badge");
+    if (existingBadge) {
+      existingBadge.remove();
+    }
+
+    // Only add badge if cart count is greater than 0
+    if (cartCount > 0) {
+      const badge = document.createElement("span");
+      badge.className = "cart-badge";
+      badge.textContent = cartCount;
+      basketIcon.appendChild(badge);
+    }
+  }
+
+  // Call updateCartBadge on page load
+  updateCartBadge();
+
   document.querySelectorAll(".heart").forEach((heart) => {
     const path = heart.querySelector("path");
     path.setAttribute("fill", "none"); // Tom i början
@@ -28,8 +51,17 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
+          // Update localStorage cart count
+          const currentCount = parseInt(
+            localStorage.getItem("cartCount") || "0"
+          );
+          localStorage.setItem("cartCount", (currentCount + 1).toString());
+
+          // Update cart badge
+          updateCartBadge();
+
           alert("Produkten har lagts till i varukorgen");
-          window.location.href = "/cart"; // Ändra från reload till specifik URL
+          window.location.href = "/cart";
         }
       })
       .catch((error) => console.error("Error:", error));
@@ -43,10 +75,25 @@ document.addEventListener("DOMContentLoaded", function () {
       })
         .then((res) => res.json())
         .then((data) => {
-          if (data.success) window.location.reload();
+          if (data.success) {
+            // Decrease localStorage cart count
+            const currentCount = parseInt(
+              localStorage.getItem("cartCount") || "0"
+            );
+            localStorage.setItem(
+              "cartCount",
+              Math.max(0, currentCount - 1).toString()
+            );
+
+            // Update cart badge
+            updateCartBadge();
+
+            window.location.reload();
+          }
         });
     });
   });
+
   // Meny-toggle
   const menuIcon = document.querySelector(".menu-icon");
   menuIcon?.addEventListener("click", (e) => {
