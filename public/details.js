@@ -1,22 +1,28 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Function to update cart count badge
+  // Funktion för att uppdatera cart badge
   function updateCartBadge() {
-    const cartCount = parseInt(localStorage.getItem("cartCount") || "0");
-    const basketIcon = document.querySelector(".varukorg-icon");
+    fetch("/cart/count")
+      .then((response) => response.json())
+      .then((data) => {
+        const basketIcon = document.querySelector(".varukorg-icon");
 
-    // Remove existing badge if it exists
-    const existingBadge = basketIcon.querySelector(".cart-badge");
-    if (existingBadge) {
-      existingBadge.remove();
-    }
+        // Ta bort befintlig badge
+        const existingBadge = basketIcon.querySelector(".cart-badge");
+        if (existingBadge) {
+          existingBadge.remove();
+        }
 
-    // Only add badge if cart count is greater than 0
-    if (cartCount > 0) {
-      const badge = document.createElement("span");
-      badge.className = "cart-badge";
-      badge.textContent = cartCount;
-      basketIcon.appendChild(badge);
-    }
+        // Lägg till badge om cart count > 0
+        if (data.count > 0) {
+          const badge = document.createElement("span");
+          badge.className = "cart-badge";
+          badge.textContent = data.count;
+          basketIcon.appendChild(badge);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching cart count:", error);
+      });
   }
 
   // Call updateCartBadge on page load

@@ -42,6 +42,9 @@
             <div class="basket">
               <a href="" class="varukorg-icon">
                 <img src="/svg/basket.svg" alt="varukorg" />
+                <% if (locals.cartCount && cartCount > 0) { %>
+                <span class="cart-badge"><%= cartCount %></span>
+                <% } %>
               </a>
             </div>
             <div class="menu-icon">

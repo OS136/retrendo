@@ -13,6 +13,11 @@ router.get("/", (req, res) => {
   });
 });
 
+router.get("/count", (req, res) => {
+  const cart = req.session.cart || [];
+  res.json({ count: cart.length });
+});
+
 router.post("/add/:slug", (req, res) => {
   const product = db
     .prepare("SELECT * FROM products WHERE slug = ?")
@@ -22,6 +27,7 @@ router.post("/add/:slug", (req, res) => {
   res.json({
     success: true,
     count: req.session.cart.length,
+    product: product,
   });
 });
 
@@ -30,6 +36,9 @@ router.post("/remove/:id", (req, res) => {
   req.session.cart = req.session.cart.filter(
     (item) => item.id !== parseInt(req.params.id)
   );
-  res.json({ success: true });
+  res.json({
+    success: true,
+    count: req.session.cart.length,
+  });
 });
 module.exports = router;
