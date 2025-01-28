@@ -50,19 +50,25 @@
       </div>
       <nav class="navbar">
         <ul>
-          <li><a href="/">Hem</a></li>
-          <li><a href="#">Dam</a></li>
-          <li><a href="#">Herr</a></li>
-          <li><a href="#">Elektronik</a></li>
+            <li><a href="/">Hem</a></li>
+            <li><a href="/categories/Dam">Dam</a></li>
+            <li><a href="/categories/Herr">Herr</a></li>
+            <li><a href="/categories/Elektronik">Elektronik</a></li>
         </ul>
-      </nav>
+    </nav>
     </header>
-
+      <!----
       <section class="dam-section">
         <a href="#" class="dam-link">
           <h3>Dam</h3>
         </a>
       </section>
+      --->
+      <section class="category-section">
+        <a href="#" class="category-link">
+            <h3><%= categoryName %></h3>
+        </a>
+    </section>
 
       <div class="accordion">
         <!-- Filtrera -->
@@ -135,7 +141,7 @@
             </a>
           <% }) %>
         <% } else { %>
-          <p>Inga produkter tillgängliga för Dam-kategorin.</p>
+          <p>Inga produkter tillgängliga för <%= categoryName %>-kategorin.</p>
         <% } %>
       </div>
       
