@@ -3,16 +3,6 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-var sqlite3 = require("sqlite3").verbose();  // Lägg till sqlite3-modulen här
-
-// Skapa databasanslutning med rätt sökväg till Retrendo.db
-var db = new sqlite3.Database(path.join(__dirname, 'db', 'Retrendo.db'), sqlite3.OPEN_READWRITE, (err) => {
-  if (err) {
-    console.error("Databasfel:", err.message);
-  } else {
-    console.log("Connected to the database successfully");
-  }
-});
 
 var indexRouter = require("./routes/index");
 var homepageRoutes = require("./routes/homepage");
