@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../js/details.js" defer></script>
+    <!--<link rel="stylesheet" href="../stylesheets/details.css">-->
+    <link rel="stylesheet" href="../stylesheets/productdetails.css">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"
+      rel="stylesheet">
+    <title>Details</title>
+</head>
+<body>
+    <header class="header"> 
+        <!--Tvungen att skapa wrapper för layout i desktop-->
+          <div class="logo-search-wrapper">
+              <div class="logo-section">
+                  <a href="index.html">
+                  <img id="logo" src="/images/Logo.jpg" alt="Logo">
+                  </a>
+              </div>
+              
+            <div class="search-icons">
+              <div class="search-bar-container">
+                <form action="" class="search-bar">
+                    <input type="text" placeholder="Sök produkt" name="q">
+                    <button type="submit"><img src="/images/search.png" alt="search-icon"></button>
+                </form>
+            </div>
+          
+              <div class="icons">
+                  <div class="favorite">
+                      <a href="">
+                        <img src="svg/favorites.svg" alt="favoriter">
+                      </a>
+                  </div>
+                  <div class="basket">
+                      <a href="" class="varukorg-icon">
+                        <img src="/svg/basket.svg" alt="varukorg">
+                      </a>
+                  </div>
+                  <div class="menu-icon">
+                        <img src="/svg/menu.svg" alt="Meny">
+                        <div class="menu-links">
+                            <a href="">Logga in</a>
+                            <a href="">Registrera dig</a>
+                            <a href="">Sälj din produkt</a>
+                        </div>
+                  </div>
+            </div>
+          </div>
+    </div>
+          <!--Tog bort divtaggen för att kunna ha kvar menyn direkt i headern-->
+          <nav class="navbar">
+            <ul>
+              <li><a href="#">Hem</a></li>
+              <li><a href="#">Dam</a></li>
+              <li><a href="#">Herr</a></li>
+              <li><a href="#">Elektronik</a></li>
+            </ul>
+        </nav>
+    </header>
+
+            <section class="productContainer">
+                <article class="productInfo">
+                    <div class="productImage">
+                        <% if (product.news == "true") { %>
+                            <div class="nyhet">Nyhet</div>
+                        <% } %>
+                        <a href="#">
+                            <picture>
+                                <img src="https://placehold.co/500x600" alt="#">
+                            </picture>
+                        </a>
+                    </div>
+                    <div class="text">
+                        <div class="productHeading">
+                            <h3><%= product.name %></h3>
+                            <p class="price"><%= product.price %></p>
+                            <p><%= product.product_type %></p>
+                        </div>
+                            <div class="productTableContainer">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Färg</th>
+                                            <td><%= product.color %></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Storlek</th>
+                                            <td><%= product.size %></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Märke</th>
+                                            <td><%= product.brand %></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Skick</th>
+                                            <td><%= product.condition %></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                                    <h4 class="extraRubrik"><%= product.condition %></h4>
+                                        <p class="extraInfo"><%= product.description %></p>
+                                        <div class="buttons">
+                                            <form action="post">
+                                                <button type="submit" class="add">Lägg i varukorg</button>
+                                            </form>
+                                            <form action="post" method="post">
+                                                <button type="submit" class="checkOut">Till kassan</button>
+                                            </form>
+                                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!--Hidden-->
+            <section class="similarContainer">
+                <h2 class="similarHeading">Liknande Produkter</h2>                    
+            </section>
+            <section class="sertificationContainer">
+                <div class="core-values-container">
+                    <div class="core-value-item">
+                        <span>
+                            <img src="svg/quality.svg" alt="Quality icon">
+                        </span>
+                        <span class="core-value-text">Kvalitetssäkrad</span>
+                    </div>
+
+                    <div class="core-value-item">
+                        <span>
+                            <img src="svg/Sustainability.svg" alt="Sustainability icon">
+                        </span>
+                        <span class="core-value-text value">Hållbarhet</span>
+                    </div>
+
+                    <div class="core-value-item">
+                        <span>
+                            <img src="svg/safe-transaction1.svg" alt="Transaction icon">
+                        </span>
+                        <span class="core-value-text">Säker betalning</span>
+                    </div>
+                </div> 
+            </section>
+            <footer>
+                <div class="footer">
+                    <div class="footer-section-container">
+                        <div class="footer-section">
+                            <h3>Retrendo</h3>
+                            <ul>
+                                <li><a href="#">Om oss</a></li>
+                                <li><a href="#">Kontakta oss</a></li>
+                                <li><a href="#">Leverans</a></li>
+                                <li><a href="#">Vanliga frågor och svar</a></li>
+                            </ul>
+                        </div>
+        
+                        <div class="socials-container" >
+                            <h4>Följ oss på sociala medier</h4>
+                            <div class="socials-icons">
+                                <a href="">
+                                    <img src="svg/facebook.svg" alt="Facebook icon">
+                                </a>
+                                <a href="">
+                                    <img src="svg/instagram.svg" alt="Instagram icon">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-copyright">
+                        <span>© 2025 Retrendo-All Rights Reserved</span>
+                    </div>
+                </div>
+            </footer>
+</body>
+</html>
