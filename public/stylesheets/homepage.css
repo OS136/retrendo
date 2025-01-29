@@ -392,36 +392,6 @@ body {
   color: #000;
 }
 
-.favorite > a {
-  width: auto;
-  height: auto;
-  text-decoration: none;
-}
-
-#favorites-badge {
-  position: absolute;
-  top: -7px;
-  right: 72px;
-  background-color: red;
-  color: white;
-  border-radius: 50%;
-  padding: 2px 6px;
-  font-size: 10px;
-  font-weight: bold;
-  min-width: 10px;
-  height: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-}
-
-#favorite-icon {
-  display: none;
-  position: relative;
-  display: inline-block;
-}
-
 @media (min-width: 550px) {
   .navbar li {
     padding: 20px 25px;

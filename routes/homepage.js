@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var path = require("path");
-const zlib = require("zlib"); // compress files
+const { formatProducts } = require("./admin");
 const sqlite3 = require("sqlite3").verbose();
 
 const db = new sqlite3.Database(
@@ -30,24 +30,7 @@ router.get("/", (req, res) => {
       return;
     }
 
-    const formattedProducts =
-      recentProducts.length > 0
-        ? recentProducts.map((product) => {
-            if (product.image && typeof product.image !== "string") {
-              // Decompress the image
-              const decompressedBlob = zlib.brotliDecompressSync(
-                Buffer.from(product.image)
-              );
-
-              // Convert the image buffer to Base64
-              product.image = `data:image/${
-                product.image_type
-              };charset=utf-8;base64,${decompressedBlob.toString("base64")}`;
-            }
-
-            return product;
-          })
-        : [];
+    const formattedProducts = formatProducts(recentProducts);
 
     res.render("homepage", {
       recentProducts: formattedProducts,

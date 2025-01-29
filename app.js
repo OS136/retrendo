@@ -34,7 +34,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", homepageRoutes);
 app.use("/product", productRouter);
-app.use("/admin", adminRouter);
+app.use("/admin", adminRouter.router);
 app.use("/favorites", favoritesRouter);
 
 // catch 404 and forward to error handler
