@@ -3,13 +3,23 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+var session = require("express-session");
 
-var productRouter = require('./routes/product');
+var productRouter = require("./routes/product");
 var homepageRoutes = require("./routes/homepage");
 var adminRouter = require("./routes/admin");
+var favoritesRouter = require("./routes/favorites");
 //var indexRouter = require("./routes/index");
 
 var app = express();
+
+app.use(
+  session({
+    secret: "retrendo-secret",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 // view engine setup
 app.set("views", [
@@ -28,6 +38,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", homepageRoutes);
 app.use("/product", productRouter);
 app.use("/admin", adminRouter);
+app.use("/favorites", favoritesRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -46,4 +57,3 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
-
