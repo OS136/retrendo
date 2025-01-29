@@ -201,8 +201,7 @@ body {
     width: 100%;
     max-width: 470px;
     margin: 20px auto;
-    overflow: hidden;
-    
+    overflow: hidden; 
 }
 
 /* Accordion Item */
@@ -260,36 +259,57 @@ body {
     margin-right: 10px;
 }
 
+#apply-filters {
+    width: 250px;
+    display: block;
+    margin: 0 auto; /* Centrerar horisontellt */
+    text-align: center; /* Centrerar eventuell text */
+}
+
 .product-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
     gap: 10px;
-    padding: 0px;
+    padding: 0;
+    min-height: 46vh; /* Gör att containern fyller hela höjden */
+}
+
+.no-products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    grid-column: span 2; /* Gör så att den sträcker sig över hela gridens bredd */
+    text-align: center; /* För att centrera texten inom elementet */
 }
 
 .product-card {
+    position: relative; /* Viktigt för att positionera hjärtat över bilden */
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-decoration: none;
+    text-decoration: none; /* Tar bort länkunderstrykning */
+    color: inherit; /* Behåller textfärgen */
     padding: 10px;
-    overflow: hidden;
-    position: relative; /* Add this to make absolute positioning work */
+    overflow: hidden; /* Säkerställer att inget sticker ut */
 }
 
 .product-card img {
     width: 100%;
-    height: 300px;
-    object-fit: contain;
-    border-radius: 8px;
+    height: auto;
+    object-fit: cover;
 }
 
 .heart {
     position: absolute;
-    top: 260px; /* Position from top instead of bottom */
-    right: 40px;
-    cursor: pointer;
-    border-radius: 50%;
+    bottom: 100px;
+    right: 25px;
+    z-index: 10; /* Säkerställer att hjärtat ligger över bilden */
+    border-radius: 50%; /* Gör det rundare om önskat */
+    padding: 5px; /* Lite luft runt hjärtat */
+    cursor: pointer; /* Indikerar att det går att klicka */
 }
 
 .product-card h3 {
@@ -394,7 +414,18 @@ body {
     .navbar li{
         padding: 20px 25px;
     }
+
+.accordion {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    overflow: hidden; 
 }
+
+
+}
+    
+
 
 /* Responsive Design */
 @media (min-width: 769px) {
@@ -492,24 +523,52 @@ body {
 
     .accordion-header {
         font-size: 14px;
-        padding: 10px;
+        padding: 25px;
     }
 
     .accordion-content {
-        padding: 10px;
+        padding: 5px;
     }
 
+    .layout {
+        display: flex;
+        align-items: flex-start;
+    }
+    
     .accordion {
-        width: 300px;
-        flex-shrink: 0;
-        margin: 0;
+        width: 130px; /* Bevarar bredden */
+        height: auto; /* Gör att accordionens höjd växer beroende på innehållet */
+        max-height: 80vh; /* Sätter ett tak för höjden, gör den större men inte för stor */
+        overflow-y: auto; /* Lägger till scrollbar om innehållet är för långt */
+        flex-shrink: 0; /* Förhindrar att accordionen krymper */
     }
-        
+
+    #apply-filters {
+        width: 110px;
+        margin-top: 25px;
+    }
+    
     .product-container {
-        flex: 1;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
+        display: grid;
+        flex-grow: 1;
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
+        gap: 10px;
+        padding: 0;
+        min-height: 46vh; /* Gör att containern fyller hela höjden */
     }
+    
+    .no-products {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+        font-size: 25px;
+        font-weight: bold;
+        grid-column: span 3; /* Gör så att den sträcker sig över alla 3 kolumner */
+        text-align: center; /* För att centrera texten inom elementet */
+    }
+    
+
     .product-card {
         max-width: 300px;
     }

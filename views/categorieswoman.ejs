@@ -57,19 +57,14 @@
         </ul>
     </nav>
     </header>
-      <!----
-      <section class="dam-section">
-        <a href="#" class="dam-link">
-          <h3>Dam</h3>
-        </a>
-      </section>
-      --->
+     
       <section class="category-section">
         <a href="#" class="category-link">
             <h3><%= categoryName %></h3>
         </a>
     </section>
 
+    <div class="layout">
       <div class="accordion">
         <!-- Filtrera -->
         <div class="accordion-item">
@@ -86,7 +81,7 @@
         </div>
     
         <!-- Storlek -->
-        <div class="accordion-item">
+        <div class="accordion-item" id="size-filter">
           <div class="accordion-header">
             Storlek
             <span class="arrow">▼</span>
@@ -143,10 +138,9 @@
           <label><input type="checkbox"> Bra</label>
           <label><input type="checkbox"> Acceptabelt</label>
         </div>
+        <button id="apply-filters" disabled>Filtrera</button>
       </div>
     </div>
-
-    <button id="apply-filters" disabled>Filtrera</button>
 
     
     <div class="product-container">
@@ -167,11 +161,10 @@
               </a>
           <% }) %>
       <% } else { %>
-          <p>Inga produkter tillgängliga för <%= categoryName %>-kategorin.</p>
+        <p class="no-products">Inga produkter tillgängliga för <%= categoryName %>-kategorin.</p>
       <% } %>
   </div>
-  
-  
+  </div>
 
       <script>
         // JavaScript for Accordion
@@ -189,6 +182,19 @@
           });
         });
       </script>
+
+      <!--Gömma storlek-->
+      <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const categoryName = '<%= categoryName %>'; // Hämta kategori namn
+        if (categoryName === 'Elektronik') {
+          const sizeFilter = document.getElementById('size-filter');
+          if (sizeFilter) {
+            sizeFilter.style.display = 'none'; // Döljer storleksfilter
+          }
+        }
+      });
+    </script>
 
 <!--Knapp för filtrering-->
 <script>
