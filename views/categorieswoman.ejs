@@ -156,8 +156,15 @@
   
                   <!-- Produktbild och information -->
                   <img src="<%= product.image %>" alt="<%= product.name %>">
-                  <h3><%= product.name %></h3>
-                  <p>Pris: <%= product.price %> kr</p>
+                  <div class="product-brand-price">
+                    <span><%= product.brand %></span>
+                    <span><%= product.price %> SEK</span>
+                  </div>
+                  <div class="product-details">
+                    <div class="product-type"><%= product.product_type %></div>
+                    <div class="product-size"><%= product.size %></div>
+                  </div>
+                  
               </a>
           <% }) %>
       <% } else { %>
