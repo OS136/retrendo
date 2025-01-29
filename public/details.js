@@ -165,12 +165,9 @@ function updateFavoritesLink(setFavorite = "add") {
     }
   };
 
-  // Add or remove the 'href' attribute and event listener
   if (setFavorite === "remove") {
-    // favoritesAnchor.removeAttribute("href");
     favoritesAnchor.removeEventListener("click", handleClick); // Remove the click event listener
   } else {
-    // favoritesAnchor.setAttribute("href", "/favorites");
     favoritesAnchor.addEventListener("click", handleClick); // Add the click event listener
   }
 }
