@@ -6,6 +6,12 @@
     <link rel="stylesheet" href="/stylesheets/homepage.css" />
     <link rel="stylesheet" href="stylesheets/style.css" />
     <script src="/details.js"></script>
+    <script src="/favorites.js"></script>
+    <style>
+      .no-favorites-message {
+        font-size: 16px;
+      }
+    </style>
   </head>
   <body>
     <header class="header">
@@ -28,16 +34,13 @@
 
           <div class="icons">
             <div class="favorite">
-              <a>
+              <a href="">
                 <img src="/svg/favorites.svg" alt="favoriter" />
               </a>
             </div>
             <div class="basket">
               <a href="/cart" class="varukorg-icon">
                 <img src="/svg/basket.svg" alt="varukorg" />
-                <% if (locals.cartCount && cartCount > 0) { %>
-                <span class="cart-badge"><%= cartCount %></span>
-                <% } %>
               </a>
             </div>
             <div class="menu-icon">
@@ -63,18 +66,6 @@
 
     <main>
       <div class="main">
-        <section class="hero">
-          <div class="hero-image">
-            <img id="hero" src="/images/hero.jpg" alt="Hero" />
-          </div>
-          <div class="hero-text">
-            <h1>
-              Hitta det oväntade. Shoppa handplockade, unika second-hand fynd
-              för din stil
-            </h1>
-          </div>
-        </section>
-
         <div class="spot-container">
           <div class="spot">
             <div class="spot-image">
@@ -101,79 +92,126 @@
         </div>
 
         <section class="recently-added">
-          <h2>Nyligen tillagda</h2>
+          <h2>Mina favoriter</h2>
 
-          <section class="dam-section">
-            <a href="#" class="dam-link">
-              <h3>Dam</h3>
-            </a>
-          </section>
-          <div class="products-grid">
-            <% recentProducts.filter(product => product.category ===
-            'Dam').forEach(product => { %>
-            <div class="product">
-              <a href="/product/<%= product.slug %>">
-                <div class="product-image">
-                  <img
-                    src="<%= product.image || '/images/tshirt.png' %>"
-                    alt="<%= product.name %>"
-                  />
-                </div>
-                <div class="product-brand-price">
-                  <span><%= product.brand %></span>
-                  <span><%= product.price %> SEK</span>
-                </div>
-                <div class="product-details">
-                  <div class="product-type"><%= product.product_type %></div>
-                  <div class="product-size"><%= product.size %></div>
-                </div>
+          <% if (containsCategories.dam === true) { %>
+          <div id="dam-category">
+            <section class="dam-section">
+              <a href="#" class="dam-link">
+                <h3>Dam</h3>
               </a>
-              <div id="<%= product.id %>" class="heart">
-                <svg width="24" height="24" viewBox="0 0 24 24">
-                  <path
-                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                  />
-                </svg>
+            </section>
+            <div class="products-grid">
+              <% favoriteProducts.filter(product => product.category ===
+              'Dam').forEach(product => { %>
+              <div id="<%= product.id %>" class="product">
+                <a href="/product/<%= product.slug %>">
+                  <div class="product-image">
+                    <img
+                      src="<%= product.image || '/images/tshirt.png' %>"
+                      alt="<%= product.name %>"
+                    />
+                  </div>
+                  <div class="product-brand-price">
+                    <span><%= product.brand %></span>
+                    <span><%= product.price %> SEK</span>
+                  </div>
+                  <div class="product-details">
+                    <div class="product-type"><%= product.product_type %></div>
+                    <div class="product-size"><%= product.size %></div>
+                  </div>
+                </a>
+                <div id="<%= product.id %>" class="heart">
+                  <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                      d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                    />
+                  </svg>
+                </div>
               </div>
+              <% }); %>
             </div>
-            <% }); %>
+          </div>
+          <% } %> <% if (containsCategories.herr === true) { %>
+
+          <div id="herr-category">
+            <section class="dam-section">
+              <a href="#" class="dam-link">
+                <h3>Herr</h3>
+              </a>
+            </section>
+            <div class="products-grid">
+              <% favoriteProducts.filter(product => product.category ===
+              'Herr').forEach(product => { %>
+              <div id="<%= product.id %>" class="product">
+                <a href="/product/<%= product.slug %>">
+                  <div class="product-image">
+                    <img
+                      src="<%= product.image || '/images/tshirt.png' %>"
+                      alt="<%= product.name %>"
+                    />
+                  </div>
+                  <div class="product-brand-price">
+                    <span><%= product.brand %></span>
+                    <span><%= product.price %> SEK</span>
+                  </div>
+                  <div class="product-details">
+                    <div class="product-type"><%= product.product_type %></div>
+                    <div class="product-size"><%= product.size %></div>
+                  </div>
+                </a>
+                <div id="<%= product.id %>" class="heart">
+                  <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                      d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <% }); %>
+            </div>
           </div>
 
-          <section class="electronic-section">
-            <a href="#" class="electronic-link">
-              <h4>Elektronik</h4>
-            </a>
-          </section>
-          <div class="products-grid">
-            <% recentProducts.filter(product => product.category ===
-            'Elektronik').forEach(product => { %>
-            <div class="product">
-              <a href="/product/<%= product.slug %>">
-                <div class="product-image">
-                  <img
-                    src="<%= product.image || '/images/tshirt.png' %>"
-                    alt="<%= product.name %>"
-                  />
-                </div>
-                <div class="product-brand-price">
-                  <span><%= product.brand %></span>
-                  <span><%= product.price %> SEK</span>
-                </div>
-                <div class="product-details">
-                  <div class="product-type"><%= product.product_type %></div>
-                  <div class="product-size"><%= product.size %></div>
-                </div>
+          <% } %> <% if (containsCategories.elektronik === true) { %>
+          <div id="elektronik-category">
+            <section class="electronic-section">
+              <a href="#" class="electronic-link">
+                <h4>Elektronik</h4>
               </a>
-              <div id="<%= product.id %>" class="heart">
-                <svg width="24" height="24" viewBox="0 0 24 24">
-                  <path
-                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                  />
-                </svg>
+            </section>
+            <div class="products-grid">
+              <% favoriteProducts.filter(product => product.category ===
+              'Elektronik').forEach(product => { %>
+
+              <div id="<%= product.id %>" class="product">
+                <a href="/product/<%= product.slug %>">
+                  <div class="product-image">
+                    <img
+                      src="<%= product.image || '/images/tshirt.png' %>"
+                      alt="<%= product.name %>"
+                    />
+                  </div>
+                  <div class="product-brand-price">
+                    <span><%= product.brand %></span>
+                    <span><%= product.price %> SEK</span>
+                  </div>
+                  <div class="product-details">
+                    <div class="product-type"><%= product.product_type %></div>
+                    <div class="product-size"><%= product.size %></div>
+                  </div>
+                </a>
+                <div id="<%= product.id %>" class="heart">
+                  <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                      d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                    />
+                  </svg>
+                </div>
               </div>
+              <% }); %>
             </div>
-            <% }); %>
           </div>
+          <% } %>
         </section>
 
         <section>

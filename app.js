@@ -17,7 +17,7 @@ app.use(
 var productRouter = require("./routes/product");
 var homepageRoutes = require("./routes/homepage");
 var adminRouter = require("./routes/admin");
-//var indexRouter = require("./routes/index");
+var favoritesRouter = require("./routes/favorites");
 const cartRouter = require("./routes/cart");
 
 // view engine setup
@@ -33,10 +33,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-//app.use("/", indexRouter);
 app.use("/", homepageRoutes);
 app.use("/product", productRouter);
-app.use("/admin", adminRouter);
+app.use("/admin", adminRouter.router);
+app.use("/favorites", favoritesRouter);
 app.use("/cart", cartRouter);
 
 // catch 404 and forward to error handler
