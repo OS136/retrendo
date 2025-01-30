@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const Database = require("better-sqlite3");
+const { formatProducts } = require("./admin");
 const db = new Database("./db/Retrendo.db", { verbose: console.log });
 
 router.get("/:slug", (req, res) => {
@@ -20,6 +21,8 @@ router.get("/:slug", (req, res) => {
       return res.status(404).send("Product not found");
     }
 
+    const formattedProduct = formatProducts([product])[0];
+
     const selectSimilar = db.prepare(`
       SELECT * FROM products 
       WHERE category = ? 
@@ -31,9 +34,11 @@ router.get("/:slug", (req, res) => {
       req.params.slug
     );
 
+    const formattedSimilarProducts = formatProducts(similarProducts);
+
     res.render("productdetails", {
-      product: product,
-      similarProducts: similarProducts,
+      product: formattedProduct,
+      similarProducts: formattedSimilarProducts,
     });
   } catch (error) {
     console.error("Error:", error);
