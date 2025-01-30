@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const path = require("path");
+const path = require("path");
 var sqlite3 = require("sqlite3").verbose();
 const zlib = require("zlib");
 
@@ -34,5 +35,3 @@ router.get("/:category", function (req, res) {
 });
 
 module.exports = router;
-
-
