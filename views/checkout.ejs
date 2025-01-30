@@ -77,42 +77,42 @@
                         </thead>
                         <tbody>
                             <tr class="yttreImageProductContainer">
-                                <%# basket.forEach(basketItem => { %>
+                                <% basket.forEach(basketItem => { %>
                                 <td class="imageProductContainer">
                                     <div class="imageContainer">
-                                        <img class="imagen" src="<%#= basketItem.product.image %>" alt="<%#= basketItem.product.name %>"><!--basketItem.product.image--><!--basketItem.product.name-->
+                                        <img class="imagen" src="<%= basketItem.product.image %>" alt="<%= basketItem.product.name %>">
                                     </div>
                                     <div class="productInfoContainer">
-                                        <h3><%#= basketItem.product.product_type %></h3> <!--basketItem.product.product_type-->
+                                        <h3><%= basketItem.product.product_type %></h3>
                                         <table class="innerTable">
                                             <tbody>
                                                     <tr>
                                                         <td class="brandheading">Märke:</td>
-                                                        <td class="brand"><%#= basketItem.product.brand %></td> <!--basketItem.product.brand-->
+                                                        <td class="brand"><%= basketItem.product.brand %></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="conditionheading">Skick:</td>
-                                                        <td class="condition"><%#= basketItem.product.condition %></td> <!--basketItem.product.condition-->
+                                                        <td class="condition"><%= basketItem.product.condition %></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="sizeheading">Storlek:</td>
-                                                        <td class="size"><%#= basketItem.product.size %></td><!--basketItem.product.size-->
+                                                        <td class="size"><%= basketItem.product.size %></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="colorheading">Färg:</td>
-                                                        <td class="color"><%#= basketItem.product.color %></td><!--basketItem.product.color-->
+                                                        <td class="color"><%= basketItem.product.color %></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="categoriheading">Kategori:</td>
-                                                        <td class="categori"><%#= basketItem.product.categori %></td><!--basketItem.product.categori-->
+                                                        <td class="categori"><%= basketItem.product.categori %></td>
                                                     </tr>
-                                                <%# }); %>
+                                                <% }); %>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </td>
-                            <td class="quantity"><%#= basketItem.product.quantity %></td><!--basketItem.product.quantity-->
-                            <td class="total"><%#= basketItem.product.price %>kr</td><!--basketItem.product.price-->
+                            <td class="quantity"><%= basketItem.product.quantity %></td>
+                            <td class="total"><%= basketItem.product.price %>kr</td>
                     </tr>
                     
 
@@ -160,13 +160,6 @@
                     </div>
                 </div>
 
-
-
-
-
-               
-                            <!--iNPUTETs name ÄR DEN INFORMATIONEN SOM VI VILL SKICKA TILL BACKEND
-                                I DETTA FALLET ÄR DET PRODUKTENS ID-->
                                 <input type="hidden" name="productId" value="<%#= product.id %>">
                                 <button class="bekräfta" type="submit">Bekräfta köp</button>
                                 
