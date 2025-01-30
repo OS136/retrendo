@@ -73,8 +73,6 @@
             <span class="arrow">▼</span>
           </div>
           <div class="accordion-content">
-            <label><input type="checkbox"> Nyaste</label>
-            <label><input type="checkbox"> Mest populära</label>
             <label><input type="checkbox"> Lägsta pris</label>
             <label><input type="checkbox"> Högsta pris</label>
           </div>
@@ -146,14 +144,19 @@
     <div class="product-container">
       <% if (products && products.length > 0) { %>
           <% products.forEach(product => { %>
-              <a href="/products/<%= product.slug %>" class="product-card">
+              <a href="/products/<%= product.slug %>" 
+                 class="product-card"
+                 data-color="<%= product.color %>"
+                 data-condition="<%= product.condition %>"
+                 data-price="<%= product.price %>">
+                 
                   <!-- Hjärtikon -->
                   <div class="heart">
                       <svg class="heart-icon" width="24" height="24" viewBox="0 0 24 24">
                           <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                       </svg>
                   </div>
-  
+    
                   <!-- Produktbild och information -->
                   <img src="<%= product.image %>" alt="<%= product.name %>">
                   <div class="product-brand-price">
@@ -170,79 +173,16 @@
       <% } else { %>
         <p class="no-products">Inga produkter tillgängliga för <%= categoryName %>-kategorin.</p>
       <% } %>
-  </div>
-  </div>
-
-      <script>
-        // JavaScript for Accordion
-        const accordionItems = document.querySelectorAll('.accordion-item');
+    </div>
     
-        accordionItems.forEach(item => {
-          const header = item.querySelector('.accordion-header');
-          const content = item.querySelector('.accordion-content');
-          const arrow = item.querySelector('.arrow');
-    
-          header.addEventListener('click', () => {
-            const isOpen = content.style.display === 'block';
-            content.style.display = isOpen ? 'none' : 'block';
-            arrow.classList.toggle('rotate', !isOpen);
-          });
-        });
-      </script>
+  </div>
 
-      <!--Gömma storlek-->
-      <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const categoryName = '<%= categoryName %>'; // Hämta kategori namn
-        if (categoryName === 'Elektronik') {
-          const sizeFilter = document.getElementById('size-filter');
-          if (sizeFilter) {
-            sizeFilter.style.display = 'none'; // Döljer storleksfilter
-          }
-        }
-      });
-    </script>
-
-<!--Knapp för filtrering-->
+  
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const checkboxes = document.querySelectorAll(".accordion-content input[type='checkbox']");
-  const filterButton = document.getElementById("apply-filters");
-
-  // Lyssna på ändringar i checkboxarna
-  checkboxes.forEach(checkbox => {
-      checkbox.addEventListener("change", () => {
-          const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
-          filterButton.disabled = !isChecked; // Aktivera knappen om minst en är vald
-      });
-  });
-
-  // När filter-knappen klickas
-  filterButton.addEventListener("click", () => {
-      let selectedFilters = [];
-
-      checkboxes.forEach(checkbox => {
-          if (checkbox.checked) {
-              selectedFilters.push(checkbox.parentElement.textContent.trim());
-          }
-      });
-
-      console.log("Valda filter:", selectedFilters); // Kolla i konsolen vad som valts
-
-      // Skicka de valda filtren till backend eller filtrera lokalt
-      filterProducts(selectedFilters);
-  });
-
-  function filterProducts(filters) {
-      const products = document.querySelectorAll(".product-card");
-
-      products.forEach(product => {
-          let matches = filters.some(filter => product.textContent.includes(filter));
-          product.style.display = matches ? "block" : "none"; // Dölj/visa produkter
-      });
-  }
-});
+  const categoryName = '<%= categoryName %>';
 </script>
+<script src="/categoriesfilter.js"></script>
+
 
 <!--Filter meny-->
 <script>
@@ -319,3 +259,4 @@ document.addEventListener("DOMContentLoaded", function () {
   </footer>
 </body>
 </html>
+
