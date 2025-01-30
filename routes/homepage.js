@@ -1,15 +1,8 @@
 var express = require("express");
 var router = express.Router();
 var path = require("path");
-const zlib = require("zlib"); // compress files
+const { formatProducts } = require("./admin");
 const sqlite3 = require("sqlite3").verbose();
-
-// const dbfilePath = path.resolve(process.cwd(), "./db/products.db");
-
-// Ger oss tillgång till databasen
-// const db = new sqlite3.Database(dbfilePath, sqlite3.OPEN_READWRITE, (err) => {
-//   if (err) return console.error(err.message);
-// });
 
 const db = new sqlite3.Database(
   path.join(__dirname, "../db/Retrendo.db"),
@@ -37,28 +30,18 @@ router.get("/", (req, res) => {
       return;
     }
 
-    const formattedProducts =
-      recentProducts.length > 0
-        ? recentProducts.map((product) => {
-            if (product.image && typeof product.image !== "string") {
-              // Decompress the image
-              const decompressedBlob = zlib.brotliDecompressSync(
-                Buffer.from(product.image)
-              );
-
-              // Convert the image buffer to Base64
-              product.image = `data:image/${
-                product.image_type
-              };charset=utf-8;base64,${decompressedBlob.toString("base64")}`;
-            }
-
-            return product;
-          })
-        : [];
+    const formattedProducts = formatProducts(recentProducts);
 
     res.render("homepage", {
       recentProducts: formattedProducts,
     });
   });
 });
+
+router.post("/storeFavorites", (req, res) => {
+  const favoriteIdList = req.body.favorites.join(",");
+  req.session.favorites = favoriteIdList || req.session?.favorites;
+  res.json({ favorites: req.session.favorites });
+});
+
 module.exports = router;
