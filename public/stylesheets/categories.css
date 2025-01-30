@@ -304,7 +304,7 @@ body {
 
 .heart {
     position: absolute;
-    bottom: 100px; /* Placera hjärtat högst upp i bilden */
+    bottom: 80px; /* Placera hjärtat högst upp i bilden */
     right: 20px;
     z-index: 10;
     border-radius: 50%;
@@ -333,9 +333,17 @@ body {
     margin-top: 10px;
 }
 
+.product-details {
+    display: flex;
+    align-items: baseline; /* Justerar elementen vertikalt */
+    gap: 5px;
+}
+
+
 .product-type, .product-size {
     font-size: 16px;
     margin-top: 5px; /* Lägg till mellanrum mellan typ och storlek */
+    white-space: nowrap;
 }
 
 .product-type {
