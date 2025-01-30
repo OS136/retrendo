@@ -166,156 +166,24 @@ body {
         display: block; 
       }
 
-    
+
+
+main>div{
+   display: flex;
+   justify-content: center;
+   margin-top: 100px;
+   padding-bottom: 150px;
+}
 
 
 
 
 
 
-
-main{
-    box-sizing: border-box;
-    margin-top: 50px;
-    padding: 3%;
-    justify-items: center;
-   
-}
-.kassa{
-    text-align: center;
-    font-size: 25px;
-    margin-bottom: 50px;
-}
-form{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    
-}
-.articel, .antal, .summa{
-    border-bottom: 2px solid black;
-    padding-bottom: 15px;
-    font-size: 20px;
-}
-.articel{
-    width: 55%;
-    margin-right: 20px;
-    text-align: center;
-}
-.antal{
-    margin-left: 5px;
-    width: 15%;
-    text-align: center;
-   
-   
-}
-.quantity{
-    text-align: center;
-}
-.summa{
-    width: 20%;
-    text-align: end;
-}
-.total{
-    text-align: end;
-}
-h3{
-    font-size: 20px;
-}
-
-
-/*tabell Text*/
-.conditionheading,
-.sizeheading,
-.priceheading,
-.colorheading,
-.brandheading,
-.categoriheading
-{
-font-size: 18px;
-}
-.condition,
-.size,
-.color,
-.quantity,
-.total,
-.brand,
-.categori{
-    font-size: 18px;
-}
-.imageProductContainer,
-.quantity,
-.total{
-    border-bottom: 2px solid black;
-}
-.imageProductContainer{
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-    
-}
-.imageContainer{
-    max-width: 40%;
-    display: inline-block;
-    
-}
-
-.imagen{
-    width: 100%;
-}
-
-.productInfoContainer{
-    display: flex;
-    flex-direction: column;
-    padding-left: 10px;
-    width: 50%;
-}
-.basketsumma{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    width: 100%;
-}
-.basketsumma>p{
-    display: inline-block;
-    width: 100px;
-    margin-right: 5%;
-    font-size: 18px;
-}
-
-.kundContainer{
-    width: 80%;
-}
-
-input{
-    height: 30px;
-    margin-top: 5px;
-}
-label{
-    margin-top: 20px;
-}
-.textContainer{
-    display: flex;
-    flex-direction: column;
-}
-
-.checkboxContainer{
-    margin-top: 15px;
-display: flex;
-gap: 8px;
-}
-.checkbox1{
-    margin-top: 10px;
-}
-.bekräfta{
-    margin-top: 50px;
-    display: inline-block;
-    width: 100%;
-    }
-.shopping{
-    display: inline-block;
-    width: 100%;
-}
+      .tack{
+        width: 80%;
+        height: auto;
+      }
 
 
 
@@ -327,8 +195,17 @@ gap: 8px;
 
 
 
-      
-    .core-values-container {
+
+
+
+
+
+
+
+
+
+         
+      .core-values-container {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -587,4 +464,4 @@ gap: 8px;
             text-align: center; 
             min-width: 245px; 
           }
-        }
+        }   

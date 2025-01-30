@@ -2,28 +2,73 @@ var express = require("express");
 var router = express.Router();
 var path = require("path");
 const sqlite3 = require("sqlite3").verbose();
+const Database = require("better-sqlite3");
+const db = new Database("./db/Retrendo.db", { verbose: console.log });
 
-// GET /
-//router.get("/", function (request, response) {
-  //  response.render("checkout"); 
-//});
-//INKOMMANDE POST
-
-//GET /basket
+//GET /checkout
 router.get('/', function(request, response){
-    // Hämta ut basket från sessionen -om den inte finns kommer vi få 
-    // undefined tillbaka. vi använder den så kallade 
-    // Mullish coalescing operator is a logical operator that returns 
-    // its right-hand side operand when its left-hand side operand is 
-    // null eller undefined, annars returnerar den operanden till vänster
-//let basket = request.session.basket ?? [];
+    // Hämta ut cart från sessionen och lägger värdet i basket
+let basket = request.session.cart ?? [];
 
 response.render("checkout", {
     title: 'Checkout',
-    //basket,
+    basket,
 });
 });
 
+//INKOMMANDE POST
+router.post("/", function (request, response) {
+    const customer = {
+        firstName: request.body.firstName,
+        lastName: request.body.lastName,
+        street: request.body.street,
+        zip: request.body.zip,
+        city: request.body.city,
+        phone: request.body.phone,
+        email: request.body.email,
+        newsletter: request.body.checkbox === "on" ? 1 : 0
+    };
+
+    const insertCustomer = db.prepare(`
+        INSERT INTO customers(firstName, lastName, street, zip, city, phone, email, newsletter)
+        VALUES(@firstName, @lastName, @street, @zip, @city, @phone, @email, @newsletter)
+        `);
+
+    const resultInsertCustomer = insertCustomer.run(customer);
+    
+    const customerId = resultInsertCustomer.lastInsertRowid;
+
+    const insertOrder = db.prepare(`
+        INSER INTO orders(customer_id, created_at)
+        VALUES (@customerId, datetime('now'))
+        `);
+        const resultInsertOrder = insertOrder.run({customerId});
+        const orderId = resultInsertOrder.lastInsertRowid;
+
+            //hämta varukorgen från sessionen
+        const basket = request.session.cart ?? [];
+            // skapa SQL-fråga som vi kan köra för varje produkt i varukorgen
+            const insertOrderLine = db.prepare(`
+                INSERT INTO order_lines (order_id, product_id, quantity)
+                VALUES (@orderId, @productId, @quantity)
+                `);
+                   
+                basket.forEach(basketItem => {
+
+                    const orderLine = {
+                        orderId,
+                        productId: basketItem.product.id,
+                        quantity: basketItem.quantity,
+                    };
+                    insertOrderLine.run(orderLine)
+                    
+                });
+
+                // tömmer varukorgen
+                request.session.basket = [];
+                
+    response.redirect("/checkout/confirmation")
+});
 // När man klickar på knappen "Lägg i varukorg" på detaljsidan skickas
 // ett POST-anrop till /basket, vilket vi hanterar med denna route.
 /*router.post("/", function (req, res) {
@@ -42,6 +87,8 @@ console.log(productId);
     // och denna kan vi se som en låda där varje användare har sin egen låda
     // där produkterna läggs ner i. 
 let basket = req.session.basket ?? [];
+let cart = req.session.cart ?? [];
+vad den heter på sidan
 
     // sök efter produkten i varukorgen. basket är en array
     // som innehåller basketItem. en basketitem är ett objekt som 
@@ -88,14 +135,17 @@ if(basketItem){
     // laddar om sidan som den kom ifrån
 res.redirect('back');
 });
+
 //nu behöver vi hämta middlewear som skapar en session som kan hålla informationen
 // vilket är vad användaren trycker på i detta fallet.
 // använd npm install express-session i terminalen
 // koppla sen in sessionen i app.js med
-// var session = require('express-session);
+// var session = require('express-session');
 */
 router.get('/homepage', function(request, response){
 
     response.render("homepage");
     });
+
+
 module.exports = router;
