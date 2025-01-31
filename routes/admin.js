@@ -20,24 +20,7 @@ router.get("/products", (req, res) => {
     );
     const products = stmt.all();
 
-    const formattedProducts =
-      products.length > 0
-        ? products.map((product) => {
-            if (product.image && typeof product.image !== "string") {
-              // Decompress the image
-              const decompressedBlob = zlib.brotliDecompressSync(
-                Buffer.from(product.image)
-              );
-
-              // Convert the image buffer to Base64
-              product.image = `data:image/${
-                product.image_type
-              };charset=utf-8;base64,${decompressedBlob.toString("base64")}`;
-            }
-
-            return product;
-          })
-        : [];
+    const formattedProducts = formatProducts(products);
 
     res.json(formattedProducts);
   } catch (error) {
@@ -143,4 +126,33 @@ router.delete("/products/:id", (req, res) => {
   res.json({ message: "Product deleted" });
 });
 
-module.exports = router;
+/**
+ * Takes an array of products and formats them for frontend consumption.
+ *
+ * @param {Array} products - array of products
+ * @returns {Array} formatted products
+ */
+function formatProducts(products) {
+  const formattedProducts =
+    products.length > 0
+      ? products.map((product) => {
+          if (product.image && typeof product.image !== "string") {
+            // Decompress the image
+            const decompressedBlob = zlib.brotliDecompressSync(
+              Buffer.from(product.image)
+            );
+
+            // Convert the image buffer to Base64
+            product.image = `data:image/${
+              product.image_type
+            };charset=utf-8;base64,${decompressedBlob.toString("base64")}`;
+          }
+
+          return product;
+        })
+      : [];
+
+  return formattedProducts;
+}
+
+module.exports = { router, formatProducts };

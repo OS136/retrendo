@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/cart.css" />
+    <script src="/details.js"></script>
+    <title>Varukorg - Retrendo</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo-search-wrapper">
+        <div class="logo-section">
+          <a href="/">
+            <img id="logo" src="/images/Logo.jpg" alt="Logo" />
+          </a>
+        </div>
+
+        <div class="search-icons">
+          <div class="search-bar-container">
+            <form action="/search" method="GET" class="search-bar">
+              <input type="text" placeholder="Sök produkt" name="search" />
+              <button type="submit">
+                <img src="/images/search.png" alt="search-icon" />
+              </button>
+            </form>
+          </div>
+
+          <div class="icons">
+            <div class="favorite">
+              <a href=""><img src="/svg/favorites.svg" alt="favoriter" /></a>
+            </div>
+            <div class="basket">
+              <a href="/cart" class="varukorg-icon">
+                <img src="/svg/basket.svg" alt="varukorg" />
+                <% if (locals.cartCount && cartCount > 0) { %>
+                <span class="cart-badge"><%= cartCount %></span>
+                <% } %>
+              </a>
+            </div>
+            <div class="menu-icon">
+              <img src="/svg/menu.svg" alt="Meny" />
+              <div class="menu-links">
+                <a href="">Logga in</a>
+                <a href="">Registrera dig</a>
+                <a href="">Sälj din produkt</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="navbar">
+        <ul>
+          <li><a href="/">Hem</a></li>
+          <li><a href="/categories/Dam">Dam</a></li>
+          <li><a href="/categories/Herr">Herr</a></li>
+          <li><a href="/categories/Elektronik">Elektronik</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="cart-container">
+        <h1>Din varukorg</h1>
+        <div class="cart-content">
+          <% if (cart.length === 0) { %>
+          <p>Din varukorg är tom</p>
+          <% } else { %>
+          <div class="cart-items">
+            <% cart.forEach(product => { %>
+            <div class="cart-item">
+              <div class="item-image">
+                <img src="<%= product.image %>" alt="<%= product.name %>" />
+              </div>
+              <div class="item-details">
+                <h3><%= product.brand %></h3>
+                <p><%= product.name %></p>
+                <p>Typ: <%= product.product_type %></p>
+                <p>Färg: <%= product.color %></p>
+                <p>Storlek: <%= product.size %></p>
+                <div class="quantity-controls">
+                  <span>1</span>
+                </div>
+              </div>
+              <p class="item-price"><%= product.price %> SEK</p>
+              <button class="remove-btn" data-id="<%= product.id %>">
+                Ta bort
+              </button>
+            </div>
+            <% }); %>
+          </div>
+          <div class="cart-summary">
+            <div class="summary-row">
+              <span>Totalt</span>
+              <span><%= total %> SEK</span>
+            </div>
+          </div>
+          <button class="checkout-btn">Till kassan</button>
+          <button class="shopping-btn" onclick="window.location.href='/'">
+            Fortsätt handla
+          </button>
+          <% } %>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer">
+        <div class="footer-section-container">
+          <div class="footer-section">
+            <h4>Retrendo</h4>
+            <ul>
+              <li><a href="#">Om oss</a></li>
+              <li><a href="#">Kontakta oss</a></li>
+              <li><a href="#">Leverans</a></li>
+              <li><a href="#">Vanliga frågor och svar</a></li>
+            </ul>
+          </div>
+          <div class="socials-container">
+            <h5>Följ oss på sociala medier</h5>
+            <div class="socials-icons">
+              <a href=""><img src="/svg/facebook.svg" alt="Facebook icon" /></a>
+              <a href=""
+                ><img src="/svg/instagram.svg" alt="Instagram icon"
+              /></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <span>© 2025 Retrendo-All Rights Reserved</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuIcon = document.querySelector(".menu-icon");
+
+    menuIcon.addEventListener("click", (e) => {
+      e.stopPropagation();
+      menuIcon.classList.toggle("open");
+    });
+
+    document.addEventListener("click", () => {
+      menuIcon.classList.remove("open");
+    });
+  });
+</script>

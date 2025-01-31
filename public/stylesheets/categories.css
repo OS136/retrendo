@@ -88,24 +88,6 @@ body {
   cursor: pointer;
 }
 
-.cart-badge {
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  background-color: red;
-  color: white;
-  border-radius: 50%;
-  padding: 2px 6px;
-  font-size: 10px;
-  font-weight: bold;
-  min-width: 10px;
-  height: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-}
-
 .varukorg-icon {
   position: relative;
   display: inline-block;
@@ -190,44 +172,20 @@ body {
   padding: 2%;
 }
 
-#hero {
-  max-width: 100%;
-}
-.hero {
-  border: 1px solid black;
-  border-radius: 15px;
-  background-color: rgba(59, 66, 59, 255);
-  margin-bottom: 2%;
-  padding: 3%;
-  font-size: 18px;
-  margin-top: -20px;
-}
-
-.hero-text h1 {
-  text-align: center;
-  font-size: 30px;
-  color: rgb(231, 229, 229);
-}
-.recently-added h2 {
-  font-size: 3em;
-  text-align: center;
-  margin-bottom: 20px;
-  font-weight: lighter;
-  padding: 20px;
-}
-
-.dam-section {
+.category-section {
   padding: 0;
   background-color: #fff;
   border: 2px solid black;
+  text-decoration: none;
   border-radius: 10px;
   text-align: center;
   width: auto;
   margin-top: 40px;
   margin-bottom: 40px;
+  margin: 6px;
 }
 
-.dam-section h3 {
+.category-section h3 {
   font-size: 3em;
   text-align: center;
   padding: 0;
@@ -235,98 +193,178 @@ body {
   padding: 10px;
   margin: 0;
 }
-
-.dam-section a {
-  text-decoration: none;
+.search-result-title {
+  font-size: 1.5em;
+  text-align: center;
+  padding: 0;
+  color: #000;
+  padding: 10px;
+  margin: 0;
+  font-weight: bold;
 }
 
-.spot-container {
-  display: none; /* Gömmer spots i mobilläge */
+.category-section a {
+  text-decoration: none; /* Tar bort understrykning */
 }
 
-.products-grid {
-  margin-top: 2%;
-  margin-bottom: 5%;
-  font-size: 18px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 20px;
-  max-width: 1000px;
-}
-
-.product {
-  margin: 5% auto;
-  position: relative;
-}
-
-.product-image {
-  margin-bottom: 2%;
-  margin-top: 2%;
-  height: max-content;
-  position: relative;
-}
-
-.product img {
+/* Accordion Container */
+.accordion {
   width: 100%;
+  max-width: 470px;
+  margin: 20px auto;
+  overflow: hidden;
 }
 
-.product-brand-price {
+/* Accordion Item */
+.accordion-item {
+  border-bottom: 1px solid black;
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+/* Accordion Header */
+.accordion-header {
+  background: white;
+  padding: 15px;
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
+  transition: background-color 0.3s;
 }
 
-.product a {
-  text-decoration: none;
+.accordion-header:hover {
+  background: #e0e0e0;
+}
+
+/* Accordion Content */
+.accordion-content {
+  padding: 15px;
+  background: #fff;
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Arrow Icon */
+.arrow {
+  transition: transform 0.3s ease-in-out;
+}
+
+.arrow.rotate {
+  transform: rotate(180deg);
+}
+
+/* Options inside content */
+.accordion-content label {
+  display: block;
+  margin: 8px 0;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.accordion-content input {
+  margin-right: 10px;
+}
+
+#apply-filters,
+#reset-filters {
+  width: 250px;
+  display: block;
+  margin: 0 auto; /* Centrerar horisontellt */
+  text-align: center; /* Centrerar eventuell text */
+}
+
+#reset-filters {
+  margin-top: 10px;
+  background-color: white;
   color: black;
 }
 
-.product-type {
-  font-size: 16px;
-  color: rgb(71, 71, 71);
-  margin-top: 2%;
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
+  gap: 10px;
+  padding: 0;
+  min-height: 46vh; /* Gör att containern fyller hela höjden */
 }
 
-.product-size {
-  font-size: 16px;
-}
-
-.product-details {
-  display: inline-flex;
+.no-products {
+  display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 5px;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  grid-column: span 2; /* Gör så att den sträcker sig över hela gridens bredd */
+  text-align: center; /* För att centrera texten inom elementet */
+}
+
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 5px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-card img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .heart {
   position: absolute;
-  width: 40px;
-  bottom: 75px;
-  right: 15px;
+  bottom: 80px; /* Placera hjärtat högst upp i bilden */
+  right: 20px;
+  z-index: 10;
+  border-radius: 50%;
+  padding: 5px;
   cursor: pointer;
 }
 
-.electronic-section {
-  padding: 0;
-  background-color: #fff;
-  border: 2px solid black;
-  border-radius: 10px;
-  text-align: center;
-  width: auto;
-  margin-top: 40px;
-  margin-bottom: 40px;
+.product-card h3 {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #333;
 }
 
-.electronic-section h4 {
-  font-size: 3em;
-  text-align: center;
-  padding: 0;
-  color: #000;
-  padding: 10px;
-  margin: 0;
+.product-card p {
+  font-size: 14px;
+  color: #555;
 }
-.electronic-section a {
-  text-decoration: none;
+
+.product-brand-price {
+  display: flex;
+  justify-content: space-between; /* Placera brand till vänster och price till höger */
+  font-weight: bold;
+  font-size: 18px;
+  gap: 30px;
+  margin-top: 10px;
+}
+
+.product-details {
+  display: flex;
+  align-items: baseline; /* Justerar elementen vertikalt */
+  gap: 5px;
+}
+
+.product-type,
+.product-size {
+  font-size: 16px;
+  margin-top: 5px; /* Lägg till mellanrum mellan typ och storlek */
+  white-space: nowrap;
+}
+
+.product-type {
+  color: rgb(71, 71, 71); /* Färg för typ */
 }
 
 .core-values-container {
@@ -419,18 +457,23 @@ body {
   .navbar li {
     padding: 20px 25px;
   }
-}
 
-/* Desktop läge */
-
-@media (min-width: 550px) {
-  .navbar li {
-    padding: 20px 25px;
+  .accordion {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    overflow: hidden;
   }
 }
 
+/* Responsive Design */
 @media (min-width: 769px) {
-  /* Create a wrapper for logo and search-icons */
+  .main {
+    display: flex;
+    gap: 30px;
+    padding: 2%;
+  }
+
   .header {
     padding: 2%;
   }
@@ -515,133 +558,65 @@ body {
     margin-left: 20px;
   }
 
-  .spot-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Tre kolumner */
-    max-width: 1200px;
-    gap: 20px; /* Mellanrum mellan spots */
-    margin: 0 auto;
-    padding-top: 20px;
+  .accordion-header {
+    font-size: 14px;
+    padding: 25px;
   }
 
-  .spot {
+  .accordion-content {
+    padding: 5px;
+  }
+
+  .layout {
     display: flex;
-    flex-direction: column; /* Texten placeras under spoten */
-    align-items: center; /* Centrerar innehållet horisontellt */
-    text-align: center; /* Centrerar texten */
+    align-items: flex-start;
   }
 
-  .spot-image {
-    width: 100%; /* Gör varje spot responsiv */
-    aspect-ratio: 1/1; /* Fyrkantig bas för att få runda spots */
-    border-radius: 50%; /* Gör spots runda */
-    overflow: hidden; /* Döljer innehåll utanför den runda formen */
-    background-color: #f9f9f9; /* Bakgrundsfärg för att visa cirkeln */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Lätt skugga */
-    border: 2px solid #ccc; /* Kantlinje för definition */
-    display: flex; /* Centrerar bilden i spoten */
+  .accordion {
+    width: 130px; /* Bevarar bredden */
+    height: auto; /* Gör att accordionens höjd växer beroende på innehållet */
+    max-height: 80vh; /* Sätter ett tak för höjden, gör den större men inte för stor */
+    overflow-y: auto; /* Lägger till scrollbar om innehållet är för långt */
+    flex-shrink: 0; /* Förhindrar att accordionen krymper */
+  }
+
+  #apply-filters,
+  #reset-filters {
+    width: 110px;
+    margin-top: 25px;
+  }
+
+  #reset-filters {
+    margin-top: 10px;
+  }
+
+  .product-container {
+    display: grid;
+    flex-grow: 1;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
+    gap: 10px;
+    padding: 0;
+    min-height: 46vh; /* Gör att containern fyller hela höjden */
+  }
+
+  .no-products {
+    display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  .spot-image img {
-    width: 100%; /* Fyller spoten horisontellt */
-    height: 100%; /* Fyller spoten vertikalt */
-    object-fit: cover; /* Täcker hela spoten utan förvrängning */
-  }
-
-  .spot-text {
-    margin-top: 20px; /* Avstånd mellan spoten och texten */
-    font-size: 18px; /* Justera textstorlek efter behov */
     color: black;
+    font-size: 25px;
+    font-weight: bold;
+    grid-column: span 3; /* Gör så att den sträcker sig över alla 3 kolumner */
+    text-align: center; /* För att centrera texten inom elementet */
   }
 
-  .recently-added h2 {
-    font-size: 40px;
-  }
-
-  .dam-section h3 {
-    font-size: 40px;
-  }
-
-  .electronic-section h4 {
-    font-size: 40px;
-  }
-
-  .products-grid {
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    gap: 20px;
-  }
-
-  .product {
-    margin: 0;
-    position: relative;
-  }
-
-  .product img:not(.heart) {
-    /* Target only the product image, not the heart */
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    object-fit: cover;
-  }
-
-  .heart {
-    position: absolute;
-    bottom: 70px; /* Avstånd från toppen */
-    right: 5px; /* Avstånd från höger */
-    z-index: 10; /* Placera över allt annat */
-    cursor: pointer;
-    border-radius: 50%; /* Rund bakgrund */
-    padding: 5px; /* Lite extra utrymme runt ikonen */
-    width: 22px;
-    height: 22px;
-  }
-
-  .product-type {
-    font-size: 16px;
-    margin-top: 8px;
+  .product-card {
+    max-width: 300px;
   }
 
   .product-size {
     font-size: 16px;
-    margin-top: 5px;
-  }
-
-  .product-brand {
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
-    font-size: 18px;
-  }
-
-  .product-details {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-  }
-
-  .product-image {
-    margin-bottom: 3%;
-    margin-top: 3%;
-    position: relative;
-    padding-bottom: 150%; /* Increased height */
-    overflow: hidden;
-    z-index: 1; /* Placera bakom hjärtikonen */
-  }
-
-  .product img {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    object-fit: cover;
+    margin-top: 8px;
   }
 
   .core-values-container {
@@ -702,6 +677,24 @@ body {
     text-align: center;
     min-width: 200px;
   }
+
+  .accordion {
+    width: 160px; /* Bevarar bredden */
+    height: auto; /* Gör att accordionens höjd växer beroende på innehållet */
+    max-height: 80vh; /* Sätter ett tak för höjden, gör den större men inte för stor */
+    overflow-y: auto; /* Lägger till scrollbar om innehållet är för långt */
+    flex-shrink: 0; /* Förhindrar att accordionen krymper */
+  }
+
+  #apply-filters,
+  #reset-filters {
+    width: 135px;
+    margin-top: 25px;
+  }
+
+  #reset-filters {
+    margin-top: 10px;
+  }
 }
 
 @media (min-width: 1201px) {
@@ -710,21 +703,5 @@ body {
     margin: 5px;
     text-align: center;
     min-width: 245px;
-  }
-
-  .dam-section {
-    padding: 0;
-    text-align: center;
-    width: auto;
-    margin: 40px auto;
-    max-width: 1201px;
-  }
-
-  .electronic-section {
-    padding: 0;
-    text-align: center;
-    width: auto;
-    margin: 40px auto;
-    max-width: 1201px;
   }
 }

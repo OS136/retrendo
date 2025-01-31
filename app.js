@@ -3,13 +3,24 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+const session = require("express-session");
+var app = express();
 
-var indexRouter = require("./routes/index");
+app.use(
+  session({
+    secret: "retrendo-secret",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+
+var productRouter = require("./routes/product");
 var homepageRoutes = require("./routes/homepage");
 var adminRouter = require("./routes/admin");
-const searchRouter = require('./routes/search');
-
-var app = express();
+const searchRouter = require("./routes/search");
+var categoryRoutes = require("./routes/categories");
+var favoritesRouter = require("./routes/favorites");
+const cartRouter = require("./routes/cart");
 
 // view engine setup
 app.set("views", [
@@ -24,10 +35,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-//app.use("/", indexRouter);
 app.use("/", homepageRoutes);
-app.use("/admin", adminRouter);
-app.use('/search', searchRouter);
+app.use("/product", productRouter);
+app.use("/admin", adminRouter.router);
+app.use("/favorites", favoritesRouter);
+app.use("/cart", cartRouter);
+app.use("/categories", categoryRoutes);
+app.use("/search", searchRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
