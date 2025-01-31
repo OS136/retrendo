@@ -174,22 +174,42 @@ body {
 
 
 
-main{
-    box-sizing: border-box;
-    margin-top: 50px;
-    padding: 3%;
-    justify-items: center;
-   
+tbody{
+    max-width: 95vw;
+    display: grid;
+    grid-template-columns: 1fr;   
+    grid-template-rows: auto; 
 }
+.imagen{
+    width: 200px;
+    height: 300px;
+}
+.imageProductContainer{
+   display: flex;
+   flex-direction: row;
+
+}
+.imageContainer{
+    align-items: center;
+    width: 49%;
+    
+}
+.productInfoContainer{
+    width: 50%;
+}
+
+
 .kassa{
     text-align: center;
     font-size: 25px;
     margin-bottom: 50px;
 }
+
 form{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
     
 }
 .articel, .antal, .summa{
@@ -223,9 +243,9 @@ h3{
     font-size: 20px;
 }
 
-
+*/
 /*tabell Text*/
-.conditionheading,
+/*.conditionheading,
 .sizeheading,
 .priceheading,
 .colorheading,
@@ -316,7 +336,7 @@ gap: 8px;
     display: inline-block;
     width: 100%;
 }
-
+*/
 
 
 
@@ -430,8 +450,7 @@ gap: 8px;
             padding: 20px 25px;
         }
     }
-
-
+    
     @media (min-width: 769px) {
         /* Create a wrapper for logo and search-icons */
         .header {

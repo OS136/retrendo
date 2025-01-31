@@ -30,7 +30,7 @@
                 <div class="icons">
                     <div class="favorite">
                     <a href="">
-                        <img src="svg/favorites.svg" alt="favoriter" />
+                        <img src="../svg/favorites.svg" alt="favoriter" />
                     </a>
                     </div>
                     <div class="basket">
@@ -60,65 +60,72 @@
             </header>
 
             <main>
+                <div class="containerwrapper">
                 <h2 class="kassa">Kassa</h2>
                 <form method="post" action="#" id="order">
-                    
-                    <table class="outTable">
-                        <thead class="köplista">
-                            <tr>
-                                <td class="articel">Articel</td>
-                                <td class="antal">Antal</td>
-                                <td class="summa">Pris</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="yttreImageProductContainer">
-                                <% basket.forEach(basketItem => { %>
-                                <td class="imageProductContainer">
-                                    <div class="imageContainer">
-                                        <img class="imagen" src="<%= basketItem.product.image %>" alt="<%= basketItem.product.name %>">
-                                    </div>
-                                    <div class="productInfoContainer">
-                                        <h3><%= basketItem.product.product_type %></h3>
-                                        <table class="innerTable">
-                                            <tbody>
-                                                    <tr>
-                                                        <td class="brandheading">Märke:</td>
-                                                        <td class="brand"><%= basketItem.product.brand %></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="conditionheading">Skick:</td>
-                                                        <td class="condition"><%= basketItem.product.condition %></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="sizeheading">Storlek:</td>
-                                                        <td class="size"><%= basketItem.product.size %></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="colorheading">Färg:</td>
-                                                        <td class="color"><%= basketItem.product.color %></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="categoriheading">Kategori:</td>
-                                                        <td class="categori"><%= basketItem.product.categori %></td>
-                                                    </tr>
-                                                <% }); %>
-                                                </tbody>
-                                            </table>
+                    <div class="box1">
+                        <table class="outTable">
+                            <thead class="köplista">
+                                <tr>
+                                    <td class="articel">Articel</td>
+                                    <td class="antal">Antal</td>
+                                    <td class="summa">Pris</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="yttreImageProductContainer">
+                                    <% cart.forEach(basketItem => { %>
+                                    <td class="imageProductContainer">
+                                        <div class="imageContainer">
+                                            <img class="imagen" src="<%= basketItem.image %>" alt="<%= basketItem.name %>">
                                         </div>
-                                    </td>
-                            <td class="quantity"><%= basketItem.product.quantity %></td>
-                            <td class="total"><%= basketItem.product.price %>kr</td>
-                    </tr>
-                    
+                                        <div class="productInfoContainer">
+                                            <h3><%= basketItem.product_type %></h3>
+                                            <table class="innerTable">
+                                                <tbody>
+                                                        <tr>
+                                                            <td class="brandheading">Märke:</td>
+                                                            <td class="brand"><%= basketItem.brand %></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="conditionheading">Skick:</td>
+                                                            <td class="condition"><%= basketItem.condition %></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="sizeheading">Storlek:</td>
+                                                            <td class="size"><%= basketItem.size %></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="colorheading">Färg:</td>
+                                                            <td class="color"><%= basketItem.color %></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="categoriheading">Kategori:</td>
+                                                            <td class="categori"><%= basketItem.categori %></td>
+                                                        </tr>
+                                                    <% }); %>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+                                <td class="quantity">1</td>
+                                <% cart.forEach(basketItem => {%>
+                                <tr>
+                                    <td class="total"><%= basketItem.price %>kr</td>
+                                </tr>
+                                <% }) %>
+                        </tr>
+                        
 
 
-                    </tbody>
-                </table>
+                            </tbody>
+                        </table>
+                    </div>
                 <div class="basketsumma">
                     <p>Totalt:</p>
                     <p>299 kr</p>
                 </div>
+            </div>
                 <div class="kundContainer"> 
                     <h3>Kunduppgifter</h3>
                     <p>* obligatoriska fält</p>        

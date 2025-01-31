@@ -53,7 +53,7 @@ CREATE TABLE order_lines(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     order_id INTEGER,
     product_id INTEGER,
-    quantity INTEGER,
+    price INTEGER,
 
 FOREIGN KEY(order_id) REFERENCES orders (id),
 FOREIGN KEY(product_id) REFERENCES products (id)

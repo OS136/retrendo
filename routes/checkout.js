@@ -8,11 +8,12 @@ const db = new Database("./db/Retrendo.db", { verbose: console.log });
 //GET /checkout
 router.get('/', function(request, response){
     // Hämta ut cart från sessionen och lägger värdet i basket
-let basket = request.session.cart ?? [];
+const cart = request.session.cart ?? [];
 
+console.log("checkoutsidan:", request.session.cart);
 response.render("checkout", {
     title: 'Checkout',
-    basket,
+    cart,
 });
 });
 
@@ -47,19 +48,19 @@ router.post("/", function (request, response) {
         const orderId = resultInsertOrder.lastInsertRowid;
 
                 //hämta varukorgen från sessionen
-            const basket = request.session.cart ?? [];
+            const cart = request.session.cart ?? [];
                 // skapa SQL-fråga som vi kan köra för varje produkt i varukorgen
             const insertOrderLine = db.prepare(`
                     INSERT INTO order_lines (order_id, product_id, quantity)
                     VALUES (@orderId, @productId, @quantity)
                     `);
                     
-                    basket.forEach(basketItem => {
+                    cart.forEach(basketItem => {
 
                         const orderLine = {
                             orderId,
                             productId: basketItem.product ? basketItem.product.id : basketItem.id,
-                            quantity: basketItem.quantity,
+                            price: basketItem.quantity,
                         };
                         insertOrderLine.run(orderLine)
                         
