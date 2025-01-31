@@ -33,65 +33,67 @@ if (categoryName === 'Elektronik') {
 document.addEventListener("DOMContentLoaded", function () {
     const sortCheckboxes = document.querySelectorAll(".accordion-item:first-child .accordion-content input[type='checkbox']");
     const filterCheckboxes = document.querySelectorAll(".accordion-item:not(:first-child) .accordion-content input[type='checkbox']");
-    const colorInput = document.getElementById("color-input"); // Hämta textinput för färg
+    const colorInput = document.getElementById("color-input");
     const filterButton = document.getElementById("apply-filters");
+    const resetButton = document.getElementById("reset-filters");
 
     let selectedSortOption = null;
     let selectedFilters = [];
-    let selectedColor = ""; // Spara färgen från input-fältet
+    let selectedColor = "";
 
-    // Hantera sorteringsval (endast en kan väljas)
     sortCheckboxes.forEach(checkbox => {
         checkbox.addEventListener("change", (e) => {
-            // Avmarkera andra sorteringsalternativ
             sortCheckboxes.forEach(cb => {
                 if (cb !== e.target) cb.checked = false;
             });
 
             selectedSortOption = e.target.checked ? e.target.parentElement.textContent.trim() : null;
-            console.log("Selected sort option:", selectedSortOption);
-
-            // Aktivera knappen om något filter är valt
             filterButton.disabled = !hasActiveFilters();
         });
     });
 
-    // Hantera filteralternativ (flera kan väljas)
     filterCheckboxes.forEach(checkbox => {
-        checkbox.addEventListener("change", () => {
-            updateSelectedFilters();
-        });
+        checkbox.addEventListener("change", updateSelectedFilters);
     });
 
-    // Hantera färginput (uppdatera värdet när användaren skriver)
     colorInput.addEventListener("input", () => {
-        selectedColor = colorInput.value.trim().toLowerCase(); // Normalisera till gemener
-        console.log("Selected color:", selectedColor);
+        selectedColor = colorInput.value.trim().toLowerCase();
         filterButton.disabled = !hasActiveFilters();
     });
 
-    // När knappen klickas, applicera filter och sortering
-    filterButton.addEventListener("click", () => {
-        updateSelectedFilters(); // Uppdatera filtren innan vi filtrerar produkter
-
-        if (selectedFilters.length > 0 || selectedColor) {
-            filterProducts(selectedFilters, selectedColor);
+    filterButton.addEventListener("click", (event) => {
+        event.preventDefault();  // Förhindrar att sidan laddas om
+        console.log("Filtrera-knapp tryckt!");
+        updateSelectedFilters();
+        console.log("Selected filters:", selectedFilters, "Selected color:", selectedColor);
+    
+        if (selectedFilters.length === 0 && selectedColor.length === 0 && !selectedSortOption) {
+            console.log("Inga filter eller sortering valda, laddar om sidan");
+            window.location.reload(); // Ladda om sidan om inga filter och ingen sortering är valda
         } else {
-            showAllProducts(); // Om inga filter är valda, visa alla produkter
+            console.log("Filter appliceras...");
+            if (selectedFilters.length > 0 || selectedColor.length > 0) {
+                filterProducts(selectedFilters, selectedColor);
+            }
+            if (selectedSortOption) {
+                sortProducts(selectedSortOption);
+            }
         }
+    });
+    
+    
+    
 
-        if (selectedSortOption) {
-            sortProducts(selectedSortOption);
-        }
+    resetButton.addEventListener("click", () => {
+        console.log("Laddar om sidan...");
+        window.location.reload(); // Återställ sidan och visa alla produkter
     });
 
     function updateSelectedFilters() {
         selectedFilters = Array.from(filterCheckboxes)
             .filter(cb => cb.checked)
             .map(cb => cb.parentElement.textContent.trim());
-
         filterButton.disabled = !hasActiveFilters();
-        console.log("Selected filters:", selectedFilters);
     }
 
     function hasActiveFilters() {
@@ -100,8 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function filterProducts(filters, color) {
         const products = document.querySelectorAll(".product-card");
-
-        let anyMatch = false; // Om ingen produkt matchar, visas alla produkter
+        let anyMatch = false;
 
         products.forEach(product => {
             const brand = product.querySelector(".product-brand-price span:first-child")?.textContent.trim().toLowerCase() || "";
@@ -109,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const productColor = product.dataset.color?.toLowerCase() || "";
             const condition = product.dataset.condition?.toLowerCase() || "";
 
-            let matches = filters.length === 0; // Om inga filter finns, sätt match till true
+            let matches = true;
 
             if (filters.length > 0) {
                 matches = filters.some(filter =>
@@ -119,7 +120,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
             }
 
-            // Om en färg är inskriven, matcha den med produktens färg
             if (color.length > 0) {
                 matches = matches && productColor.includes(color);
             }
@@ -128,18 +128,17 @@ document.addEventListener("DOMContentLoaded", function () {
             if (matches) anyMatch = true;
         });
 
-        // Om **inga filter är valda** och ingen produkt matchade, visa alla produkter
-        if (!anyMatch && (filters.length === 0 && color.length === 0)) {
-            showAllProducts();
+        if (!anyMatch) {
+            hideAllProducts(); // Om ingen produkt matchar, dölja alla produkter
         }
     }
 
-    function showAllProducts() {
-        console.log("Inga filter valda - visar alla produkter!");
+    function hideAllProducts() {
         document.querySelectorAll(".product-card").forEach(product => {
-            product.style.display = "block"; // Visa alla produkter
+            product.style.display = "none"; // Dölj alla produkter
         });
     }
+    
 
     function sortProducts(sortOption) {
         const productContainer = document.querySelector(".product-container");
@@ -156,11 +155,20 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // Rensa och lägg tillbaka sorterade produkter
         productContainer.innerHTML = "";
         products.forEach(product => productContainer.appendChild(product));
     }
 });
+
+
+
+
+
+
+
+
+
+
 
 
 

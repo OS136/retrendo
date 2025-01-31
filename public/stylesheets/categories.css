@@ -259,11 +259,17 @@ body {
     margin-right: 10px;
 }
 
-#apply-filters {
+#apply-filters, #reset-filters {
     width: 250px;
     display: block;
     margin: 0 auto; /* Centrerar horisontellt */
     text-align: center; /* Centrerar eventuell text */
+}
+
+#reset-filters {
+    margin-top: 10px;
+    background-color: white;
+    color: black;
 }
 
 .product-container {
@@ -566,9 +572,13 @@ body {
         flex-shrink: 0; /* Förhindrar att accordionen krymper */
     }
 
-    #apply-filters {
+    #apply-filters, #reset-filters {
         width: 110px;
         margin-top: 25px;
+    }
+ 
+    #reset-filters {
+        margin-top: 10px;
     }
 
     .product-container {
@@ -670,9 +680,13 @@ body {
         flex-shrink: 0; /* Förhindrar att accordionen krymper */
     }
 
-    #apply-filters {
+    #apply-filters, #reset-filters {
         width: 135px;
         margin-top: 25px;
+    }
+
+    #reset-filters {
+        margin-top: 10px;
     }
 }
 
