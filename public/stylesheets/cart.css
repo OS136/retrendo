@@ -1,0 +1,600 @@
+body {
+  background-color: #ffffff; /* Ta bort extra semikolon */
+  margin: 0;
+}
+
+.header {
+  padding: 2%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#logo {
+  max-width: 100%;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 300px;
+}
+
+.logo-section {
+  background-color: rgba(59, 66, 59, 255);
+}
+
+.search-icons {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.search-bar-container {
+  width: 100%;
+  max-width: 60%;
+}
+
+.search-bar {
+  width: 100%;
+  background: rgba(90, 85, 85, 0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 60px;
+  padding: 8px 8px; /* Mindre padding */
+  position: relative;
+}
+
+.search-bar input {
+  background: transparent;
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px 5px; /* Mindre paddning */
+  font-size: 20px; /* Mindre textstorlek */
+  color: black;
+}
+
+.search-bar button {
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  background: #506953;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: -2px;
+}
+
+.search-bar button img {
+  width: 20px; /* Mindre storlek*/
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px; /* Minska avståndet mellan ikonerna */
+}
+
+.icons img {
+  width: 35px; /* Mindre ikonstorlek */
+  height: auto;
+  cursor: pointer;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: bold;
+  min-width: 10px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.varukorg-icon {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.menu-links {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 10px 15px;
+  width: 300px;
+}
+
+.menu-links a {
+  display: block; /* Fanns två st display block, tog bort en av de */
+  color: black;
+  text-decoration: none;
+  padding: 5px 10px;
+  font-size: 24px;
+  background-color: rgb(221, 221, 221);
+  color: black;
+  text-decoration: none;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+}
+
+.menu-links a:hover {
+  background-color: rgb(172, 195, 196);
+}
+
+.menu-icon.open .menu-links {
+  display: block;
+}
+
+.navbar {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  justify-content: space-around;
+  padding: 0;
+  min-width: min-content;
+}
+
+.navbar li {
+  background-color: #ffffff;
+  padding: 8px 10px; /* Mindre padding */
+  margin: 5px; /* Mindre margin */
+  border-radius: 10px;
+  text-align: center;
+  outline: 2px solid rgb(145, 143, 143);
+  max-width: 80px; /* Lägre bredd */
+  flex: 0 0 auto;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #000;
+  font-size: 20px; /* Mindre storlek */
+  display: block;
+}
+
+.main {
+  padding: 2%;
+}
+
+.cart-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.cart-content {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 120px 1fr auto auto;
+  gap: 1.5rem;
+  align-items: center;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.item-image img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.item-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.item-details h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.item-details p {
+  margin: 0.3rem 0;
+  color: #666;
+}
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  border-radius: 2px solid black;
+}
+
+.item-price {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.remove-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #000000;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0);
+  margin-top: 1.5rem;
+  margin-left: 0.1rem;
+  padding-top: 12px;
+  text-wrap: nowrap;
+}
+
+.cart-summary {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #eee;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.checkout-btn {
+  width: 100%;
+  background-color: white;
+  color: black;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0);
+  text-wrap: nowrap;
+  margin-left: 2px;
+}
+
+.shopping-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: #3c4239;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0);
+  margin-top: 1.5rem;
+  margin-left: 0.1rem;
+  padding-top: 12px;
+  text-wrap: nowrap;
+}
+
+.checkout-btn:hover {
+  opacity: 0.8;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-section-container {
+  background-color: rgba(90, 85, 85, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+}
+
+.footer-section h4 {
+  font-size: 38px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-section ul li {
+  margin: 15px 0;
+}
+.footer-section ul li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 28px;
+}
+.socials-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.socials-container h5 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+.socials-icons {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.socials-icons img {
+  width: 60px;
+  height: 60px;
+}
+.footer-copyright {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 20px;
+  padding: 10px 0;
+  width: 100%;
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .cart-container h1 {
+    text-align: center;
+  }
+
+  .cart-item {
+    grid-template-columns: 120px 1fr; /* Behåll bild och info layout */
+    grid-template-areas:
+      "image details"
+      "button button"; /* Placera knappen på egen rad under */
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .item-image {
+    grid-area: image;
+  }
+
+  .item-details {
+    grid-area: details;
+    text-align: left; /* Behåll vänsterjusterad text */
+  }
+
+  .remove-btn {
+    grid-area: button;
+    width: 100%;
+    margin-top: 1rem;
+    margin-left: 0;
+  }
+
+  .item-price {
+    margin-top: 0.5rem;
+  }
+  .footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-section-container {
+    background-color: rgba(90, 85, 85, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+  }
+
+  .footer-section h4 {
+    font-size: 38px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .footer-section ul li {
+    margin: 15px 0;
+  }
+  .footer-section ul li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 28px;
+  }
+  .socials-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .socials-container h5 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 50px;
+  }
+  .socials-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .socials-icons img {
+    width: 60px;
+    height: 60px;
+  }
+  .footer-copyright {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 20px;
+    padding: 10px 0;
+    width: 100%;
+    color: #000;
+  }
+}
+
+@media (min-width: 550px) {
+  .navbar li {
+    padding: 20px 25px;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Create a wrapper for logo and search-icons */
+  .header {
+    padding: 2%;
+  }
+
+  .logo-search-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .logo-section {
+    flex: 0 0 auto; /* Prevents logo from growing or shrinking */
+  }
+
+  .search-icons {
+    flex: 1;
+    margin-top: 0; /* Remove top margin since it's now aligned with logo */
+    justify-content: flex-start;
+    padding-top: 100px; /* Add some padding to align better with logo */
+  }
+
+  .search-bar {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(90, 85, 85, 0.2);
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 8px 8px;
+    position: relative;
+  }
+
+  .search-bar input {
+    background: transparent;
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 35px 70px 30px 30px; /* Adjust padding to accommodate button */
+    font-size: 20px;
+  }
+
+  .search-bar button {
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background: #506953;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute; /* Position the button absolutely */
+    right: 1px; /* Position from right edge */
+    top: 28%; /* Center vertically */
+    transform: translateY(-50%); /* Perfect vertical centering */
+  }
+
+  .search-bar button img {
+    width: 30px;
+  }
+
+  .navbar {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .navbar li {
+    padding: 20px 15px;
+    margin: 5px;
+    text-align: center;
+    min-width: 145px;
+  }
+
+  .search-bar-container {
+    max-width: 65%;
+  }
+
+  .icons {
+    position: absolute;
+    right: 20px;
+    gap: 5px;
+    margin-left: 20px;
+  }
+}
+.socials-container {
+  display: flex;
+  align-items: center; /* Vertikal centrering */
+  justify-content: center; /* Horisontell centrering */
+  gap: 20px; /* Lägger till mellanrum mellan elementen */
+}
+
+.socials-icons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-top: 35px;
+}
+
+@media (min-width: 1024px) {
+  .navbar li {
+    padding: 20px 15px;
+    margin: 5px;
+    text-align: center;
+    min-width: 200px;
+  }
+}
+
+@media (min-width: 1201px) {
+  .navbar li {
+    padding: 20px 15px;
+    margin: 5px;
+    text-align: center;
+    min-width: 245px;
+  }
+}
