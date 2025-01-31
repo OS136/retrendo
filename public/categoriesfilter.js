@@ -31,95 +31,139 @@ if (categoryName === 'Elektronik') {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-const sortCheckboxes = document.querySelectorAll(".accordion-item:first-child .accordion-content input[type='checkbox']");
-const filterCheckboxes = document.querySelectorAll(".accordion-item:not(:first-child) .accordion-content input[type='checkbox']");
-const filterButton = document.getElementById("apply-filters");
+    const sortCheckboxes = document.querySelectorAll(".accordion-item:first-child .accordion-content input[type='checkbox']");
+    const filterCheckboxes = document.querySelectorAll(".accordion-item:not(:first-child) .accordion-content input[type='checkbox']");
+    const colorInput = document.getElementById("color-input"); // Hämta textinput för färg
+    const filterButton = document.getElementById("apply-filters");
 
-let selectedSortOption = null;
-let selectedFilters = [];
+    let selectedSortOption = null;
+    let selectedFilters = [];
+    let selectedColor = ""; // Spara färgen från input-fältet
 
-// Handle sort options (mutually exclusive)
-sortCheckboxes.forEach(checkbox => {
-checkbox.addEventListener("change", (e) => {
-    // Uncheck other sort options
-    sortCheckboxes.forEach(cb => {
-        if (cb !== e.target) cb.checked = false;
+    // Hantera sorteringsval (endast en kan väljas)
+    sortCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener("change", (e) => {
+            // Avmarkera andra sorteringsalternativ
+            sortCheckboxes.forEach(cb => {
+                if (cb !== e.target) cb.checked = false;
+            });
+
+            selectedSortOption = e.target.checked ? e.target.parentElement.textContent.trim() : null;
+            console.log("Selected sort option:", selectedSortOption);
+
+            // Aktivera knappen om något filter är valt
+            filterButton.disabled = !hasActiveFilters();
+        });
     });
-    
-    selectedSortOption = e.target.checked ? e.target.parentElement.textContent.trim() : null;
-    console.log("Selected sort option:", selectedSortOption);
-    
-    // Enable button if either sort or filters are selected
-    const hasFilters = Array.from(filterCheckboxes).some(cb => cb.checked);
-    filterButton.disabled = !hasFilters && !selectedSortOption;
-});
-});
 
-// Handle filter options (multiple can be selected)
-filterCheckboxes.forEach(checkbox => {
-checkbox.addEventListener("change", () => {
-    selectedFilters = Array.from(filterCheckboxes)
-        .filter(cb => cb.checked)
-        .map(cb => cb.parentElement.textContent.trim());
+    // Hantera filteralternativ (flera kan väljas)
+    filterCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener("change", () => {
+            updateSelectedFilters();
+        });
+    });
 
-    // Enable button if either sort or filters are selected
-    filterButton.disabled = selectedFilters.length === 0 && !selectedSortOption;
-    console.log("Selected filters:", selectedFilters);
-});
-});
+    // Hantera färginput (uppdatera värdet när användaren skriver)
+    colorInput.addEventListener("input", () => {
+        selectedColor = colorInput.value.trim().toLowerCase(); // Normalisera till gemener
+        console.log("Selected color:", selectedColor);
+        filterButton.disabled = !hasActiveFilters();
+    });
 
-// Apply filters and sort when button is clicked
-filterButton.addEventListener("click", () => {
-if (selectedFilters.length > 0) {
-    filterProducts(selectedFilters);
-}
-if (selectedSortOption) {
-    sortProducts(selectedSortOption);
-}
-});
+    // När knappen klickas, applicera filter och sortering
+    filterButton.addEventListener("click", () => {
+        updateSelectedFilters(); // Uppdatera filtren innan vi filtrerar produkter
 
-function filterProducts(filters) {
-const products = document.querySelectorAll(".product-card");
+        if (selectedFilters.length > 0 || selectedColor) {
+            filterProducts(selectedFilters, selectedColor);
+        } else {
+            showAllProducts(); // Om inga filter är valda, visa alla produkter
+        }
 
-products.forEach(product => {
-    const brand = product.querySelector(".product-brand-price span:first-child")?.textContent.trim() || "";
-    const size = product.querySelector(".product-size")?.textContent.trim() || "";
-    const color = product.dataset.color || "";
-    const condition = product.dataset.condition || "";
+        if (selectedSortOption) {
+            sortProducts(selectedSortOption);
+        }
+    });
 
-    // Show product if it matches ANY of the selected filters within their respective categories
-    let matches = true;
-    
-    if (filters.length > 0) {
-        matches = filters.some(filter => 
-            brand === filter ||
-            size === filter ||
-            color === filter ||
-            condition === filter
-        );
+    function updateSelectedFilters() {
+        selectedFilters = Array.from(filterCheckboxes)
+            .filter(cb => cb.checked)
+            .map(cb => cb.parentElement.textContent.trim());
+
+        filterButton.disabled = !hasActiveFilters();
+        console.log("Selected filters:", selectedFilters);
     }
 
-    product.style.display = matches ? "block" : "none";
-});
-}
+    function hasActiveFilters() {
+        return selectedFilters.length > 0 || selectedColor.length > 0 || selectedSortOption;
+    }
 
-function sortProducts(sortOption) {
-const productContainer = document.querySelector(".product-container");
-const products = Array.from(document.querySelectorAll(".product-card:not([style*='display: none'])"));
+    function filterProducts(filters, color) {
+        const products = document.querySelectorAll(".product-card");
 
-products.sort((a, b) => {
-    switch (sortOption) {
-        case "Lägsta pris":
-            return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
-        case "Högsta pris":
-            return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
-        default:
-            return 0;
+        let anyMatch = false; // Om ingen produkt matchar, visas alla produkter
+
+        products.forEach(product => {
+            const brand = product.querySelector(".product-brand-price span:first-child")?.textContent.trim().toLowerCase() || "";
+            const size = product.querySelector(".product-size")?.textContent.trim().toLowerCase() || "";
+            const productColor = product.dataset.color?.toLowerCase() || "";
+            const condition = product.dataset.condition?.toLowerCase() || "";
+
+            let matches = filters.length === 0; // Om inga filter finns, sätt match till true
+
+            if (filters.length > 0) {
+                matches = filters.some(filter =>
+                    brand === filter.toLowerCase() ||
+                    size === filter.toLowerCase() ||
+                    condition === filter.toLowerCase()
+                );
+            }
+
+            // Om en färg är inskriven, matcha den med produktens färg
+            if (color.length > 0) {
+                matches = matches && productColor.includes(color);
+            }
+
+            product.style.display = matches ? "block" : "none";
+            if (matches) anyMatch = true;
+        });
+
+        // Om **inga filter är valda** och ingen produkt matchade, visa alla produkter
+        if (!anyMatch && (filters.length === 0 && color.length === 0)) {
+            showAllProducts();
+        }
+    }
+
+    function showAllProducts() {
+        console.log("Inga filter valda - visar alla produkter!");
+        document.querySelectorAll(".product-card").forEach(product => {
+            product.style.display = "block"; // Visa alla produkter
+        });
+    }
+
+    function sortProducts(sortOption) {
+        const productContainer = document.querySelector(".product-container");
+        const products = Array.from(document.querySelectorAll(".product-card:not([style*='display: none'])"));
+
+        products.sort((a, b) => {
+            switch (sortOption) {
+                case "Lägsta pris":
+                    return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+                case "Högsta pris":
+                    return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+                default:
+                    return 0;
+            }
+        });
+
+        // Rensa och lägg tillbaka sorterade produkter
+        productContainer.innerHTML = "";
+        products.forEach(product => productContainer.appendChild(product));
     }
 });
 
-// Clear and reappend sorted products
-productContainer.innerHTML = "";
-products.forEach(product => productContainer.appendChild(product));
-}
-});
+
+
+
+
+

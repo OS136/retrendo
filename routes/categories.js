@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 const path = require("path");
 var sqlite3 = require("sqlite3").verbose();
-const zlib = require("zlib");
+
 
 
 const db = new sqlite3.Database(
@@ -26,7 +26,7 @@ router.get("/:category", function (req, res) {
       return res.status(500).send("Fel vid hämtning av data");
     }
 
-    res.render("categorieswoman", {
+    res.render("categories", {
       products: products,
       categoryName: category,
     });
