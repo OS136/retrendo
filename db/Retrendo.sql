@@ -37,7 +37,7 @@ CREATE TABLE customers (
     zip TEXT NOT NULL, 
     city TEXT NOT NULL, 
     phone TEXT, 
-    email TEXT NOT NULL, 
+    email TEXT NOT NULL UNIQUE, 
     newsletter INTEGER -- 1 = true, 0 = false,
 );
 
