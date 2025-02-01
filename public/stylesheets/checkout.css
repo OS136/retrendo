@@ -166,7 +166,6 @@ body {
         display: block; 
       }
 
-    
 
 
 
@@ -174,30 +173,13 @@ body {
 
 
 
-tbody{
-    max-width: 95vw;
-    display: grid;
-    grid-template-columns: 1fr;   
-    grid-template-rows: auto; 
+
+
+
+table{
+    width: 80%;
+    margin-left: 10%;
 }
-.imagen{
-    width: 200px;
-    height: 300px;
-}
-.imageProductContainer{
-   display: flex;
-   flex-direction: row;
-
-}
-.imageContainer{
-    align-items: center;
-    width: 49%;
-    
-}
-.productInfoContainer{
-    width: 50%;
-}
-
 
 .kassa{
     text-align: center;
@@ -206,8 +188,8 @@ tbody{
 }
 
 form{
-    display: flex;
-    flex-wrap: wrap;
+    grid-area: main;
+
     justify-content: center;
     width: 100%;
     
@@ -233,7 +215,7 @@ form{
     text-align: center;
 }
 .summa{
-    width: 20%;
+    width: 50%;
     text-align: end;
 }
 .total{
@@ -243,14 +225,13 @@ h3{
     font-size: 20px;
 }
 
-*/
+
 /*tabell Text*/
-/*.conditionheading,
+.conditionheading,
 .sizeheading,
 .priceheading,
 .colorheading,
-.brandheading,
-.categoriheading
+.brandheading
 {
 font-size: 18px;
 }
@@ -259,8 +240,7 @@ font-size: 18px;
 .color,
 .quantity,
 .total,
-.brand,
-.categori{
+.brand{
     font-size: 18px;
 }
 .imageProductContainer,
@@ -297,7 +277,7 @@ font-size: 18px;
     width: 100%;
 }
 .basketsumma>p{
-    display: inline-block;
+    display: block;
     width: 100px;
     margin-right: 5%;
     font-size: 18px;
@@ -305,6 +285,7 @@ font-size: 18px;
 
 .kundContainer{
     width: 80%;
+    margin-left: 10%;
 }
 
 input{
@@ -327,26 +308,53 @@ gap: 8px;
 .checkbox1{
     margin-top: 10px;
 }
-.bekräfta{
-    margin-top: 50px;
-    display: inline-block;
-    width: 100%;
-    }
-.shopping{
-    display: inline-block;
-    width: 100%;
+.bekräfta {
+    background-color: #3c4239;
+    color: white;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    border-radius: 8px;
+    width: 164px;
+    height: 42px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0);
+    text-wrap: nowrap;
+    margin: 25px;
+    margin-left: 10%;
+    width: 80%;
+  }
+  .bekräfta:hover {
+    opacity: 0.8;
+  }
+  .shopping {
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    border-radius: 8px;
+    width: 164px;
+    height: 42px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0);
+    text-wrap: nowrap;
+    margin: 25px;
+    margin-left: 10%;
+    width: 80%;
+  }
+  
+  .shopping:hover {
+    opacity: 0.8;
+  }
+
+
+
+
+
+
+
+
+
+footer{
+    grid-area: footer;
 }
-*/
-
-
-
-
-
-
-
-
-
-
       
     .core-values-container {
         display: flex;

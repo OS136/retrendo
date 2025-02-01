@@ -73,8 +73,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="yttreImageProductContainer">
-                                    <% cart.forEach(basketItem => { %>
+                                <% cart.forEach(basketItem => { %>
+                                <tr class="yttreImageProductContainer"> 
                                     <td class="imageProductContainer">
                                         <div class="imageContainer">
                                             <img class="imagen" src="<%= basketItem.image %>" alt="<%= basketItem.name %>">
@@ -99,20 +99,14 @@
                                                             <td class="colorheading">Färg:</td>
                                                             <td class="color"><%= basketItem.color %></td>
                                                         </tr>
-                                                        <tr>
-                                                            <td class="categoriheading">Kategori:</td>
-                                                            <td class="categori"><%= basketItem.categori %></td>
-                                                        </tr>
-                                                    <% }); %>
+                                                  
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </td>
                                 <td class="quantity">1</td>
-                                <% cart.forEach(basketItem => {%>
-                                <tr>
-                                    <td class="total"><%= basketItem.price %>kr</td>
-                                </tr>
+                                <td class="total"><%= basketItem.price %>kr</td>
+                                
                                 <% }) %>
                         </tr>
                         
@@ -123,7 +117,7 @@
                     </div>
                 <div class="basketsumma">
                     <p>Totalt:</p>
-                    <p>299 kr</p>
+                    <p>400 kr</p>
                 </div>
             </div>
                 <div class="kundContainer"> 
@@ -187,10 +181,10 @@
                     <h6>Följ oss på sociala medier</h6>
                     <div class="socials-icons">
                         <a href="">
-                        <img src="svg/facebook.svg" alt="Facebook icon" />
+                        <img src="../svg/facebook.svg" alt="Facebook icon" />
                         </a>
                         <a href="">
-                        <img src="svg/instagram.svg" alt="Instagram icon" />
+                        <img src="../svg/instagram.svg" alt="Instagram icon" />
                         </a>
                     </div>
                     </div>
