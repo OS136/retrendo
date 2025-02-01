@@ -19,6 +19,7 @@ var homepageRoutes = require("./routes/homepage");
 var checkoutRouter = require("./routes/checkout");
 var adminRouter = require("./routes/admin");
 const searchRouter = require("./routes/search");
+const confirmRouter = require("./routes/confirmation");
 var categoryRoutes = require("./routes/categories");
 var favoritesRouter = require("./routes/favorites");
 const cartRouter = require("./routes/cart");
