@@ -18,7 +18,7 @@
 
         <div class="search-icons">
           <div class="search-bar-container">
-            <form action="" class="search-bar">
+            <form action="/search" method="GET" class="search-bar">
               <input type="text" placeholder="Sök produkt" name="search" />
               <button type="submit">
                 <img src="/images/search.png" alt="search-icon" />
@@ -45,7 +45,7 @@
               <div class="menu-links">
                 <a href="">Logga in</a>
                 <a href="">Registrera dig</a>
-                <a href="">Sälj din produkt</a>
+                <a href="/admin">Sälj din produkt</a>
               </div>
             </div>
           </div>
@@ -54,9 +54,9 @@
       <nav class="navbar">
         <ul>
           <li><a href="/">Hem</a></li>
-          <li><a href="#">Dam</a></li>
-          <li><a href="#">Herr</a></li>
-          <li><a href="#">Elektronik</a></li>
+          <li><a href="/categories/Dam">Dam</a></li>
+          <li><a href="/categories/Herr">Herr</a></li>
+          <li><a href="/categories/Elektronik">Elektronik</a></li>
         </ul>
       </nav>
     </header>
