@@ -68,7 +68,7 @@ body {
         align-items: center;
         justify-content: center;
         position: absolute;
-        right: -2px;
+        right: 10px;
     }
     
     .search-bar button img {
@@ -181,7 +181,7 @@ main>div{
 
 
       .tack{
-        width: 80%;
+        width: 50%;
         height: auto;
       }
 
@@ -363,8 +363,8 @@ main>div{
             align-items: center;
             justify-content: center;
             position: absolute; /* Position the button absolutely */
-            right: 1px; /* Position from right edge */
-            top: 28%; /* Center vertically */
+            right: 15px; /* Position from right edge */
+            top: 50%; /* Center vertically */
             transform: translateY(-50%); /* Perfect vertical centering */
         }
         
@@ -390,7 +390,7 @@ main>div{
     
         .icons {
             position: absolute;
-            right: 20px;
+            right: 5px;
             gap: 5px;
             margin-left: 20px;
         }

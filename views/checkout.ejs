@@ -8,7 +8,7 @@
     <script src="../javascripts/checkout.js"></script>
   </head>
   <body>
-        <div class="wrapper">
+    <div class="wrapper">
             <header class="header">
             <div class="logo-search-wrapper">
                 <div class="logo-section">
@@ -67,7 +67,7 @@
                         <table class="outTable">
                             <thead class="köplista">
                                 <tr>
-                                    <td class="articel">Articel</td>
+                                    <td class="articel">Artikel</td>
                                     <td class="antal">Antal</td>
                                     <td class="summa">Pris</td>
                                 </tr>
@@ -82,7 +82,7 @@
                                         <div class="productInfoContainer">
                                             <h3><%= basketItem.product_type %></h3>
                                             <table class="innerTable">
-                                                <tbody>
+                                                <tbody class="innerTbody">
                                                         <tr>
                                                             <td class="brandheading">Märke:</td>
                                                             <td class="brand"><%= basketItem.brand %></td>
@@ -121,7 +121,7 @@
                 </div>
             </div>
                 <div class="kundContainer"> 
-                    <h3>Kunduppgifter</h3>
+                    <h3 class="kundheading">Kunduppgifter</h3>
                     <p>* obligatoriska fält</p>        
                     <div class="textContainer">
                         <label for="firstName">Förnamn:  *</label>
