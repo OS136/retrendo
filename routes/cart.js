@@ -49,7 +49,7 @@ router.post("/remove/:id", (req, res) => {
 
 
 
-router.get("/check", (request, response)=>{
+router.get("/checkout", (request, response)=>{
   const cart = request.session.cart || [];
   const total = cart.reduce((sum, item) => sum + Number(item.price), 0);
   
@@ -61,7 +61,7 @@ router.get("/check", (request, response)=>{
   console.log('cartsidan',cart)
 });
 
-router.post("/check", function (request, response) {
+router.post("/checkout", function (request, response) {
   try{
       const customer = {
           firstName: request.body.firstName,
