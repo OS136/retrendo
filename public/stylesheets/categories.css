@@ -1,703 +1,707 @@
 body {
-    background-color: #ffffff; /* Ta bort extra semikolon */ 
-    margin: 0;
-    }
+  background-color: #ffffff; /* Ta bort extra semikolon */
+  margin: 0;
+}
 
-    .header {
-    padding: 2%;
-    width: 100%;
-    box-sizing: border-box;
-    }
+.header {
+  padding: 2%;
+  width: 100%;
+  box-sizing: border-box;
+}
 
-    #logo {
-        max-width: 100%;
-        top: 0;            
-        left: 0;           
-        width: auto;       
-        height: 300px;      
-    }
+#logo {
+  max-width: 100%;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 300px;
+}
 
-    .logo-section {
-        background-color: rgba(59,66,59,255);
-    }
+.logo-section {
+  background-color: rgba(59, 66, 59, 255);
+}
 
-    .search-icons {
-        position: relative;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 15px;
-        margin-top: 20px;
-    }
-    
-    .search-bar-container {
-        width: 100%;
-        max-width: 60%;
-    }
-    
-    .search-bar {
-        width: 100%;
-        background: rgba(90, 85, 85, 0.2);
-        display: flex; 
-        align-items: center;
-        border-radius: 60px;
-        padding: 8px 8px; /* Mindre padding */ 
-        position: relative;
-    }
-    
-    .search-bar input {
-        background: transparent;
-        flex: 1;
-        border: none;
-        outline: none;
-        padding: 10px 5px; /* Mindre paddning */
-        font-size: 20px; /* Mindre textstorlek */
-        color: black;
-    }
-    
-    .search-bar button {
-        border: none;
-        border-radius: 50%;
-        width: 35px;
-        height: 35px;
-        background: #506953;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        right: -2px;
-    }
-    
-    .search-bar button img {
-        width: 20px; /* Mindre storlek*/
-    }
-    
-    .icons {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 5px ; /* Minska avståndet mellan ikonerna */ 
-    }
-    
-    .icons img {
-        width: 35px; /* Mindre ikonstorlek */
-        height: auto;
-        cursor: pointer;
-    }
+.search-icons {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 20px;
+}
 
-    .menu-icon {
-        position: relative;
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-    }
-    
-    
-    .menu-links {
-        display: none;
-        position: absolute;
-        top: 40px; 
-        right: 0;
-        background-color: white;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        padding: 10px 15px;
-        width: 300px;
-    }
-    
-    .menu-links a {
-        display: block; /* Fanns två st display block, tog bort en av de */ 
-        color: black;
-        text-decoration: none;
-        padding: 5px 10px;
-        font-size: 24px;
-        background-color:  rgb(221, 221, 221);
-        color: black;
-        text-decoration: none;
-        padding: 10px; 
-        margin-bottom: 8px; 
-        border-radius: 10px;
-    }
-    
-    .menu-links a:hover {
-        background-color:  rgb(172, 195, 196);
-    }
-    
-   
-    .menu-icon.open .menu-links {
-        display: block;
-    }
+.search-bar-container {
+  width: 100%;
+  max-width: 60%;
+}
 
-    .navbar {
-        width: 100%;
-        margin-top: 20px;
-      }
-      
-      .navbar ul {
-        list-style: none; 
-        display: flex; 
-        gap: 10px;
-        justify-content: space-around; 
-        padding: 0; 
-        min-width: min-content;
-      }
+.search-bar {
+  width: 100%;
+  background: rgba(90, 85, 85, 0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 60px;
+  padding: 8px 8px; /* Mindre padding */
+  position: relative;
+}
 
-      
-      .navbar li {
-        background-color: #ffffff; 
-        padding: 8px 10px; /* Mindre padding */ 
-        margin: 5px; /* Mindre margin */ 
-        border-radius: 10px; 
-        text-align: center; 
-        outline: 2px solid rgb(145, 143, 143);
-        max-width: 80px; /* Lägre bredd */ 
-        flex: 0 0 auto;
-      }
-      
-      .navbar a {
-        text-decoration: none; 
-        color: #000; 
-        font-size: 20px; /* Mindre storlek */ 
-        display: block; 
-      }
+.search-bar input {
+  background: transparent;
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px 5px; /* Mindre paddning */
+  font-size: 20px; /* Mindre textstorlek */
+  color: black;
+}
 
-      .main {
-        padding: 2%;
-    }
+.search-bar button {
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  background: #506953;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: -2px;
+}
+
+.search-bar button img {
+  width: 20px; /* Mindre storlek*/
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px; /* Minska avståndet mellan ikonerna */
+}
+
+.icons img {
+  width: 35px; /* Mindre ikonstorlek */
+  height: auto;
+  cursor: pointer;
+}
+
+.varukorg-icon {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.menu-links {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 10px 15px;
+  width: 300px;
+}
+
+.menu-links a {
+  display: block; /* Fanns två st display block, tog bort en av de */
+  color: black;
+  text-decoration: none;
+  padding: 5px 10px;
+  font-size: 24px;
+  background-color: rgb(221, 221, 221);
+  color: black;
+  text-decoration: none;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+}
+
+.menu-links a:hover {
+  background-color: rgb(172, 195, 196);
+}
+
+.menu-icon.open .menu-links {
+  display: block;
+}
+
+.navbar {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  justify-content: space-around;
+  padding: 0;
+  min-width: min-content;
+}
+
+.navbar li {
+  background-color: #ffffff;
+  padding: 8px 10px; /* Mindre padding */
+  margin: 5px; /* Mindre margin */
+  border-radius: 10px;
+  text-align: center;
+  outline: 2px solid rgb(145, 143, 143);
+  max-width: 80px; /* Lägre bredd */
+  flex: 0 0 auto;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #000;
+  font-size: 20px; /* Mindre storlek */
+  display: block;
+}
+
+.main {
+  padding: 2%;
+}
 
 .category-section {
-    padding: 0;
-    background-color: #fff; 
-    border: 2px solid black; 
-    text-decoration: none;
-    border-radius: 10px;
-    text-align: center;
-    width: auto;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    margin: 6px;
+  padding: 0;
+  background-color: #fff;
+  border: 2px solid black;
+  text-decoration: none;
+  border-radius: 10px;
+  text-align: center;
+  width: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin: 6px;
 }
 
 .category-section h3 {
-    font-size: 3em;
-    text-align: center;
-    padding: 0;  
-    color: #000;
-    padding: 10px;  
-    margin: 0; 
+  font-size: 3em;
+  text-align: center;
+  padding: 0;
+  color: #000;
+  padding: 10px;
+  margin: 0;
+}
+.search-result-title {
+  font-size: 1.5em;
+  text-align: center;
+  padding: 0;
+  color: #000;
+  padding: 10px;
+  margin: 0;
+  font-weight: bold;
 }
 
 .category-section a {
-        text-decoration: none; /* Tar bort understrykning */
+  text-decoration: none; /* Tar bort understrykning */
 }
 
 /* Accordion Container */
 .accordion {
-    width: 100%;
-    max-width: 470px;
-    margin: 20px auto;
-    overflow: hidden; 
+  width: 100%;
+  max-width: 470px;
+  margin: 20px auto;
+  overflow: hidden;
 }
 
 /* Accordion Item */
 .accordion-item {
-    border-bottom: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .accordion-item:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 /* Accordion Header */
 .accordion-header {
-    background: white;
-    padding: 15px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
-    font-size: 16px;
-    transition: background-color 0.3s;
+  background: white;
+  padding: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.3s;
 }
 
 .accordion-header:hover {
-    background: #e0e0e0;
+  background: #e0e0e0;
 }
 
 /* Accordion Content */
 .accordion-content {
-    padding: 15px;
-    background: #fff;
-    display: none;
-    animation: fadeIn 0.3s ease-in-out;
+  padding: 15px;
+  background: #fff;
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 /* Arrow Icon */
 .arrow {
-    transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .arrow.rotate {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 /* Options inside content */
 .accordion-content label {
-    display: block;
-    margin: 8px 0;
-    font-size: 14px;
-    cursor: pointer;
+  display: block;
+  margin: 8px 0;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 .accordion-content input {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
-#apply-filters, #reset-filters {
-    width: 250px;
-    display: block;
-    margin: 0 auto; /* Centrerar horisontellt */
-    text-align: center; /* Centrerar eventuell text */
+#apply-filters,
+#reset-filters {
+  width: 250px;
+  display: block;
+  margin: 0 auto; /* Centrerar horisontellt */
+  text-align: center; /* Centrerar eventuell text */
 }
 
 #reset-filters {
-    margin-top: 10px;
-    background-color: white;
-    color: black;
+  margin-top: 10px;
+  background-color: white;
+  color: black;
 }
 
 .product-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
-    gap: 10px;
-    padding: 0;
-    min-height: 46vh; /* Gör att containern fyller hela höjden */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
+  gap: 10px;
+  padding: 0;
+  min-height: 46vh; /* Gör att containern fyller hela höjden */
 }
 
 .no-products {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    font-size: 20px;
-    font-weight: bold;
-    grid-column: span 2; /* Gör så att den sträcker sig över hela gridens bredd */
-    text-align: center; /* För att centrera texten inom elementet */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  grid-column: span 2; /* Gör så att den sträcker sig över hela gridens bredd */
+  text-align: center; /* För att centrera texten inom elementet */
 }
 
 .product-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 5px;
-    text-decoration: none;
-    color: inherit;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 5px;
+  text-decoration: none;
+  color: inherit;
 }
 
 .product-card img {
-    position: relative;
-    display: block;
-    width: 100%; 
-    height: auto;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .heart {
-    position: absolute;
-    bottom: 80px; /* Placera hjärtat högst upp i bilden */
-    right: 20px;
-    z-index: 10;
-    border-radius: 50%;
-    padding: 5px;
-    cursor: pointer;
+  position: absolute;
+  bottom: 80px; /* Placera hjärtat högst upp i bilden */
+  right: 20px;
+  z-index: 10;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
 }
 
-
 .product-card h3 {
-    font-size: 16px;
-    margin: 10px 0;
-    color: #333;
+  font-size: 16px;
+  margin: 10px 0;
+  color: #333;
 }
 
 .product-card p {
-    font-size: 14px;
-    color: #555;
+  font-size: 14px;
+  color: #555;
 }
 
 .product-brand-price {
-    display: flex;
-    justify-content: space-between; /* Placera brand till vänster och price till höger */
-    font-weight: bold;
-    font-size: 18px;
-    gap: 30px;
-    margin-top: 10px;
+  display: flex;
+  justify-content: space-between; /* Placera brand till vänster och price till höger */
+  font-weight: bold;
+  font-size: 18px;
+  gap: 30px;
+  margin-top: 10px;
 }
 
 .product-details {
-    display: flex;
-    align-items: baseline; /* Justerar elementen vertikalt */
-    gap: 5px;
+  display: flex;
+  align-items: baseline; /* Justerar elementen vertikalt */
+  gap: 5px;
 }
 
-
-.product-type, .product-size {
-    font-size: 16px;
-    margin-top: 5px; /* Lägg till mellanrum mellan typ och storlek */
-    white-space: nowrap;
+.product-type,
+.product-size {
+  font-size: 16px;
+  margin-top: 5px; /* Lägg till mellanrum mellan typ och storlek */
+  white-space: nowrap;
 }
 
 .product-type {
-    color: rgb(71, 71, 71); /* Färg för typ */
+  color: rgb(71, 71, 71); /* Färg för typ */
 }
 
 .core-values-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    margin-top: 5%;
-    margin-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .core-value-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .core-value-item img {
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
 }
 .core-value-text {
-    font-size: 20px;
-    font-weight: bold;
+  font-size: 20px;
+  font-weight: bold;
 }
 .footer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .footer-section-container {
-    background-color: rgba(90, 85, 85, 0.2);
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding: 20px;
+  background-color: rgba(90, 85, 85, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
 }
 
 .footer-section h5 {
-    font-size: 38px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  font-size: 38px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .footer-section ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 .footer-section ul li {
-    margin: 15px 0;
+  margin: 15px 0;
 }
 .footer-section ul li a {
-    text-decoration: none;
-    color: #000;
-    font-size: 28px;
+  text-decoration: none;
+  color: #000;
+  font-size: 28px;
 }
 .socials-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 .socials-container h6 {
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 50px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 50px;
 }
 .socials-icons {
-    display: flex; 
-    gap: 15px; 
-    justify-content: flex-end; 
-    align-items: center;
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  align-items: center;
 }
 .socials-icons img {
-    width: 60px;
-    height: 60px;
+  width: 60px;
+  height: 60px;
 }
 .footer-copyright {
-    text-align: center;
-    font-size: 16px;
-    margin-top: 20px;
-    padding: 10px 0;
-    width: 100%;
-    color: #000;
-} 
+  text-align: center;
+  font-size: 16px;
+  margin-top: 20px;
+  padding: 10px 0;
+  width: 100%;
+  color: #000;
+}
 
 @media (min-width: 550px) {
-    
-    .navbar li{
-        padding: 20px 25px;
-    }
+  .navbar li {
+    padding: 20px 25px;
+  }
 
-    .accordion {
-        width: 90%;
-        max-width: 1200px;
-        margin: 20px auto;
-        overflow: hidden; 
-    }
+  .accordion {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    overflow: hidden;
+  }
 }
 
 /* Responsive Design */
 @media (min-width: 769px) {
-    
-    .main {
-        display: flex;
-        gap: 30px;
-        padding: 2%;
-    }
-    
-    .header {
-        padding: 2%;
-    }
+  .main {
+    display: flex;
+    gap: 30px;
+    padding: 2%;
+  }
 
-    .logo-search-wrapper {
-        display: flex;
-        align-items: flex-start;
-        gap: 20px;
-    }
+  .header {
+    padding: 2%;
+  }
 
-    .logo-section {
-        flex: 0 0 auto; /* Prevents logo from growing or shrinking */
-    }
+  .logo-search-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
 
-    .search-icons {
-        flex: 1;
-        margin-top: 0; /* Remove top margin since it's now aligned with logo */
-        justify-content: flex-start;
-        padding-top: 100px; /* Add some padding to align better with logo */
-    }
+  .logo-section {
+    flex: 0 0 auto; /* Prevents logo from growing or shrinking */
+  }
 
-    .search-bar {
-        width: 100%;
-        max-width: 500px;
-        background: rgba(90, 85, 85, 0.2);
-        display: flex; 
-        align-items: center;
-        border-radius: 60px;
-        padding: 8px 8px;
-        position: relative; 
-    }
-    
-    .search-bar input {
-        background: transparent;
-        flex: 1;
-        border: none;
-        outline: none;
-        padding: 35px 70px 30px 30px; /* Adjust padding to accommodate button */
-        font-size: 20px;
-    }
-    
-    .search-bar button {
-        border: none;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        background: #506953;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute; /* Position the button absolutely */
-        right: 1px; /* Position from right edge */
-        top: 28%; /* Center vertically */
-        transform: translateY(-50%); /* Perfect vertical centering */
-    }
-    
-    .search-bar button img {
-        width: 30px;
-    }
+  .search-icons {
+    flex: 1;
+    margin-top: 0; /* Remove top margin since it's now aligned with logo */
+    justify-content: flex-start;
+    padding-top: 100px; /* Add some padding to align better with logo */
+  }
 
-    .navbar {
-        width: 100%;
-        margin-top: 20px;
-    }
+  .search-bar {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(90, 85, 85, 0.2);
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 8px 8px;
+    position: relative;
+  }
 
-    .navbar li { 
-        padding: 20px 15px;
-        margin: 5px;
-        text-align: center; 
-        min-width: 145px; 
-      }
+  .search-bar input {
+    background: transparent;
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 35px 70px 30px 30px; /* Adjust padding to accommodate button */
+    font-size: 20px;
+  }
 
-    .search-bar-container {
-        max-width: 65%;
-    }
+  .search-bar button {
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background: #506953;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute; /* Position the button absolutely */
+    right: 1px; /* Position from right edge */
+    top: 28%; /* Center vertically */
+    transform: translateY(-50%); /* Perfect vertical centering */
+  }
 
-    .icons {
-        position: absolute;
-        right: 20px;
-        gap: 5px;
-        margin-left: 20px;
-    }
+  .search-bar button img {
+    width: 30px;
+  }
 
+  .navbar {
+    width: 100%;
+    margin-top: 20px;
+  }
 
-    .accordion-header {
-        font-size: 14px;
-        padding: 25px;
-    }
+  .navbar li {
+    padding: 20px 15px;
+    margin: 5px;
+    text-align: center;
+    min-width: 145px;
+  }
 
-    .accordion-content {
-        padding: 5px;
-    }
+  .search-bar-container {
+    max-width: 65%;
+  }
 
-    .layout {
-        display: flex;
-        align-items: flex-start;
-    }
-    
-    .accordion {
-        width: 130px; /* Bevarar bredden */
-        height: auto; /* Gör att accordionens höjd växer beroende på innehållet */
-        max-height: 80vh; /* Sätter ett tak för höjden, gör den större men inte för stor */
-        overflow-y: auto; /* Lägger till scrollbar om innehållet är för långt */
-        flex-shrink: 0; /* Förhindrar att accordionen krymper */
-    }
+  .icons {
+    position: absolute;
+    right: 20px;
+    gap: 5px;
+    margin-left: 20px;
+  }
 
-    #apply-filters, #reset-filters {
-        width: 110px;
-        margin-top: 25px;
-    }
- 
-    #reset-filters {
-        margin-top: 10px;
-    }
+  .accordion-header {
+    font-size: 14px;
+    padding: 25px;
+  }
 
-    .product-container {
-        display: grid;
-        flex-grow: 1;
-        grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
-        gap: 10px;
-        padding: 0;
-        min-height: 46vh; /* Gör att containern fyller hela höjden */
-    }
-    
-    .no-products {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: black;
-        font-size: 25px;
-        font-weight: bold;
-        grid-column: span 3; /* Gör så att den sträcker sig över alla 3 kolumner */
-        text-align: center; /* För att centrera texten inom elementet */
-    }
-    
+  .accordion-content {
+    padding: 5px;
+  }
 
-    .product-card {
-        max-width: 300px;
-    }
+  .layout {
+    display: flex;
+    align-items: flex-start;
+  }
 
-    .product-size {
-        font-size: 16px;
-        margin-top: 8px;
-    }
-    
-    .core-values-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Tre kolumner */
-        justify-content: center;
-        justify-items: center;
-        gap: 20px; /* Mellanrum mellan varje core-value-item */
-    }
-    
-    .core-value-item {
-        display: flex;
-        flex-direction: column; /* Gör texten under ikonen */
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        width: 150px; /* Justera storleken på behållaren */
-        height: 150px; /* Gör behållaren kvadratisk */
-        border-radius: 50%; /* Gör behållaren rund */
-        background-color: rgb(232, 238, 232); /* Lägg till en bakgrundsfärg */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Lägg till en skugga för en snygg effekt */
-        padding: 10px; /* Lite utrymme inuti den runda behållaren */
-        text-align: center; /* Centrerar texten */
-    }
-    
-    .core-value-item img {
-        width: 80px; /* Justera storleken på ikonen */
-        height: 80px;
-        object-fit: contain; /* Säkerställer att bilden passar inom ramarna */
-    }
-    
-    .core-value-text {
-        font-size: 16px;
-        font-weight: bold;
-        color: black;
-        margin-top: 8px; /* Avstånd mellan ikonen och texten */
-    }
+  .accordion {
+    width: 130px; /* Bevarar bredden */
+    height: auto; /* Gör att accordionens höjd växer beroende på innehållet */
+    max-height: 80vh; /* Sätter ett tak för höjden, gör den större men inte för stor */
+    overflow-y: auto; /* Lägger till scrollbar om innehållet är för långt */
+    flex-shrink: 0; /* Förhindrar att accordionen krymper */
+  }
 
-    .socials-container {
-        display: flex;
-        align-items: center; /* Vertikal centrering */
-        justify-content: center; /* Horisontell centrering */
-        gap: 20px; /* Lägger till mellanrum mellan elementen */
-    }
-    
-    .socials-icons {
-        display: flex; 
-        gap: 15px; 
-        align-items: center;
-        margin-top: 35px;
-    }
+  #apply-filters,
+  #reset-filters {
+    width: 110px;
+    margin-top: 25px;
+  }
 
+  #reset-filters {
+    margin-top: 10px;
+  }
+
+  .product-container {
+    display: grid;
+    flex-grow: 1;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
+    gap: 10px;
+    padding: 0;
+    min-height: 46vh; /* Gör att containern fyller hela höjden */
+  }
+
+  .no-products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+    grid-column: span 3; /* Gör så att den sträcker sig över alla 3 kolumner */
+    text-align: center; /* För att centrera texten inom elementet */
+  }
+
+  .product-card {
+    max-width: 300px;
+  }
+
+  .product-size {
+    font-size: 16px;
+    margin-top: 8px;
+  }
+
+  .core-values-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tre kolumner */
+    justify-content: center;
+    justify-items: center;
+    gap: 20px; /* Mellanrum mellan varje core-value-item */
+  }
+
+  .core-value-item {
+    display: flex;
+    flex-direction: column; /* Gör texten under ikonen */
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 150px; /* Justera storleken på behållaren */
+    height: 150px; /* Gör behållaren kvadratisk */
+    border-radius: 50%; /* Gör behållaren rund */
+    background-color: rgb(232, 238, 232); /* Lägg till en bakgrundsfärg */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Lägg till en skugga för en snygg effekt */
+    padding: 10px; /* Lite utrymme inuti den runda behållaren */
+    text-align: center; /* Centrerar texten */
+  }
+
+  .core-value-item img {
+    width: 80px; /* Justera storleken på ikonen */
+    height: 80px;
+    object-fit: contain; /* Säkerställer att bilden passar inom ramarna */
+  }
+
+  .core-value-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    margin-top: 8px; /* Avstånd mellan ikonen och texten */
+  }
+
+  .socials-container {
+    display: flex;
+    align-items: center; /* Vertikal centrering */
+    justify-content: center; /* Horisontell centrering */
+    gap: 20px; /* Lägger till mellanrum mellan elementen */
+  }
+
+  .socials-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-top: 35px;
+  }
 }
 
 @media (min-width: 1024px) {
+  .navbar li {
+    padding: 20px 15px;
+    margin: 5px;
+    text-align: center;
+    min-width: 200px;
+  }
 
-    .navbar li { 
-        padding: 20px 15px;
-        margin: 5px;
-        text-align: center; 
-        min-width: 200px; 
-      }
+  .accordion {
+    width: 160px; /* Bevarar bredden */
+    height: auto; /* Gör att accordionens höjd växer beroende på innehållet */
+    max-height: 80vh; /* Sätter ett tak för höjden, gör den större men inte för stor */
+    overflow-y: auto; /* Lägger till scrollbar om innehållet är för långt */
+    flex-shrink: 0; /* Förhindrar att accordionen krymper */
+  }
 
-      .accordion {
-        width: 160px; /* Bevarar bredden */
-        height: auto; /* Gör att accordionens höjd växer beroende på innehållet */
-        max-height: 80vh; /* Sätter ett tak för höjden, gör den större men inte för stor */
-        overflow-y: auto; /* Lägger till scrollbar om innehållet är för långt */
-        flex-shrink: 0; /* Förhindrar att accordionen krymper */
-    }
+  #apply-filters,
+  #reset-filters {
+    width: 135px;
+    margin-top: 25px;
+  }
 
-    #apply-filters, #reset-filters {
-        width: 135px;
-        margin-top: 25px;
-    }
-
-    #reset-filters {
-        margin-top: 10px;
-    }
+  #reset-filters {
+    margin-top: 10px;
+  }
 }
 
 @media (min-width: 1201px) {
-    .navbar li { 
-        padding: 20px 15px;
-        margin: 5px;
-        text-align: center; 
-        min-width: 245px; 
-      }
-    }
-
-
-
+  .navbar li {
+    padding: 20px 15px;
+    margin: 5px;
+    text-align: center;
+    min-width: 245px;
+  }
+}

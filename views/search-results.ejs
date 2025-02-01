@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sökresultat - Retrendo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/homepage.css" />
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <script src="/javascripts/details.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-search-wrapper">
+          <div class="logo-section">
+            <a href="/">
+              <img id="logo" src="/images/Logo.jpg" alt="Logo" />
+            </a>
+          </div>
+  
+          <div class="search-icons">
+            <div class="search-bar-container">
+                <form action="/search" method="GET" class="search-bar">
+                    <input type="text" placeholder="Sök produkt" name="q" />
+                    <button type="submit">
+                        <img src="/images/search.png" alt="search-icon" />
+                    </button>
+                </form>
+            </div>
+  
+            <div class="icons">
+              <div class="favorite">
+                <a href="">
+                  <img src="svg/favorites.svg" alt="favoriter" />
+                </a>
+              </div>
+              <div class="basket">
+                <a href="" class="varukorg-icon">
+                  <img src="/svg/basket.svg" alt="varukorg" />
+                </a>
+              </div>
+              <div class="menu-icon">
+                <img src="/svg/menu.svg" alt="Meny" />
+                <div class="menu-links">
+                  <a href="">Logga in</a>
+                  <a href="">Registrera dig</a>
+                  <a href="">Sälj din produkt</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav class="navbar">
+          <ul>
+            <li><a href="/">Hem</a></li>
+            <li><a href="#">Dam</a></li>
+            <li><a href="#">Herr</a></li>
+            <li><a href="#">Elektronik</a></li>
+          </ul>
+        </nav>
+      </header>
+    
+    <!-- Ny sök-sektion här -->
+    <section class="search-results">
+        <h2>Sökresultat för "<%= searchQuery %>"</h2>
+        <% if (noResults) { %>
+            <div class="no-results">
+                <p>Inga produkter hittades som matchar "<%= searchQuery %>"</p>
+            </div>
+        <% } else { %>
+            <div class="products-grid">
+                <% results.forEach(product => { %>
+                    <div class="product">
+                        <a href="/product/<%= product.slug %>">
+                            <div class="product-image">
+                                <img src="<%= product.image || '/images/tshirt.png' %>" alt="<%= product.name %>" />
+                            </div>
+                            <div class="product-brand-price">
+                                <span><%= product.brand %></span>
+                                <span><%= product.price %> SEK</span>
+                            </div>
+                            <div class="product-details">
+                                <div class="product-type"><%= product.product_type %></div>
+                                <div class="product-size"><%= product.size %></div>
+                            </div>
+                        </a>
+                        <span class="empty-heart">
+                            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                <path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402m5.726-20.583c-2.203 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248-3.183 0-6.281 2.187-6.281 6.191 0 4.661 5.571 9.429 12 15.809 6.43-6.38 12-11.148 12-15.809 0-4.011-3.095-6.181-6.274-6.181"/>
+                            </svg>
+                        </span>
+                    </div>
+                <% }); %>
+            </div>
+        <% } %>
+     </section>
+    
+    <!-- Kopiera footer från homepage.ejs -->
+    <section>
+        <div class="core-values-container">
+          <div class="core-value-item">
+            <span>
+              <img src="svg/quality.svg" alt="Quality icon" />
+            </span>
+            <span class="core-value-text">Kvalitetssäkrad</span>
+          </div>
+
+          <div class="core-value-item">
+            <span>
+              <img src="svg/Sustainability.svg" alt="Sustainability icon" />
+            </span>
+            <span class="core-value-text">Hållbarhet</span>
+          </div>
+
+          <div class="core-value-item">
+            <span>
+              <img src="svg/safe-transaction1.svg" alt="Transaction icon" />
+            </span>
+            <span class="core-value-text">Säker betalning</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer">
+      <div class="footer-section-container">
+        <div class="footer-section">
+          <h5>Retrendo</h5>
+          <ul>
+            <li><a href="#">Om oss</a></li>
+            <li><a href="#">Kontakta oss</a></li>
+            <li><a href="#">Leverans</a></li>
+            <li><a href="#">Vanliga frågor och svar</a></li>
+          </ul>
+        </div>
+
+        <div class="socials-container">
+          <h6>Följ oss på sociala medier</h6>
+          <div class="socials-icons">
+            <a href="">
+              <img src="svg/facebook.svg" alt="Facebook icon" />
+            </a>
+            <a href="">
+              <img src="svg/instagram.svg" alt="Instagram icon" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <span>© 2025 Retrendo-All Rights Reserved</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const menuIcon = document.querySelector(".menu-icon");
+
+  menuIcon.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menuIcon.classList.toggle("open");
+  });
+
+  document.addEventListener("click", () => {
+    menuIcon.classList.remove("open");
+  });
+});
+</script>
+
+</body>
