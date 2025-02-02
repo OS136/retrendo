@@ -16,8 +16,10 @@ app.use(
 
 var productRouter = require("./routes/product");
 var homepageRoutes = require("./routes/homepage");
+var checkoutRouter = require("./routes/checkout");
 var adminRouter = require("./routes/admin");
 const searchRouter = require("./routes/search");
+const confirmRouter = require("./routes/confirmation");
 var categoryRoutes = require("./routes/categories");
 var favoritesRouter = require("./routes/favorites");
 const cartRouter = require("./routes/cart");
@@ -29,6 +31,10 @@ app.set("views", [
 ]);
 app.set("view engine", "ejs");
 
+app.use(session({
+  secret: 'supersecret',
+}));
+
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -37,6 +43,9 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", homepageRoutes);
 app.use("/product", productRouter);
+app.use("/checkout", checkoutRouter);
+app.use("/checkout/confirmation", confirmRouter);
+
 app.use("/admin", adminRouter.router);
 app.use("/favorites", favoritesRouter);
 app.use("/cart", cartRouter);

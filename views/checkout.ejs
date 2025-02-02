@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Retrendo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/checkout.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="../javascripts/checkout.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+            <header class="header">
+            <div class="logo-search-wrapper">
+                <div class="logo-section">
+                <a href="/">
+                    <img id="logo" src="/images/Logo.jpg" alt="Logo" />
+                </a>
+                </div>
+
+                <div class="search-icons">
+                <div class="search-bar-container">
+                    <form action="" class="search-bar">
+                    <input type="text" placeholder="Sök produkt" name="search" />
+                    <button type="submit">
+                        <img src="/images/search.png" alt="search-icon" />
+                    </button>
+                    </form>
+                </div>
+
+                <div class="icons">
+                    <div class="favorite">
+                    <a href="">
+                        <img src="../svg/favorites.svg" alt="favoriter" />
+                    </a>
+                    </div>
+                    <div class="basket">
+                    <a href="" class="varukorg-icon">
+                        <img src="/svg/basket.svg" alt="varukorg" />
+                    </a>
+                    </div>
+                    <div class="menu-icon">
+                    <img src="/svg/menu.svg" alt="Meny" />
+                    <div class="menu-links">
+                        <a href="">Logga in</a>
+                        <a href="">Registrera dig</a>
+                        <a href="">Sälj din produkt</a>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <nav class="navbar">
+                <ul>
+                <li><a href="/">Hem</a></li>
+                <li><a href="#">Dam</a></li>
+                <li><a href="#">Herr</a></li>
+                <li><a href="#">Elektronik</a></li>
+                </ul>
+            </nav>
+            </header>
+
+            <main>
+                <div class="containerwrapper">
+                <h2 class="kassa">Kassa</h2>
+                <form method="post" action="#" id="order">
+                    <div class="box1">
+                        <table class="outTable">
+                            <thead class="köplista">
+                                <tr>
+                                    <td class="articel">Artikel</td>
+                                    <td class="antal">Antal</td>
+                                    <td class="summa">Pris</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% cart.forEach(basketItem => { %>
+                                <tr class="yttreImageProductContainer"> 
+                                    <td class="imageProductContainer">
+                                        <div class="imageContainer">
+                                            <img class="imagen" src="<%= basketItem.image %>" alt="<%= basketItem.name %>">
+                                        </div>
+                                        <div class="productInfoContainer">
+                                            <h3><%= basketItem.product_type %></h3>
+                                            <table class="innerTable">
+                                                <tbody class="innerTbody">
+                                                        <tr class="containerOfBrand">
+                                                            <td class="brandheading">Märke:</td>
+                                                            <td class="brand"><%= basketItem.brand %></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="conditionheading">Skick:</td>
+                                                            <td class="condition"><%= basketItem.condition %></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="sizeheading">Storlek:</td>
+                                                            <td class="size"><%= basketItem.size %></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="colorheading">Färg:</td>
+                                                            <td class="color"><%= basketItem.color %></td>
+                                                        </tr>
+                                                  
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+                                <td class="quantity">1</td>
+                                <td class="total"><%= basketItem.price %> SEK</td>
+                                
+                                
+                        </tr>
+                        <% }) %>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                <div class="basketsumma">
+                    <p>Totalt:</p>
+                    <p><%= cart.reduce((sum, item) => sum + Number(item.price), 0) %> SEK</p>
+                </div>
+            </div>
+                <div class="kundContainer"> 
+                    <h3 class="kundheading">Kunduppgifter</h3>
+                    <p>* obligatoriska fält</p>        
+                    <div class="textContainer">
+                        <label for="firstName">Förnamn:  *</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="Förnamn" required>
+                    </div>
+                    <div class="textContainer">
+                        <label for="lastName">Efternamn:  *</label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Efternamn" required>
+                    </div>
+                    <div class="textContainer">
+                        <label for="street">Gata: *</label>
+                        <input type="text" id="street" name="street" placeholder="Gata"required >
+                    </div>
+                    <div class="textContainer">
+                        <label for="zip">Postnummer:  *</label>
+                        <input type="text" id="zip" name="zip" placeholder="Postnummer" required>
+                    </div>
+                    <div class="textContainer">
+                        <label for="city">Stad:  *</label>
+                        <input type="text" id="city" name="city" placeholder="Stad" required>
+                    </div>
+                    <div class="textContainer">
+                        <label for="phone">Telefonnummer:</label>
+                        <input type="text" id="phone" name="phone" placeholder="Telefonnummer" >
+                    </div>
+                    <div class="textContainer">
+                        <label for="email">Mailadress:  *</label>
+                        <input type="email" id="email" name="email" placeholder="E-post" required>
+                    </div>
+                    <div class="checkboxContainer">
+                        <input type="checkbox" id="checkbox" name="checkbox">
+                        <label for="checkbox" class="checkbox1">Jag vill gärna ha nyhetsbrev</label>
+                    </div>
+                </div>
+
+                                <input type="hidden" name="productId" value="<%#= product.id %>">
+                                <button class="bekräfta" type="submit">Bekräfta köp</button>
+                                
+                                <button class="shopping" onclick="window.location.href='/'">Fortsätt Handla</button>
+                 </form>          
+            </main>
+
+            <footer>
+                <div class="footer">
+                <div class="footer-section-container">
+                    <div class="footer-section">
+                    <h5>Retrendo</h5>
+                    <ul>
+                        <li><a href="#">Om oss</a></li>
+                        <li><a href="#">Kontakta oss</a></li>
+                        <li><a href="#">Leverans</a></li>
+                        <li><a href="#">Vanliga frågor och svar</a></li>
+                    </ul>
+                    </div>
+        
+                    <div class="socials-container">
+                    <h6>Följ oss på sociala medier</h6>
+                    <div class="socials-icons">
+                        <a href="">
+                        <img src="../svg/facebook.svg" alt="Facebook icon" />
+                        </a>
+                        <a href="">
+                        <img src="../svg/instagram.svg" alt="Instagram icon" />
+                        </a>
+                    </div>
+                    </div>
+                </div>
+                <div class="footer-copyright">
+                    <span>© 2025 Retrendo-All Rights Reserved</span>
+                </div>
+                </div>
+            </footer>
+        </div>
+    </body>
+  </html>

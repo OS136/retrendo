@@ -27,3 +27,34 @@ VALUES
 (6, 'Mango', 'Kjol', 'Blå', '179', 'S', 'Mango', 'Bra', '/images/skirt.png', 'Bra, varan har synliga men mindre tecken på användning. Inga stora defekter.', 'kjol-mango', 'Dam'),
 (7, 'Apple', 'Iphone 12', 'Svart', '5499', '128 GB', 'Apple', 'Bra', '/images/apple-iphone12.png', 'Bra, varan har synliga men mindre tecken på användning. Inga stora defekter.', 'iphone12-apple', 'Elektronik'),
 (8, 'Samsung', 'TV', 'Svart', '4999', '55 tum', 'Samsung', 'Bra', '/images/samsung55tv.png', 'Bra, varan har synliga men mindre tecken på användning. Inga stora defekter.', 'smarttv-samsung', 'Elektronik');
+
+
+CREATE TABLE customers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    firstName TEXT NOT NULL,
+    lastName TEXT NOT NULL, 
+    street TEXT NOT NULL, 
+    zip TEXT NOT NULL, 
+    city TEXT NOT NULL, 
+    phone TEXT, 
+    email TEXT NOT NULL UNIQUE, 
+    newsletter INTEGER -- 1 = true, 0 = false,
+);
+
+CREATE TABLE orders (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    customer_id INTEGER,
+    created_at TEXT,
+
+    FOREIGN KEY (customer_id) REFERENCES customers (id)
+);
+
+CREATE TABLE order_lines(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    order_id INTEGER,
+    product_id INTEGER,
+    price INTEGER,
+
+FOREIGN KEY(order_id) REFERENCES orders (id),
+FOREIGN KEY(product_id) REFERENCES products (id)
+);

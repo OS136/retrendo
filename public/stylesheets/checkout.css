@@ -1,0 +1,914 @@
+body {
+    background-color: #ffffff; /* Ta bort extra semikolon */
+    margin: 0;
+  }
+  
+  .header {
+    padding: 2%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  #logo {
+    max-width: 100%;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: 300px;
+  }
+  
+  .logo-section {
+    background-color: rgba(59, 66, 59, 255);
+  }
+  
+  .search-icons {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .search-bar-container {
+    width: 100%;
+    max-width: 60%;
+  }
+  
+  .search-bar {
+    width: 100%;
+    background: rgba(90, 85, 85, 0.2);
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 8px 8px; /* Mindre padding */
+    position: relative;
+  }
+  
+  .search-bar input {
+    background: transparent;
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 10px 5px; /* Mindre paddning */
+    font-size: 20px; /* Mindre textstorlek */
+    color: black;
+  }
+  
+  .search-bar button {
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    background: #506953;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: -2px;
+  }
+  
+  .search-bar button img {
+    width: 20px; /* Mindre storlek*/
+  }
+  
+  .icons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px; /* Minska avståndet mellan ikonerna */
+  }
+  
+  .icons img {
+    width: 35px; /* Mindre ikonstorlek */
+    height: auto;
+    cursor: pointer;
+  }
+  
+  .cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: bold;
+    min-width: 10px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+  
+  .varukorg-icon {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .menu-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .menu-links {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 10px 15px;
+    width: 300px;
+  }
+  
+  .menu-links a {
+    display: block; /* Fanns två st display block, tog bort en av de */
+    color: black;
+    text-decoration: none;
+    padding: 5px 10px;
+    font-size: 24px;
+    background-color: rgb(221, 221, 221);
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+  }
+  
+  .menu-links a:hover {
+    background-color: rgb(172, 195, 196);
+  }
+  
+  .menu-icon.open .menu-links {
+    display: block;
+  }
+  
+  .navbar {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+    padding: 0;
+    min-width: min-content;
+  }
+  
+  .navbar li {
+    background-color: #ffffff;
+    padding: 8px 10px; /* Mindre padding */
+    margin: 5px; /* Mindre margin */
+    border-radius: 10px;
+    text-align: center;
+    outline: 2px solid rgb(145, 143, 143);
+    max-width: 80px; /* Lägre bredd */
+    flex: 0 0 auto;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #000;
+    font-size: 20px; /* Mindre storlek */
+    display: block;
+  }
+  
+/*******************/
+
+.box1{
+    width: 100%;
+    padding: 5px;
+    justify-items: center;
+}
+.yttreImageProductContainer{
+    width: 100%;
+}
+table{
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.kassa{
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 50px;
+}
+
+form{
+    justify-content: center;
+    width: 100%;
+    
+}
+.articel, .antal, .summa{
+    border-bottom: 2px solid black;
+    padding-bottom: 15px;
+    font-size: 23px;
+    font-family: "Roboto", san-serif;
+}
+.articel{
+    width: 64%;
+    margin-right: 20px;
+    text-align: center;
+    
+}
+.antal{
+    width: 1%;
+    text-align: center;  
+}
+.quantity{
+    text-align: center;
+}
+.summa{
+    width: 13%;
+    text-align: center;
+}
+.total{
+    text-align: center;
+}
+h3{
+    text-align: center;
+    font-size: 25px;
+}
+
+
+/*tabell Text*/
+.conditionheading,
+.sizeheading,
+.priceheading,
+.colorheading,
+.brandheading
+{
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Roboto", san-serif;
+}
+.condition,
+.size,
+.color,
+.quantity,
+.total,
+.brand{
+    font-size: 15px;
+    margin-left: 0;
+}
+.imageProductContainer,
+.quantity,
+.total{
+    border-bottom: 2px solid black;
+}
+
+.imageProductContainer{
+   width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    
+}
+.imageContainer{
+    align-content: center;
+    max-width: 40%;
+    display: inline-block;
+    
+}
+
+.imagen{
+    width: 100%;
+}
+.innerTbody{
+    width: 100%;
+}
+.brandcontainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+.productInfoContainer{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    width: 100%;
+}
+.imageProductContainer{
+    width: 100%;
+}
+.basketsumma{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+}
+.basketsumma>p{
+    display: block;
+    text-align: end;
+    width: 80px;
+    margin-right: 1%;
+    font-size: 18px;
+}
+
+.kundContainer{
+    align-content: center;
+    width: 60%;
+    margin-left: 20%;
+}
+
+input{
+    height: 30px;
+    margin-top: 5px;
+}
+label{
+    font-size: 20px;
+    margin-top: 20px;
+}
+.textContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.checkboxContainer{
+    margin-top: 15px;
+    display: flex;
+    gap: 8px;
+}
+.checkbox1{
+    margin-top: 10px;
+}
+.bekräfta {
+    background-color: #3c4239;
+    color: white;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    border-radius: 8px;
+    width: 164px;
+    height: 42px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0);
+    text-wrap: nowrap;
+    margin: 25px;
+    margin-left: 10%;
+    width: 80%;
+  }
+  .bekräfta:hover {
+    opacity: 0.8;
+  }
+  .shopping {
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    border-radius: 8px;
+    width: 164px;
+    height: 42px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0);
+    text-wrap: nowrap;
+    margin: 25px;
+    margin-left: 10%;
+    width: 80%;
+  }
+  
+  .shopping:hover {
+    opacity: 0.8;
+  }   
+    .core-values-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    
+    .core-value-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .core-value-item img {
+        width: 30px;
+        height: 30px;
+    }
+    .core-value-text {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .footer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer-section-container {
+        background-color: rgba(90, 85, 85, 0.2);
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px;
+    }
+
+    .footer-section h5 {
+        font-size: 38px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .footer-section ul li {
+        margin: 15px 0;
+    }
+    .footer-section ul li a {
+        text-decoration: none;
+        color: #000;
+        font-size: 28px;
+    }
+    .socials-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    .socials-container h6 {
+        font-size: 30px;
+        font-weight: bold;
+        margin-bottom: 50px;
+    }
+    .socials-icons {
+        display: flex; 
+        gap: 15px; 
+        justify-content: flex-end; 
+        align-items: center;
+    }
+    .socials-icons img {
+        width: 60px;
+        height: 60px;
+    }
+    .footer-copyright {
+        text-align: center;
+        font-size: 16px;
+        margin-top: 20px;
+        padding: 10px 0;
+        width: 100%;
+        color: #000;
+    } 
+
+
+    /* Desktop läge */ 
+    
+    @media (min-width: 550px) {
+          
+        .navbar li{
+            padding: 20px 25px;
+        }
+
+        .yttreImageProductContainer{
+            width: 100%;
+        }
+        table{
+            margin-bottom: 15px;
+            width: 100%;
+        }
+        
+        .kassa{
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 50px;
+        }
+        
+        form{
+            justify-content: center;
+            width: 100%;
+            
+        }
+        .articel, .antal, .summa{
+            border-bottom: 2px solid black;
+            padding-bottom: 15px;
+            font-size: 25px;
+            font-family: "Roboto", san-serif;
+        }
+        .articel{
+            width: 55%;
+            margin-right: 20px;
+            text-align: center;
+            
+        }
+        .antal{
+            margin-left: 5px;
+            width: 5%;
+            text-align: center;  
+        }
+        .quantity{
+            text-align: center;
+        }
+        .summa{
+            width: 12%;
+            text-align: center;
+        }
+        .total{
+            text-align: center;
+        }
+        h3{
+            text-align: center;
+            font-size: 25px;
+        }
+        
+        
+        /*tabell Text*/
+        .conditionheading,
+        .sizeheading,
+        .priceheading,
+        .colorheading,
+        .brandheading
+        {
+            font-size: 24px;
+            font-weight: bold;
+            font-family: "Roboto", san-serif;
+        }
+        .condition,
+        .size,
+        .color,
+        .quantity,
+        .total,
+        .brand{
+            font-size: 18px;
+            margin-left: 0;
+        }
+        .imageProductContainer,
+        .quantity,
+        .total{
+            border-bottom: 2px solid black;
+        }
+        .yttreImageProductContainer{
+            width: 90%;
+        }
+        .imageProductContainer{
+           width: 100%;
+            display: flex;
+            flex-direction: row;
+            gap: 0px;
+            
+        }
+        .imageContainer{
+            align-content: center;
+            max-width: 30%;
+            display: inline-block;
+            
+        }
+        
+        
+        .brandcontainer{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .productInfoContainer{
+            display: flex;
+            flex-direction: column;
+            padding-left: 10px;
+            width: 100%;
+        }
+        .imageProductContainer{
+            width: 100%;
+        }
+        .basketsumma{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            width: 100%;
+        }
+        .basketsumma>p{
+            display: block;
+            width: 100px;
+            margin-right: 3%;
+            font-size: 20px;
+        }
+        
+        .kundContainer{
+            align-content: center;
+            width: 60%;
+            margin-left: 20%;
+        }
+        
+        input{
+            height: 30px;
+            margin-top: 5px;
+        }
+        label{
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .textContainer{
+            display: flex;
+            flex-direction: column;
+        }
+
+
+    }
+    
+    @media (min-width: 769px) {
+        /* Create a wrapper for logo and search-icons */
+        .header {
+            padding: 2%;
+        }
+    
+        .logo-search-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+    
+        .logo-section {
+            flex: 0 0 auto; /* Prevents logo from growing or shrinking */
+        }
+    
+        .search-icons {
+            flex: 1;
+            margin-top: 0; /* Remove top margin since it's now aligned with logo */
+            justify-content: flex-start;
+            padding-top: 100px; /* Add some padding to align better with logo */
+        }
+    
+        .search-bar {
+            width: 100%;
+            max-width: 500px;
+            background: rgba(90, 85, 85, 0.2);
+            display: flex; 
+            align-items: center;
+            border-radius: 60px;
+            padding: 8px 8px;
+            position: relative; 
+        }
+        
+        .search-bar input {
+            background: transparent;
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 35px 70px 30px 30px; /* Adjust padding to accommodate button */
+            font-size: 20px;
+        }
+        
+        .search-bar button {
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            background: #506953;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute; /* Position the button absolutely */
+            right: 5px; /* Position from right edge */
+            top: 30%; /* Center vertically */
+            transform: translateY(-50%); /* Perfect vertical centering */
+        }
+        
+        .search-bar button img {
+            width: 30px;
+        }
+
+        .navbar {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .navbar li { 
+            padding: 20px 15px;
+            margin: 5px;
+            text-align: center; 
+            min-width: 145px; 
+          }
+    
+        .search-bar-container {
+            max-width: 65%;
+        }
+    
+        .icons {
+            position: absolute;
+            right: 20px;
+            gap: 5px;
+            margin-left: 20px;
+        }
+        
+        .yttreImageProductContainer{
+            width: 100%;
+        }
+        table{
+            margin-bottom: 15px;
+        }
+        
+        .kassa{
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 50px;
+        }
+        
+        form{
+            justify-content: center;
+            width: 100%;
+            
+        }
+        .articel, .antal, .summa{
+            border-bottom: 2px solid black;
+            padding-bottom: 15px;
+            font-size: 25px;
+            font-family: "Roboto", san-serif;
+        }
+        .articel{
+            width: 65%;
+            margin-right: 20px;
+            text-align: center;
+            
+        }
+        .antal{
+            margin-left: 5px;
+            width: 5%;
+            text-align: center;  
+        }
+        .quantity{
+            text-align: center;
+        }
+        .summa{
+            width: 20%;
+            text-align: center;
+        }
+        .total{
+            text-align: center;
+        }
+        h3{
+            text-align: center;
+            font-size: 30px;
+        }
+        
+        
+        /*tabell Text*/
+        .conditionheading,
+        .sizeheading,
+        .priceheading,
+        .colorheading,
+        .brandheading
+        {
+            font-size: 30px;
+            font-weight: bold;
+            font-family: "Roboto", san-serif;
+        }
+        .condition,
+        .size,
+        .color,
+        .quantity,
+        .total,
+        .brand{
+            font-size: 25px;
+            margin-left: 0;
+        }
+        .imageProductContainer,
+        .quantity,
+        .total{
+            border-bottom: 2px solid black;
+        }
+        
+        .imageProductContainer{
+           width: 100%;
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            
+        }
+        .imageContainer{
+            align-content: center;
+            max-width: 40%;
+            display: inline-block;
+            
+        }
+        
+        
+        .brandcontainer{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .productInfoContainer{
+            display: flex;
+            flex-direction: column;
+            padding-left: 10px;
+            width: 100%;
+        }
+        .imageProductContainer{
+            width: 100%;
+        }
+        .basketsumma{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            width: 100%;
+        }
+        .basketsumma>p{
+            display: block;
+            width: 100px;
+            margin-right: 3%;
+            font-size: 25px;
+        }
+        
+        .kundContainer{
+            align-content: center;
+            width: 60%;
+            margin-left: 20%;
+        }
+        
+        input{
+            height: 30px;
+            margin-top: 5px;
+        }
+        label{
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .textContainer{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .core-values-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Tre kolumner */
+            justify-content: center;
+            justify-items: center;
+            gap: 20px; /* Mellanrum mellan varje core-value-item */
+        }
+        
+        .core-value-item {
+            display: flex;
+            flex-direction: column; /* Gör texten under ikonen */
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 150px; /* Justera storleken på behållaren */
+            height: 150px; /* Gör behållaren kvadratisk */
+            border-radius: 50%; /* Gör behållaren rund */
+            background-color: rgb(232, 238, 232); /* Lägg till en bakgrundsfärg */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Lägg till en skugga för en snygg effekt */
+            padding: 10px; /* Lite utrymme inuti den runda behållaren */
+            text-align: center; /* Centrerar texten */
+        }
+        
+        .core-value-item img {
+            width: 80px; /* Justera storleken på ikonen */
+            height: 80px;
+            object-fit: contain; /* Säkerställer att bilden passar inom ramarna */
+        }
+        
+        .core-value-text {
+            font-size: 16px;
+            font-weight: bold;
+            color: black;
+            margin-top: 8px; /* Avstånd mellan ikonen och texten */
+        }
+
+        .socials-container {
+            display: flex;
+            align-items: center; /* Vertikal centrering */
+            justify-content: center; /* Horisontell centrering */
+            gap: 20px; /* Lägger till mellanrum mellan elementen */
+        }
+        
+        .socials-icons {
+            display: flex; 
+            gap: 15px; 
+            align-items: center;
+            margin-top: 35px;
+        }
+    
+        
+    }
+
+    
+    @media (min-width: 1024px) {
+
+        .navbar li { 
+            padding: 20px 15px;
+            margin: 5px;
+            text-align: center; 
+            min-width: 200px; 
+          }
+    }
+
+    @media (min-width: 1201px) {
+        .navbar li { 
+            padding: 20px 15px;
+            margin: 5px;
+            text-align: center; 
+            min-width: 245px; 
+          }
+        }
