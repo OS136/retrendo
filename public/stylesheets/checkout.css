@@ -217,28 +217,28 @@ form{
 .articel, .antal, .summa{
     border-bottom: 2px solid black;
     padding-bottom: 15px;
-    font-size: 25px;
+    font-size: 23px;
     font-family: "Roboto", san-serif;
 }
 .articel{
-    width: 65%;
+    width: 64%;
     margin-right: 20px;
     text-align: center;
     
 }
 .antal{
-    width: 3%;
+    width: 1%;
     text-align: center;  
 }
 .quantity{
     text-align: center;
 }
 .summa{
-    width: 12%;
+    width: 13%;
     text-align: end;
 }
 .total{
-    text-align: end;
+    text-align: center;
 }
 h3{
     text-align: center;
