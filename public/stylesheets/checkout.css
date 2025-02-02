@@ -1,182 +1,194 @@
 body {
-    background-color: #ffffff; /* Ta bort extra semikolon */ 
+    background-color: #ffffff; /* Ta bort extra semikolon */
     margin: 0;
-    font-family: "Roberto", sans-serif;
-    }
-    .wrapper{
-        width: 95vw;
-    }
-    
-    .header {
+  }
+  
+  .header {
     padding: 2%;
-    width: 110%;
+    width: 100%;
     box-sizing: border-box;
-    }
-
-    #logo {
-        max-width: 100%;
-        top: 0;            
-        left: 0;           
-        width: auto;       
-        height: 300px;      
-    }
-
-    .logo-section {
-        background-color: rgba(59,66,59,255);
-    }
-
-    .search-icons {
-        position: relative;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 15px;
-        margin-top: 20px;
-    }
+  }
+  
+  #logo {
+    max-width: 100%;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: 300px;
+  }
+  
+  .logo-section {
+    background-color: rgba(59, 66, 59, 255);
+  }
+  
+  .search-icons {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .search-bar-container {
+    width: 100%;
+    max-width: 60%;
+  }
+  
+  .search-bar {
+    width: 100%;
+    background: rgba(90, 85, 85, 0.2);
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 8px 8px; /* Mindre padding */
+    position: relative;
     
-    .search-bar-container {
-        width: 100%;
-        max-width: 60%;
-    }
-    
-    .search-bar {
-        width: 100%;
-        background: rgba(90, 85, 85, 0.2);
-        display: flex; 
-        align-items: center;
-        border-radius: 60px;
-        padding: 8px 8px; /* Mindre padding */ 
-        position: relative;
-    }
-    
-    .search-bar input {
-        background: transparent;
-        flex: 1;
-        border: none;
-        outline: none;
-        padding: 10px 5px; /* Mindre paddning */
-        font-size: 20px; /* Mindre textstorlek */
-        color: black;
-    }
-    
-    .search-bar button {
-        border: none;
-        border-radius: 50%;
-        width: 35px;
-        height: 35px;
-        background: #506953;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        right: 15px;
-    }
-    
-    .search-bar button img {
-        width: 20px; /* Mindre storlek*/
-    }
-    
-    .icons {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 5px ; /* Minska avståndet mellan ikonerna */ 
-    }
-    
-    .icons img {
-        width: 35px; /* Mindre ikonstorlek */
-        height: auto;
-        cursor: pointer;
-    }
-
-    .menu-icon {
-        position: relative;
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-    }
-    
-    
-    .menu-links {
-        display: none;
-        position: absolute;
-        top: 40px; 
-        right: 0;
-        background-color: white;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        padding: 10px 15px;
-        width: 300px;
-    }
-    
-    .menu-links a {
-        display: block; /* Fanns två st display block, tog bort en av de */ 
-        color: black;
-        text-decoration: none;
-        padding: 5px 10px;
-        font-size: 24px;
-        background-color:  rgb(221, 221, 221);
-        color: black;
-        text-decoration: none;
-        padding: 10px; 
-        margin-bottom: 8px; 
-        border-radius: 10px;
-    }
-    
-    .menu-links a:hover {
-        background-color:  rgb(172, 195, 196);
-    }
-    
-   
-    .menu-icon.open .menu-links {
-        display: block;
-    }
-
-    .navbar {
-        width: 100%;
-        margin-top: 20px;
-      }
-      
-      .navbar ul {
-        list-style: none; 
-        display: flex; 
-        gap: 10px;
-        justify-content: space-around; 
-        padding: 0; 
-        min-width: min-content;
-      }
-
-      
-      .navbar li {
-        background-color: #ffffff; 
-        padding: 8px 10px; /* Mindre padding */ 
-        margin: 5px; /* Mindre margin */ 
-        border-radius: 10px; 
-        text-align: center; 
-        outline: 2px solid rgb(145, 143, 143);
-        max-width: 80px; /* Lägre bredd */ 
-        flex: 0 0 auto;
-      }
-      
-      .navbar a {
-        text-decoration: none; 
-        color: #000; 
-        font-size: 20px; /* Mindre storlek */ 
-        display: block; 
-      }
-
-
-
-
-
-
-
-
+  }
+  
+  .search-bar input {
+    background: transparent;
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 10px 5px; /* Mindre paddning */
+    font-size: 20px; /* Mindre textstorlek */
+    color: black;
+    margin-left: 20%;
+  }
+  
+  .search-bar button {
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    background: #506953;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: -2px;
+  }
+  
+  .search-bar button img {
+    width: 20px; /* Mindre storlek*/
+  }
+  
+  .icons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px; /* Minska avståndet mellan ikonerna */
+  }
+  
+  .icons img {
+    width: 35px; /* Mindre ikonstorlek */
+    height: auto;
+    cursor: pointer;
+  }
+  
+  .cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: bold;
+    min-width: 10px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+  
+  .varukorg-icon {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .menu-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .menu-links {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 10px 15px;
+    width: 300px;
+  }
+  
+  .menu-links a {
+    display: block; /* Fanns två st display block, tog bort en av de */
+    color: black;
+    text-decoration: none;
+    padding: 5px 10px;
+    font-size: 24px;
+    background-color: rgb(221, 221, 221);
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+  }
+  
+  .menu-links a:hover {
+    background-color: rgb(172, 195, 196);
+  }
+  
+  .menu-icon.open .menu-links {
+    display: block;
+  }
+  
+  .navbar {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+    padding: 0;
+    min-width: min-content;
+  }
+  
+  .navbar li {
+    background-color: #ffffff;
+    padding: 8px 10px; /* Mindre padding */
+    margin: 5px; /* Mindre margin */
+    border-radius: 10px;
+    text-align: center;
+    outline: 2px solid rgb(145, 143, 143);
+    max-width: 80px; /* Lägre bredd */
+    flex: 0 0 auto;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #000;
+    font-size: 20px; /* Mindre storlek */
+    display: block;
+  }
+  
+/*******************/
 
 .box1{
     justify-items: center;
@@ -185,8 +197,6 @@ body {
     width: 100%;
 }
 table{
-    width: 100%;
-    margin-left: 10%;
     margin-bottom: 15px;
 }
 
@@ -204,7 +214,7 @@ form{
 .articel, .antal, .summa{
     border-bottom: 2px solid black;
     padding-bottom: 15px;
-    font-size: 15px;
+    font-size: 25px;
     font-family: "Roboto", san-serif;
 }
 .articel{
@@ -241,8 +251,9 @@ h3{
 .colorheading,
 .brandheading
 {
-font-size: 20px;
-font-family: "Roboto", san-serif;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Roboto", san-serif;
 }
 .condition,
 .size,
@@ -250,14 +261,15 @@ font-family: "Roboto", san-serif;
 .quantity,
 .total,
 .brand{
-    font-family: "Roboto", san-serif;
-    font-size: 20px;
+    font-size: 15px;
+    margin-left: 0;
 }
 .imageProductContainer,
 .quantity,
 .total{
     border-bottom: 2px solid black;
 }
+
 .imageProductContainer{
    width: 100%;
     display: flex;
@@ -456,28 +468,48 @@ gap: 8px;
     /* Desktop läge */ 
     
     @media (min-width: 550px) {
-    
+          
         .navbar li{
             padding: 20px 25px;
         }
 
-        .box1{
-            justify-items: center;
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         .yttreImageProductContainer{
             width: 100%;
         }
         table{
-            width: 100%;
-            margin-left: 10%;
             margin-bottom: 15px;
+            width: 100%;
         }
         
         .kassa{
             text-align: center;
-            font-size: 40px;
+            font-size: 35px;
             margin-bottom: 50px;
-            font-family: "Roboto", sans-serif;
         }
         
         form{
@@ -488,36 +520,33 @@ gap: 8px;
         .articel, .antal, .summa{
             border-bottom: 2px solid black;
             padding-bottom: 15px;
-            font-size: 30px;
-            font-family: "Roboto", sans-serif;
+            font-size: 25px;
+            font-family: "Roboto", san-serif;
         }
         .articel{
-            width:65%;
+            width: 65%;
             margin-right: 20px;
             text-align: center;
+            
         }
         .antal{
             margin-left: 5px;
-            width: 15%;
-            text-align: center;
-           
-           
+            width: 5%;
+            text-align: center;  
         }
         .quantity{
             text-align: center;
         }
         .summa{
-            width: 50%;
+            width: 10%;
             text-align: end;
         }
         .total{
             text-align: end;
         }
         h3{
-            text-align: start;
-            padding-left: 35px;
+            text-align: center;
             font-size: 30px;
-            font-family: "Roboto", sans-serif;
         }
         
         
@@ -528,8 +557,9 @@ gap: 8px;
         .colorheading,
         .brandheading
         {
-        font-size: 30px;
-        font-family: "Roboto", sans-serif;
+            font-size: 30px;
+            font-weight: bold;
+            font-family: "Roboto", san-serif;
         }
         .condition,
         .size,
@@ -537,36 +567,42 @@ gap: 8px;
         .quantity,
         .total,
         .brand{
-            font-size: 30px;
+            font-size: 25px;
+            margin-left: 0;
         }
         .imageProductContainer,
         .quantity,
         .total{
             border-bottom: 2px solid black;
         }
+        
         .imageProductContainer{
            width: 100%;
             display: flex;
             flex-direction: row;
-            gap: 5px;
+            gap: 0px;
             
         }
         .imageContainer{
             align-content: center;
-            max-width: 50%;
+            max-width: 40%;
             display: inline-block;
             
         }
         
-        .imagen{
-            width: 100%;
+        
+        .brandcontainer{
+            display: flex;
+            flex-wrap: wrap;
         }
         .productInfoContainer{
             display: flex;
             flex-direction: column;
             padding-left: 10px;
-            width: 50%;
-            justify-content: center;
+            width: 100%;
+        }
+        .imageProductContainer{
+            width: 100%;
         }
         .basketsumma{
             display: flex;
@@ -577,84 +613,81 @@ gap: 8px;
         .basketsumma>p{
             display: block;
             width: 100px;
-            margin-right: 4%;
-            font-size: 30px;
-            font-weight: bold;
-            font-family: "Roboto", sans-serif;
+            margin-right: 7%;
+            font-size: 20px;
         }
         
         .kundContainer{
             align-content: center;
             width: 60%;
-            margin-left: 25%;
+            margin-left: 20%;
         }
-        .kundheading{
-            padding-left: 0;
-            font-family: "Roboto", sans-serif;
-            font-size: 30px;
-        }
-        .kundContainer>p{
-            font-size: 20px;
-        }
+        
         input{
-            height: 40px;
+            height: 30px;
             margin-top: 5px;
         }
         label{
-            font-size: 30px;
+            font-size: 20px;
             margin-top: 20px;
         }
         .textContainer{
             display: flex;
             flex-direction: column;
         }
-        
-        .checkboxContainer{
-            margin-top: 15px;
-            display: flex;
-            gap: 8px;
+
+
+
+
+
+
+        /*tabell Text*/
+        .conditionheading,
+        .sizeheading,
+        .priceheading,
+        .colorheading,
+        .brandheading
+        {
+            font-size: 30px;
+            font-weight: bold;
+            font-family: "Roboto", san-serif;
         }
-        .checkbox1{
-            margin-top: 10px;
+        .condition,
+        .size,
+        .color,
+        .quantity,
+        .total,
+        .brand{
+            font-size: 25px;
+            margin-left: 0;
         }
-        .bekräfta {
-            background-color: #3c4239;
-            color: white;
-            font-size: 16px;
-            font-family: "Roboto", sans-serif;
-            border-radius: 8px;
-            width: 164px;
-            height: 42px;
-            box-shadow: 0 1px 2px rgba(0, 0, 0);
-            text-wrap: nowrap;
-            margin: 25px;
-            margin-left: 25%;
-            width: 60%;
-          }
-          .bekräfta:hover {
-            opacity: 0.8;
-          }
-          .shopping {
-            background-color: white;
-            color: black;
-            font-size: 16px;
-            font-family: "Roboto", sans-serif;
-            border-radius: 8px;
-            width: 164px;
-            height: 42px;
-            box-shadow: 0 1px 2px rgba(0, 0, 0);
-            text-wrap: nowrap;
-            margin: 25px;
-            margin-left: 25%;
-            width: 60%;
-          }
-          
-          .shopping:hover {
-            opacity: 0.8;
-          }
- 
+        .brand{
+            word-wrap: break-word;
+        }
     }
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     @media (min-width: 769px) {
         /* Create a wrapper for logo and search-icons */
         .header {
@@ -709,8 +742,8 @@ gap: 8px;
             align-items: center;
             justify-content: center;
             position: absolute; /* Position the button absolutely */
-            right: 10px; /* Position from right edge */
-            top: 50%; /* Center vertically */
+            right: 5px; /* Position from right edge */
+            top: 30%; /* Center vertically */
             transform: translateY(-50%); /* Perfect vertical centering */
         }
         
@@ -741,6 +774,160 @@ gap: 8px;
             margin-left: 20px;
         }
         
+
+
+
+
+.yttreImageProductContainer{
+            width: 100%;
+        }
+        table{
+            margin-bottom: 15px;
+        }
+        
+        .kassa{
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 50px;
+        }
+        
+        form{
+            justify-content: center;
+            width: 100%;
+            
+        }
+        .articel, .antal, .summa{
+            border-bottom: 2px solid black;
+            padding-bottom: 15px;
+            font-size: 25px;
+            font-family: "Roboto", san-serif;
+        }
+        .articel{
+            width: 65%;
+            margin-right: 20px;
+            text-align: center;
+            
+        }
+        .antal{
+            margin-left: 5px;
+            width: 5%;
+            text-align: center;  
+        }
+        .quantity{
+            text-align: center;
+        }
+        .summa{
+            width: 20%;
+            text-align: end;
+        }
+        .total{
+            text-align: end;
+        }
+        h3{
+            text-align: center;
+            font-size: 30px;
+        }
+        
+        
+        /*tabell Text*/
+        .conditionheading,
+        .sizeheading,
+        .priceheading,
+        .colorheading,
+        .brandheading
+        {
+            font-size: 30px;
+            font-weight: bold;
+            font-family: "Roboto", san-serif;
+        }
+        .condition,
+        .size,
+        .color,
+        .quantity,
+        .total,
+        .brand{
+            font-size: 25px;
+            margin-left: 0;
+        }
+        .imageProductContainer,
+        .quantity,
+        .total{
+            border-bottom: 2px solid black;
+        }
+        
+        .imageProductContainer{
+           width: 100%;
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            
+        }
+        .imageContainer{
+            align-content: center;
+            max-width: 40%;
+            display: inline-block;
+            
+        }
+        
+        
+        .brandcontainer{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .productInfoContainer{
+            display: flex;
+            flex-direction: column;
+            padding-left: 10px;
+            width: 100%;
+        }
+        .imageProductContainer{
+            width: 100%;
+        }
+        .basketsumma{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            width: 110%;
+        }
+        .basketsumma>p{
+            display: block;
+            width: 100px;
+            margin-right: 7%;
+            font-size: 20px;
+        }
+        
+        .kundContainer{
+            align-content: center;
+            width: 60%;
+            margin-left: 20%;
+        }
+        
+        input{
+            height: 30px;
+            margin-top: 5px;
+        }
+        label{
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .textContainer{
+            display: flex;
+            flex-direction: column;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         .core-values-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr); /* Tre kolumner */
@@ -791,212 +978,6 @@ gap: 8px;
             margin-top: 35px;
         }
     
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        .box1{
-            justify-items: center;
-        }
-        .yttreImageProductContainer{
-            width: 100%;
-        }
-        table{
-            width: 100%;
-            margin-left: 10%;
-            margin-bottom: 15px;
-        }
-        
-        .kassa{
-            text-align: center;
-            font-size: 40px;
-            margin-bottom: 50px;
-            font-family: "Roboto", sans-serif;
-        }
-        
-        form{
-            justify-content: center;
-            width: 100%;
-            
-        }
-        .articel, .antal, .summa{
-            border-bottom: 2px solid black;
-            padding-bottom: 15px;
-            font-size: 30px;
-            font-family: "Roboto", sans-serif;
-        }
-        .articel{
-            width:65%;
-            margin-right: 20px;
-            text-align: center;
-        }
-        .antal{
-            margin-left: 5px;
-            width: 15%;
-            text-align: center;
-           
-           
-        }
-        .quantity{
-            text-align: center;
-        }
-        .summa{
-            width: 50%;
-            text-align: end;
-        }
-        .total{
-            text-align: end;
-        }
-        h3{
-            text-align: start;
-            padding-left: 35px;
-            font-size: 30px;
-            font-family: "Roboto", sans-serif;
-        }
-        
-        
-        /*tabell Text*/
-        .conditionheading,
-        .sizeheading,
-        .priceheading,
-        .colorheading,
-        .brandheading
-        {
-        font-size: 30px;
-        font-family: "Roboto", sans-serif;
-        }
-        .condition,
-        .size,
-        .color,
-        .quantity,
-        .total,
-        .brand{
-            font-size: 30px;
-        }
-        .imageProductContainer,
-        .quantity,
-        .total{
-            border-bottom: 2px solid black;
-        }
-        .imageProductContainer{
-           width: 100%;
-            display: flex;
-            flex-direction: row;
-            gap: 5px;
-            
-        }
-        .imageContainer{
-            align-content: center;
-            max-width: 50%;
-            display: inline-block;
-            
-        }
-        
-        .imagen{
-            width: 100%;
-        }
-        .productInfoContainer{
-            display: flex;
-            flex-direction: column;
-            padding-left: 10px;
-            width: 50%;
-            justify-content: center;
-        }
-        .basketsumma{
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-            width: 110%;
-        }
-        .basketsumma>p{
-            display: block;
-            width: 100px;
-            margin-right: 4%;
-            font-size: 30px;
-            font-weight: bold;
-            font-family: "Roboto", sans-serif;
-        }
-        
-        .kundContainer{
-            align-content: center;
-            width: 60%;
-            margin-left: 25%;
-        }
-        .kundheading{
-            padding-left: 0;
-            font-family: "Roboto", sans-serif;
-            font-size: 30px;
-        }
-        .kundContainer>p{
-            font-size: 20px;
-        }
-        input{
-            height: 40px;
-            margin-top: 5px;
-        }
-        label{
-            font-size: 30px;
-            margin-top: 20px;
-        }
-        .textContainer{
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .checkboxContainer{
-            margin-top: 15px;
-            display: flex;
-            gap: 8px;
-        }
-        .checkbox1{
-            margin-top: 10px;
-        }
-        .bekräfta {
-            background-color: #3c4239;
-            color: white;
-            font-size: 16px;
-            font-family: "Roboto", sans-serif;
-            border-radius: 8px;
-            width: 164px;
-            height: 42px;
-            box-shadow: 0 1px 2px rgba(0, 0, 0);
-            text-wrap: nowrap;
-            margin: 25px;
-            margin-left: 25%;
-            width: 60%;
-          }
-          .bekräfta:hover {
-            opacity: 0.8;
-          }
-          .shopping {
-            background-color: white;
-            color: black;
-            font-size: 16px;
-            font-family: "Roboto", sans-serif;
-            border-radius: 8px;
-            width: 164px;
-            height: 42px;
-            box-shadow: 0 1px 2px rgba(0, 0, 0);
-            text-wrap: nowrap;
-            margin: 25px;
-            margin-left: 25%;
-            width: 60%;
-          }
-          
-          .shopping:hover {
-            opacity: 0.8;
-          }
         
     }
 
