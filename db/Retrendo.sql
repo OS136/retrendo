@@ -14,7 +14,8 @@ CREATE TABLE products (
     description TEXT NOT NULL, 
     slug TEXT UNIQUE NOT NULL, 
     category TEXT NOT NULL,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP 
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME NULL
 );
 
 INSERT INTO products (id, name, product_type, color, price, size, brand, condition, image, description, slug, category)

@@ -15,9 +15,7 @@ const upload = multer();
 router.get("/products", (req, res) => {
   console.log("fetching products: ", req.body);
   try {
-    const stmt = db.prepare(
-      "SELECT id, name, slug, image, image_type FROM products"
-    );
+    const stmt = db.prepare("SELECT * FROM products");
     const products = stmt.all();
 
     const formattedProducts = formatProducts(products);
@@ -49,6 +47,12 @@ router.post("/", upload.single("productPicture"), async function (req, res) {
     productCategory,
   } = req.body;
 
+  const slugIsValid = validateSlug(null, productSlug);
+  if (!slugIsValid) {
+    return res.status(400).json({
+      message: `En produkt med namnet \`${productName}\` finns redan`,
+    });
+  }
   const imageBlob = req.file?.buffer;
   const imageType = req.file?.mimetype;
 
@@ -117,6 +121,111 @@ router.post("/", upload.single("productPicture"), async function (req, res) {
     res.status(500).send("Failed to add product");
   }
 });
+// PUT / add product to db
+router.put(
+  "/",
+  upload.single("editedProductPicture"),
+  async function (req, res) {
+    const {
+      editedProductId,
+      editedProductName,
+      editedProductType,
+      editedProductColor,
+      editedProductPrice,
+      editedProductSize,
+      editedProductBrand,
+      editedProductCondition,
+      editedProductDescription,
+      editedProductSlug,
+      editedProductCategory,
+    } = req.body;
+
+    let imageBlob = req.file?.buffer;
+    let imageType = req.file?.mimetype;
+    let compressedBlob = null;
+    if (imageBlob && imageType) {
+      // return res.status(400).send("Image is required");
+
+      // Check if image is bigger than 800px
+      const isBigSize = sharp(imageBlob)
+        .metadata()
+        .then((metadata) => {
+          return metadata.width > 800 || metadata.height > 800;
+        });
+
+      // Resize image if it's bigger than 800px
+      let modifiedBlob = null;
+      if (isBigSize) {
+        modifiedBlob = await sharp(imageBlob).resize({ width: 800 }).toBuffer();
+      } else {
+        modifiedBlob = imageBlob;
+      }
+
+      // Compress the image
+      compressedBlob = zlib.brotliCompressSync(modifiedBlob);
+    }
+
+    try {
+      const slugIsValid = validateSlug(+editedProductId, editedProductSlug);
+      if (!slugIsValid) {
+        return res.status(400).json({
+          message: `En produkt med namnet \`${editedProductName}\` finns redan`,
+        });
+      }
+
+      if (!imageBlob && !imageType) {
+        const image = db.prepare(
+          "SELECT image, image_type FROM products WHERE id = ?"
+        );
+        const imageResult = image.all(+editedProductId)[0];
+        imageBlob = imageResult.image;
+        imageType = imageResult.image_type;
+      }
+
+      const insert = db.prepare(`
+        UPDATE products
+        SET 
+          name = ?, 
+          product_type = ?, 
+          color = ?, 
+          price = ?, 
+          size = ?, 
+          brand = ?, 
+          condition = ?, 
+          image = ?, 
+          image_type = ?, 
+          description = ?, 
+          slug = ?, 
+          category = ?,
+          updated_at = datetime('now')
+        WHERE 
+          id = ?;
+  `);
+
+      insert.run(
+        editedProductName,
+        editedProductType,
+        editedProductColor,
+        editedProductPrice,
+        editedProductSize,
+        editedProductBrand,
+        editedProductCondition,
+        compressedBlob || imageBlob,
+        imageType,
+        editedProductDescription,
+        editedProductSlug,
+        editedProductCategory,
+        +editedProductId
+      );
+      res.status(200).json({
+        message: `Produkt med id '${+editedProductId}' uppdaterades!`,
+      });
+    } catch (err) {
+      console.error("Error inserting product:", err.message);
+      res.status(500).send("Failed to edit product");
+    }
+  }
+);
 
 // DELETE /products/:id
 router.delete("/products/:id", (req, res) => {
@@ -125,6 +234,17 @@ router.delete("/products/:id", (req, res) => {
   deleteProduct.run(productId);
   res.json({ message: "Product deleted" });
 });
+
+function validateSlug(productId = null, slug) {
+  const params = productId ? [productId, slug] : [slug];
+  const condition = productId ? "id != ? AND slug = ? " : "slug = ?";
+  const checkSlug = db.prepare(`SELECT slug FROM products WHERE ${condition}`);
+  const slugResult = checkSlug.all(...params);
+  if (slugResult.length > 0) {
+    return false;
+  }
+  return true;
+}
 
 /**
  * Takes an array of products and formats them for frontend consumption.

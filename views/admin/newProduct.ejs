@@ -4,19 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Administration</title>
-    <!-- <link rel="stylesheet" href="index.css" /> -->
     <link rel="stylesheet" href="/stylesheets/newProduct.css" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body id="body">
     <header class="MainHeaderSection">
       <h1>Administration</h1>
     </header>
     <main class="AdminContainer">
+      <div id="buttonBackTohomepage">
+        <i class="fa-solid fa-arrow-left"> </i>
+        <a href="/">Gå till startsidan </a>
+      </div>
       <section class="ProduktContainer">
         <h2>Lägg till produkt</h2>
         <hr />
@@ -137,6 +144,7 @@
 
       <section id="products"></section>
       <hr />
+      <div id="EditModal"></div>
     </main>
 
     <script src="/javascripts/newProduct.js"></script>
