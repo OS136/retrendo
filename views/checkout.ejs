@@ -105,7 +105,7 @@
                                             </div>
                                         </td>
                                 <td class="quantity">1</td>
-                                <td class="total"><%= basketItem.price %>kr</td>
+                                <td class="total"><%= basketItem.price %> SEK</td>
                                 
                                 
                         </tr>
@@ -117,7 +117,7 @@
                     </div>
                 <div class="basketsumma">
                     <p>Totalt:</p>
-                    <p><%= cart.reduce((sum, item) => sum + Number(item.price), 0) %> kr</p>
+                    <p><%= cart.reduce((sum, item) => sum + Number(item.price), 0) %> sek</p>
                 </div>
             </div>
                 <div class="kundContainer"> 
